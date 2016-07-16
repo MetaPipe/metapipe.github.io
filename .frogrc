@@ -84,7 +84,7 @@ racket-doc-link-prose? = true
 # could change to e.g. /blog/index.html or /posts-index.html, and use
 # some other /index.html for your site. This also effects the URI used
 # in the Atom and RSS feed files for posts.
-posts-index-uri = /index.html
+posts-index-uri = /blog/index.html
 
 # The source directory. Defaults to "_src".
 #
