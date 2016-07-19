@@ -7,7 +7,7 @@ scheme/host = http://metapipe.com
 uri-prefix = /
 
 # The title of the blog. Used when generating feeds.
-title = MetaPipe Musings
+title = MetaPipe
 
 # The author. Used when generating feeds, and provided to
 # `page-template.html` as the template variable `@author`.
@@ -42,7 +42,7 @@ index-full? = false
 
 # Should feed items contain full posts -- more than just the portion
 # above "the jump" <!-- more --> marker (if any)?
-feed-full? = true
+feed-full? = false
 
 # How many posts per page for index pages?
 posts-per-page = 10
