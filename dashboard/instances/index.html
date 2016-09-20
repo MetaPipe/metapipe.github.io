@@ -58,56 +58,54 @@
 
     <!-- Our Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <script src="//load.sumome.com/" data-sumo-site-id="6909b396e067676be9a79c165e06a7918722be6bad5728693f1d6a6184b76caf" async="async"></script>
   </head>
 
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand navbar-left" href="/">MetaPipe</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/team/">Team</a>
-                    </li>
-                    <li>
-                        <a href="/contact/">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/dashboard/">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="https://medium.com/metapipe-blog" target="_blank">Blog</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="https://www.linkedin.com/company/metapipe" target="_blank">LinkedIn</a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/metapipe" target="_blank">Facebook</a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/fullmetapipe" target="_blank">Twitter</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-left" href="/">MetaPipe</a>
         </div>
-        <!-- /.container -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/team/">Team</a>
+                </li>
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+                <li>
+                    <a href="/dashboard/">Dashboard</a>
+                </li>
+                <li>
+                    <a href="https://medium.com/metapipe-blog" target="_blank">Blog</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="https://www.linkedin.com/company/metapipe" target="_blank">LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/metapipe" target="_blank">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/fullmetapipe" target="_blank">Twitter</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </nav>
     
     <!-- Page Content -->
@@ -121,7 +119,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-db">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -176,7 +174,7 @@
         <!-- /.navbar-top-links -->
 
         <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
+            <div class="sidebar-nav navbar-collapse" id="navbar-db">
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
