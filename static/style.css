@@ -46,3 +46,11 @@ h2.cta {
 .carousel-control {
     z-index: 99;
 }
+
+.fuzzy-text-shadow {
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.9);
+}
+
+.fuzzy-box-shadow {
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
