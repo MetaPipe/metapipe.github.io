@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <!-- Uncomment once we have a favicon -->
-    <!-- <link rel="icon" href="../../favicon.ico"> -->
     <title>MetaPipe</title>
 
     <!-- We must keep our CSS lightweight. Fast load times are paramount.
@@ -23,7 +21,6 @@
     <!-- Modern Business template CSS -->
     <link rel="stylesheet" href="/static/modern-business.css" />
 
-    
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" />
@@ -58,14 +55,14 @@
             <div class="collapse navbar-collapse" id="navbar-main">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/team/">Team</a>
+                        <a id="team" href="/team/">Team</a>
                     </li>
                     <li>
-                        <a href="/contact/">Contact</a>
+                        <a id="contact" href="/contact/">Contact</a>
                     </li>
-                    <!-- <li>
-                        <a href="/dashboard/">Dashboard</a>
-                    </li> -->
+                    <li>
+                        <a id="dashboard" href="/dashboard/">Dashboard</a>
+                    </li>
                     <li>
                         <a href="https://medium.com/metapipe-blog" target="_blank">Blog</a>
                     </li>
@@ -89,12 +86,8 @@
         </div>
         <!-- /.container -->
     </nav>
-    
     <!-- Page Content -->
     <div class="container mp-body-container">
-        
-
-        
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
@@ -141,8 +134,6 @@
         </div>
         <!-- /.row -->
 
-
-
         <!-- Footer -->
         <hr />
         <footer>
@@ -178,7 +169,9 @@
     })
     </script>
 
-    
-
+    <script>
+        $(document).ready(function () {
+        $("#contact").parent().addClass("active"); })
+    </script>
   </body>
 </html>

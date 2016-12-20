@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <!-- Uncomment once we have a favicon -->
-    <!-- <link rel="icon" href="../../favicon.ico"> -->
     <title>MetaPipe</title>
 
     <!-- We must keep our CSS lightweight. Fast load times are paramount.
@@ -23,7 +21,6 @@
     <!-- Modern Business template CSS -->
     <link rel="stylesheet" href="/static/modern-business.css" />
 
-    
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" />
@@ -58,14 +55,14 @@
             <div class="collapse navbar-collapse" id="navbar-main">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/team/">Team</a>
+                        <a id="team" href="/team/">Team</a>
                     </li>
                     <li>
-                        <a href="/contact/">Contact</a>
+                        <a id="contact" href="/contact/">Contact</a>
                     </li>
-                    <!-- <li>
-                        <a href="/dashboard/">Dashboard</a>
-                    </li> -->
+                    <li>
+                        <a id="dashboard" href="/dashboard/">Dashboard</a>
+                    </li>
                     <li>
                         <a href="https://medium.com/metapipe-blog" target="_blank">Blog</a>
                     </li>
@@ -89,7 +86,6 @@
         </div>
         <!-- /.container -->
     </nav>
-    
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
         <!-- Indicators -->
@@ -134,12 +130,8 @@
             <span class="icon-next"></span>
         </a>
     </header>
-
     <!-- Page Content -->
     <div class="container mp-body-container">
-        
-
-        
         <!-- Intro Section -->
         <div class="row">
             <div class="col-lg-12">
@@ -172,8 +164,6 @@
 
             </div>
             <div class="row">
-            
-            
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -181,12 +171,9 @@
                     </div>
                     <div class="panel-body">
                         <p>Single pane of glass management of workstations, servers, storage, software tools, User/Group membership and access privileges.</p>
-                        
                     </div>
                 </div>
             </div>
-            
-            
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -194,12 +181,9 @@
                     </div>
                     <div class="panel-body">
                         <p>The first choice, industrial strength OS for VFX and Animation. Let us handle the details for you.</p>
-                        
                     </div>
                 </div>
             </div>
-            
-            
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -207,16 +191,12 @@
                     </div>
                     <div class="panel-body">
                         <p>We acknowledge some software only runs on Windows. Don&#39;t sweat it, we support that too.</p>
-                        
                     </div>
                 </div>
             </div>
-            
-            
             </div>
             <!-- /.row -->
             <div class="row">
-            
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -224,12 +204,9 @@
                     </div>
                     <div class="panel-body">
                         <p>Built-in render farm with pay-as-you-go compute and software licensing. Don&#39;t pay for render power until you actually need it!</p>
-                        
                     </div>
                 </div>
             </div>
-            
-            
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -237,12 +214,9 @@
                     </div>
                     <div class="panel-body">
                         <p>Pay-as-you-go pricing makes it easy to estimate and budget using the built-in cost estimator.</p>
-                        
                     </div>
                 </div>
             </div>
-            
-            
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -250,11 +224,9 @@
                     </div>
                     <div class="panel-body">
                         <p>Desktop is streamed to users and all production data stays securely in the cloud. Stateless clients are bomb-proof; they return to a clean state after each reboot.</p>
-                        
                     </div>
                 </div>
             </div>
-            
             </div>
             <!-- /.row -->
         </div>
@@ -314,8 +286,6 @@
             <h4 class="center">Contact sale<span class="hide">null</span>s&#64;metapipe.com, tell us a bit about your team and your needs and we'll get back to you ASAP.</h4>
         </div>
 
-
-
         <!-- Footer -->
         <hr />
         <footer>
@@ -351,7 +321,9 @@
     })
     </script>
 
-    
-
+    <script>
+        $(document).ready(function () {
+        $("#root").parent().addClass("active"); })
+    </script>
   </body>
 </html>
