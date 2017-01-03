@@ -1,0 +1,160 @@
+{% extends "layout.xhtml" %}
+{% block header %}
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill ph_one darken-img" style="background-image: url('{{ url_for('static', filename='pic02.jpg') }}');"></div>
+                <div class="carousel-caption cta">
+                    <a href="#signup"><span class="fill-div"></span></a>
+                    <h2 class="cta fuzzy-text-shadow">Want to experience the future of VFX in the cloud?</h2>
+                    <div class="btn btn-success cta fuzzy-box-shadow"><h4><i>Join the Beta</i></h4></div>
+                </div>
+                <a class="fill-div" href="#signup"><span class="fill-div"></span></a>
+            </div>
+            <div class="item">
+                <div class="fill ph_one darken-img" style="background-image:url('{{ url_for('static', filename='pic03.jpg') }}');"></div>
+                <div class="carousel-caption">
+                    <h2>The world is your playground.</h2>
+                    <h4><i>Securely work with teammates spread across the world.</i></h4>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill ph_one" style="background-image:url('{{ url_for('static', filename='pic01.jpg') }}');"></div>
+                <div class="carousel-caption">
+                    <h2>Let us be your "IT Guys"</h2>
+                    <h4><i>IT doesn't need to be rocket science.</i></h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+{% endblock %}
+{% block body %}
+        <!-- Intro Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Welcome to MetaPipe</h2>
+            </div>
+            <div class="col-md-6">
+                <div class="intro-video">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" modestbranding="1" rel="0" showinfo="0" controls="2" src="https://www.youtube.com/embed/fM-2Lf706Y0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p>MetaPipe provides easy to deploy, fully virtualized VFX and animation studio infrastructure.</p>
+                <p> What does this mean to you?</p>
+                <p>MetaPipe makes setting up studio infrastructure for VFX and Animation simple by hosting everything in the cloud. Everything. Storage Servers, Render Farm, even the Workstations.</p>
+                <p>With MetaPipe you can deploy an entire high-end studio in literally minutes with no large upfront costs; pay only for the compute time and storage you actually use. Clear, per-hour, pay-as-you-go compute and software licensing* simplifies project budgeting.</p>
+                <p>Our easy-to-use dashboard allows you to manage everything from a web browser.</p>
+                <p>An integrated render farm with auto scaling and pay-as-you-go software licensing is included*.</p>
+                <p><sub><i>*From participating software vendors. New vendors are being added as deals are negotiated.</i></sub></p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Marketing Icons/Features Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Features
+                </h1>
+
+            </div>
+            <div class="row">
+            {% for feature in data.features %}
+            {% if loop.index is divisibleby(4) %}
+            </div>
+            <!-- /.row -->
+            <div class="row">
+            {% endif %}
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw {{ feature.fa_icon }}"></i>{{ feature.title }}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ feature.blurb }}</p>
+                        {% if feature.btn_link %}
+                        <a href="{{ feature.btn_link }}" class="btn btn-default">Learn More</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.row -->
+
+        <hr />
+
+        <!-- Call to Action Section -->
+        <div class="well well-lg" id="signup">
+            <fieldset>
+                <legend>
+                    <h2 class="center">
+                        Open Beta
+                    </h2>
+                    <h3 class="center">Sign up for an invitation to our Open Beta.</h3>
+                </legend>
+                    <!-- Begin MailChimp Signup Form -->
+                    <div id="mc_embed_signup">
+                        <form action="//metapipe.us12.list-manage.com/subscribe/post?u=0ce56d0442c94a903ff5c2703&amp;id=609636003a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-horizontal" target="_blank" novalidate="">
+                            <div class="control-group">
+                                <div class="form-group" id="mc_embed_signup_scroll">
+                                    <div class="mc-field-group col-lg-4 col-md-4 controls">
+                                        <!-- <label for="mce-FNAME">First Name </label> -->
+                                        <input type="text" value="" name="FNAME" placeholder="Your First Name" class="form-control" id="mce-FNAME"/>
+                                    </div>
+                                    <div class="mc-field-group col-lg-4 col-md-4 controls">
+                                        <!-- <label for="mce-LNAME">Last Name </label> -->
+                                        <input type="text" value="" name="LNAME" placeholder="Your Last Name" class="form-control" id="mce-LNAME"/>
+                                    </div>
+                                    <div class="mc-field-group col-lg-4 col-md-4 controls">
+                                        <!-- <label for="mce-EMAIL">*required</label> -->
+                                        <input type="email" value="" name="EMAIL" placeholder="Your Email Address (Required)" class="required email form-control" id="mce-EMAIL"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="mc-field-group col-lg-12 controls">
+                                        <!-- <label for="mce-ABOUT">Tell us about your team and project. </label> -->
+                                        <!-- <input type="text" value="" name="ABOUT" placeholder="Tell us about your team and project." class="" id="mce-ABOUT"/> -->
+                                        <textarea class="form-control" type="text" name="ABOUT" id="message" placeholder="Tell us about your team and project. Include a link to your website if you like." rows="6"></textarea>
+                                    </div>
+                                    <div id="mce-responses" class="clear">
+                                        <div class="response" id="mce-error-response" style="display:none"></div>
+                                        <div class="response" id="mce-success-response" style="display:none"></div>
+                                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0ce56d0442c94a903ff5c2703_609636003a" tabindex="-1" value=""/></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-12 controls">
+                                        <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success btn-lg btn-block"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </fieldset>
+            <h3 class="center">Can't wait for the beta?</h3>
+            <h4 class="center">Contact sale<span class="hide">null</span>s&#64;metapipe.com, tell us a bit about your team and your needs and we'll get back to you ASAP.</h4>
+        </div>
+
+{% endblock %}
