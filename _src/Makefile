@@ -1,4 +1,5 @@
-CPDIR =../
+SHELL = /usr/bin/env bash
+CPDIR = ../
 .PHONY: clean buildsite copy all
 
 all: clean buildsite copy
@@ -12,7 +13,7 @@ clean:
 
 buildsite:
 	virtualenv _venv
-	. _venv/bin/activate
+	source _venv/bin/activate
 	python2 -m pip install -r requirements.txt
 	python main.py build
 
