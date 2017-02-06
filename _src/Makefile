@@ -6,10 +6,10 @@ all: clean buildsite copy
 
 clean:
 	-rm -r build/*
-	-rm ../*.html
-	-rm -r ../contact
-	-rm -r ../team
-	-rm -r ../static
+	-rm $(CPDIR)*.html
+	-rm -r $(CPDIR)contact
+	-rm -r $(CPDIR)team
+	-rm -r $(CPDIR)static
 
 buildsite:
 	virtualenv _venv
