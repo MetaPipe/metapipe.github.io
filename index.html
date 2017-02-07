@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous" />
 
     <!-- Modern Business template CSS -->
-    <link rel="stylesheet" href="/static/modern-business.css" />
+    <link rel="stylesheet" href="/static/css/modern-business.css" />
 
 
     <!-- Font Awesome CSS -->
@@ -33,7 +33,7 @@
     <![endif]-->
 
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
     <script src="//load.sumome.com/" data-sumo-site-id="6909b396e067676be9a79c165e06a7918722be6bad5728693f1d6a6184b76caf" async="async"></script>
   </head>
 
@@ -61,7 +61,7 @@
                         <a id="contact" href="/contact/">Contact</a>
                     </li>
                     <li>
-                        <a href="https://medium.com/metapipe-blog" target="_blank">Blog</a>
+                        <a id="blog" href="https://medium.com/metapipe-blog">Blog</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow <b class="caret"></b></a>
@@ -95,7 +95,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill ph_one darken-img" style="background-image: url('/static/pic02.jpg');"></div>
+                <div class="fill ph_one darken-img" style="background-image: url('./static/img/pic02.jpg');"></div>
                 <div class="carousel-caption cta">
                     <a href="#signup"><span class="fill-div"></span></a>
                     <h2 class="cta fuzzy-text-shadow">Want to experience the future of VFX in the cloud?</h2>
@@ -104,14 +104,14 @@
                 <a class="fill-div" href="#signup"><span class="fill-div"></span></a>
             </div>
             <div class="item">
-                <div class="fill ph_one darken-img" style="background-image:url('/static/pic03.jpg');"></div>
+                <div class="fill ph_one darken-img" style="background-image:url('./static/img/pic03.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>The world is your playground.</h2>
                     <h4><i>Securely work with teammates spread across the world.</i></h4>
                 </div>
             </div>
             <div class="item">
-                <div class="fill ph_one" style="background-image:url('/static/pic01.jpg');"></div>
+                <div class="fill ph_one" style="background-image:url('./static/img/pic01.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>Let us be your "IT Guys"</h2>
                     <h4><i>IT doesn't need to be rocket science.</i></h4>
@@ -162,68 +162,74 @@
             </div>
             <div class="row">
             <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-sliders"></i>Dashboard</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Single pane of glass management of workstations, servers, storage, software tools, User/Group membership and access privileges.</p>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-sliders"></i>Dashboard</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Single pane of glass management of workstations, servers, storage, software tools, User/Group membership and access privileges.</p>
+                    <a href="#" class="btn btn-default">Learn More</a>
                 </div>
             </div>
+        </div>
             <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-linux"></i>Linux Support</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>The first choice, industrial strength OS for VFX and Animation. Let us handle the details for you.</p>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-linux"></i>Linux Support</h4>
+                </div>
+                <div class="panel-body">
+                    <p>The first choice, industrial strength OS for VFX and Animation. Let us handle the details for you.</p>
+                    <a href="#" class="btn btn-default">Learn More</a>
                 </div>
             </div>
+        </div>
             <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-windows"></i>Windows Support</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>We acknowledge some software only runs on Windows. Don&#39;t sweat it, we support that too.</p>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-windows"></i>Windows Support</h4>
+                </div>
+                <div class="panel-body">
+                    <p>We acknowledge some software only runs on Windows. Don't sweat it, we support that too.</p>
+                    <a href="#" class="btn btn-default">Learn More</a>
                 </div>
             </div>
+        </div>
             </div>
             <!-- /.row -->
             <div class="row">
             <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-cog"></i>Render Farm</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Built-in render farm with pay-as-you-go compute and software licensing. Don&#39;t pay for render power until you actually need it!</p>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-cog"></i>Render Farm</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Built-in render farm with pay-as-you-go compute and software licensing. Don't pay for render power until you actually need it!</p>
+                    <a href="#" class="btn btn-default">Learn More</a>
                 </div>
             </div>
+        </div>
             <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-bar-chart"></i>Clear Pricing</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Pay-as-you-go pricing makes it easy to estimate and budget using the built-in cost estimator.</p>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-bar-chart"></i>Clear Pricing</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Pay-as-you-go pricing makes it easy to estimate and budget using the built-in cost estimator.</p>
+                    <a href="#" class="btn btn-default">Learn More</a>
                 </div>
             </div>
+        </div>
             <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-lock"></i>Secure By Default</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Desktop is streamed to users and all production data stays securely in the cloud. Stateless clients are bomb-proof; they return to a clean state after each reboot.</p>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-lock"></i>Secure By Default</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Desktop is streamed to users and all production data stays securely in the cloud. Stateless clients are bomb-proof; they return to a clean state after each reboot.</p>
+                    <a href="#" class="btn btn-default">Learn More</a>
                 </div>
             </div>
+        </div>
             </div>
             <!-- /.row -->
         </div>
@@ -320,7 +326,9 @@
 
     <script>
         $(document).ready(function () {
-        $("#root").parent().addClass("active"); })
+            var activeurl = window.location.pathname;
+            $('a[href="'+activeurl+'"]').parent().addClass("active");
+        })
     </script>
   </body>
 </html>
