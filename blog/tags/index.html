@@ -49,8 +49,11 @@
     <![endif]-->
 
     <!-- Feed Information / Copied from Simple Theme -->
-    <link href="http://metapipe.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Full Atom Feed" />
-    <link href="http://metapipe.com/feeds/Python.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
+    <link href="localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Full Atom Feed" />
+    <link href="localhost:8000/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Full RSS Feed" />
+    <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
+    <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Tags Atom Feed" />
+    <link href="localhost:8000/feeds/.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Tags RSS Feed" />
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -112,68 +115,67 @@
         <!-- Page Content -->
         <div class="container mp-body-container">    <div class="container-fluid" id="content">
         <div class="row-fluid">
-            <div class="span1"></div>
-            <div class="span10">
-                <div class="row">
-                    <div class="offset1 span8">
-<!-- If we have articles to display -->
-	<!-- Iterate through the articles in the page -->
-		<div class="article">
-			<h1><a href="http://metapipe.com/blog/posts/2017/01/05/my-super-post/">My super&nbsp;title</a></h1>
-			<div class="well small"><div class="row-fuild">
-	<div class="span6">
-	<span class="label text-center">Date</span>
-	<abbr class="published" title="2017-01-05T00:00:00-07:00">
-		<i class="icon-calendar"></i>Thu 05 January 2017
-	</abbr>
-	</div>
-	<div class="span1">&nbsp;</div>
-	<div class="span5">
-		<span class="label text-center">Tags</span>
-			<a href="http://metapipe.com/blog/tag/pelican/">pelican</a>
-			<a href="http://metapipe.com/blog/tag/publishing/">publishing</a>
-	</div>
-</div></div>
-			<div class="summary">
-				<p>This is the content of my super blog&nbsp;post.</p>
-			</div>
-		</div>
-		<hr />
-
-                    </div>
-                    <div class="span3">
-<ul class="nav nav-list well sidebar">
-	<li class="nav-header">
-		<h4>
-			<i class="icon-rss icon-large"></i> 
-			RSS/Atom Feeds
-		</h4>
-	</li>
-	<li>
-		<a href="http://metapipe.com/feeds/all.atom.xml" rel="alternate">
-		<i class="icon-bookmark icon-large"></i>
-		Atom Feed
-		</a>
-	</li>
-	<li class="nav-header"><h4><i class="icon-home icon-large"></i> Social</h4></li>
-		<li><a href="#"><i class="icon-you can add links in your config file icon-large"></i>You can add links in your config file</a></li>
-		<li><a href="#"><i class="icon-another social link icon-large"></i>Another social link</a></li>
-	
-	<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
-	
-	<li>
-		<a href="http://metapipe.com/blog/category/python/">
-		<i class="icon-folder-open icon-large"></i>
-		Python
-		</a>
-	</li>
-	
-	<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
-</ul>
-                    </div>
-                </div>
+            <div class="col-md-9">
+<h4><i class="icon-tags icon-large"></i> Tags</h4>
+<div class="list-group tagcloud">
+    <a href="http://metapipe.com/blog/tag/pelican/" class="list-group-item list-group-item-action">
+		pelican<span class="badge badge-default badge-pill">1</span>
+    </a>
+    <a href="http://metapipe.com/blog/tag/publishing/" class="list-group-item list-group-item-action">
+		publishing<span class="badge badge-default badge-pill">1</span>
+    </a>
+</div>
             </div>
-            <div class="span1"></div>
+            <div class="col-md-3">
+<div class="sidebar sidebar-wrapper">
+	<ul class="nav nav-list well sidebar-nav">
+			<li class="nav-header"><h4><i class="fa fa-paper-plane fa-md"></i> Recent Posts</h4>
+				<li>
+						<a href="http://metapipe.com/blog/posts/2017/01/05/my-super-post/">
+							My super&nbsp;title
+						</a>
+				</li>
+			</li>
+		<li class="nav-header">
+			<h4>
+				<i class="icon-rss icon-med"></i>
+				RSS/Atom Feeds
+			</h4>
+		</li>
+		<li>
+			<a href="http://metapipe.com/feeds/all.atom.xml" rel="alternate">
+			<i class="icon-bookmark icon-med"></i>
+			Atom Feed
+			</a>
+		</li>
+		<li>
+			<a href="http://metapipe.com/feeds/all.rss.xml" rel="alternate">
+			<i class="icon-bookmark icon-med"></i>
+			RSS Feed</a>
+		</li>
+		<li class="nav-header"><h4><i class="icon-tags icon-med"></i> Tags</h4></li>
+		<li>
+			<li>
+				<a class="" href="http://metapipe.com/blog/tag/pelican/">
+					pelican <span class="badge badge-default badge-pill">1</span>				</a>
+			</li>
+			<li>
+				<a class="" href="http://metapipe.com/blog/tag/publishing/">
+					publishing <span class="badge badge-default badge-pill">1</span>				</a>
+			</li>
+		</li>
+		<li class="nav-header"><h4><i class="fa fa-users fa-md"></i> Authors</h4></li>
+		<li>
+			<a href="http://metapipe.com/blog/author/alexis-metaireau/" class="">
+				Alexis Metaireau
+			</a>
+			<a href="http://metapipe.com/blog/author/conan-doyle/" class="">
+				Conan Doyle
+			</a>
+		</li>
+	</ul>
+</div>
+            </div>
         </div>
     </div>
 
