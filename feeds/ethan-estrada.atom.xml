@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - Ethan Estrada</title><link href="http://metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/ethan-estrada.atom.xml" rel="self"></link><id>http://metapipe.com/</id><updated>2017-03-02T10:25:56-07:00</updated><entry><title>So, what is a virtual machine anyway?</title><link href="http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/" rel="alternate"></link><published>2017-03-02T10:25:56-07:00</published><updated>2017-03-02T10:25:56-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-02:/blog/posts/2017/03/02/what-is-a-virtual-machine/</id><summary type="html">&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
+but you might not know what that means. This short explaination should
+help clear things up a&amp;nbsp;bit.&lt;/p&gt;
+&lt;p&gt;First, the obtuse, opaque answer: a virtual machine is a computer
+within a computer. But I figure that answer …&lt;/p&gt;</summary><content type="html">&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
+but you might not know what that means. This short explaination should
+help clear things up a&amp;nbsp;bit.&lt;/p&gt;
+&lt;p&gt;First, the obtuse, opaque answer: a virtual machine is a computer
+within a computer. But I figure that answer is about as clear as mud,
+right? So let&amp;#8217;s try using something else that we can relate to. You
+can think of virtual machines as something like a russian nesting
+doll. Or better yet, you can think of virtual machines like
+Christopher Nolan&amp;#8217;s &lt;em&gt;Inception&lt;/em&gt;. But unlike &lt;em&gt;Inception&lt;/em&gt;, you won&amp;#8217;t
+need to pretend like you know what the heck is going on.&amp;nbsp;¯\_(ツ)_/¯&lt;/p&gt;
+&lt;!-- image original URL: http://dazedimg.dazedgroup.netdna-cdn.com/786/azure/dazed-prod/1120/2/1122563.jpg --&gt;
+
+&lt;p&gt;&lt;img src="/static/img/blog/Inception_top.jpg" width="300"&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.dazeddigital.com/artsandculture/article/24949/1/christopher-nolan-explains-the-spinning-top-in-inception"&gt;Originally posted by&amp;nbsp;Dazed&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So in the same way that &lt;em&gt;Inception&lt;/em&gt; hangs on the idea of a dream
+within a dream, virtual machines hang on the idea of a computer within
+a computer.  When people talk about a virtual machine what they
+generally mean is a piece of software that exposes only certain parts
+of the underlying hardware to a &amp;#8220;guest&amp;#8221; operating system (or &lt;span class="caps"&gt;OS&lt;/span&gt;).  By
+doing this, a computer running, say Linux, can simultaneously run
+Microsoft Windows as an application on the desktop. All the features
+of Microsoft Windows are then available to you, without the need to
+run a separate physical machine or needing to reboot your system into
+another Operating&amp;nbsp;System.&lt;/p&gt;
+&lt;p&gt;Because virtual machine software only exposes limited parts of the
+underlying hardware, it wasn&amp;#8217;t until recently that advanced graphics
+workloads could be run on a virtual machine. The &lt;span class="caps"&gt;VM&lt;/span&gt; software running
+on the host operating system would only show the guest &lt;span class="caps"&gt;OS&lt;/span&gt; the few
+parts that were safe to expose. For instance, CPUs from Intel and &lt;span class="caps"&gt;AMD&lt;/span&gt;
+have long supported special extensions to make &lt;span class="caps"&gt;VM&lt;/span&gt; computing both safe
+and fast. Within the past few years, &lt;span class="caps"&gt;GPU&lt;/span&gt; makers like Nvidia and
+&lt;span class="caps"&gt;AMD&lt;/span&gt;/&lt;span class="caps"&gt;ATI&lt;/span&gt; have done the same with their datacenter video cards, adding specific
+extensions to make exposing the &lt;span class="caps"&gt;GPU&lt;/span&gt; to &lt;span class="caps"&gt;VM&lt;/span&gt; guests both safe and
+fast. With these new cards available, the last puzzle pieces have now
+been put in place to virtualize all the most critical aspects of
+general purpose&amp;nbsp;computing.&lt;/p&gt;
+&lt;p&gt;So, now we have defined what a virtual machine is, but what is the
+point of virtual computing? At first glance, it just sounds like a way
+to further complicate the Gordian Knot that is modern computing. But
+never fear; there are some distinct advantages to virtual computing
+that make it well worth my (and your) time to understand and
+use. Let&amp;#8217;s enumerate them as bullet&amp;nbsp;points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Virtual Machines are software.&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;This doesn&amp;#8217;t seem like much of a point, but I promise that it
+is.  As we go down this list I hope you&amp;#8217;ll see&amp;nbsp;why.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Software is easier to modify than hardware.&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;Modifying hardware takes months or years of design and
+fabrication.  Software on the other hand, can be modified,
+recompiled and delivered in as little as minutes. When software
+has a bug, it can be fixed and turned around in relatively little
+time. When hardware has a bug, companies often need to go back to
+the drawing board to fix the problem next&amp;nbsp;time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Software is easier to control programmatically than hardware.&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;Software can often have a simple scripting interface that makes
+it easy to control from the outside, like a marionette with
+strings. With raw hardware, it can be difficult to externally
+script things like &amp;#8220;turn on&amp;#8221;, &amp;#8220;turn off&amp;#8221;, &amp;#8220;grab another harddrive,
+install it, get the required drivers and then mount it so that the
+operating system can see it.&amp;#8221; You get the&amp;nbsp;picture.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Software is easier to &amp;#8220;move&amp;#8221; than hardware.&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;To move a piece of physical hardware, you need to, well,
+physically move it. To move software (or in our case, a virtual
+machine), you simply need to copy some files around. Much easier,
+much less error prone, and much easier to repeat over and&amp;nbsp;over.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Software can be &amp;#8220;ephemeral&amp;#8221; at almost no cost. Not so with
+  hardware.&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;We can&amp;#8217;t all go around smashing our hardware at the end of each
+performance like Jimi Hendrix. Or can we?  Using virtual machines,
+we can create computers that can be created from scratch almost as
+quickly as it takes to boot up the machine. In fact, that is
+exactly what we try to do at MetaPipe: each time you start a
+machine, it is completely fresh.
+&lt;!-- image original URL: http://reverb-res.cloudinary.com/image/upload/q_10/v1400774613/Hendrix_zitz9h.gif --&gt;
+&lt;p&gt;&lt;img src="/static/img/blog/Hendrix_smash.gif" width="300"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://reverb.com/news/10-greatest-guitar-carnage-moments"&gt;Originally posted by&amp;nbsp;Reverb&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this (&lt;code&gt;#shamelessplug&lt;/code&gt;) is where &lt;a href="http://metapipe.com"&gt;MetaPipe&lt;/a&gt;
+comes into the picture.  We are trying to democratize Virtual Machine
+computing and make it easy and accessible to everyone, most especially
+to creative professionals who have some of the most extreme computing
+needs on the face of the&amp;nbsp;planet.&lt;/p&gt;</content><category term="tech"></category><category term="explainer"></category></entry></feed>

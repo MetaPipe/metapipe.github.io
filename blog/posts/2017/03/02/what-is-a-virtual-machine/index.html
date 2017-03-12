@@ -51,7 +51,7 @@
     <!-- Feed Information / Copied from Simple Theme -->
     <link href="localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Full Atom Feed" />
     <link href="localhost:8000/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Full RSS Feed" />
-    <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
+    <link href="localhost:8000/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
     <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Tags Atom Feed" />
     <link href="localhost:8000/feeds/.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Tags RSS Feed" />
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -117,15 +117,137 @@
     <div class="container-fluid" id="content">
         <div class="row-fluid">
             <div class="col-md-9">
-<h4><i class="fa-users icon-large"></i> Authors</h4>
-<div class="list-group">
-    <a href="http://metapipe.com/blog/author/aaron-estrada/" class="list-group-item list-group-item-action">
-        Aaron Estrada <span class="badge badge-default badge-pill">1</span>
-    </a>
-    <a href="http://metapipe.com/blog/author/ethan-estrada/" class="list-group-item list-group-item-action">
-        Ethan Estrada <span class="badge badge-default badge-pill">1</span>
-    </a>
+<section id="article_content">
+<article>
+	<header>
+		<h1>
+			<a href="http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/">
+				So, what is a virtual machine&nbsp;anyway?
+			</a>
+		</h1>
+	</header>
+	<div class="entry-content">
+	<div class="well">
+
+<div class="row">
+	<div class="col-md-6">
+		<span class="label text-center">Author</span>
+		<i class="icon-user"></i>&nbsp;
+<a href="http://metapipe.com/blog/author/ethan-estrada/">Ethan Estrada</a>
+	</div>
+	<div class="col-md-6">
+		<span class="label text-center">Date</span>
+		<abbr class="published" title="2017-03-02T10:25:56-07:00">
+			<i class="icon-calendar"></i> Thu 02 March 2017
+		</abbr>
+	</div>
 </div>
+<div class="row">
+	<div class="col-md-12">
+		<span class="label text-center">Tags&nbsp;&nbsp;&nbsp;</span>
+		<i class="icon-tags icon-sm"></i>&nbsp;
+			<a href="http://metapipe.com/blog/tag/tech/">tech</a><span>, </span>
+			<a href="http://metapipe.com/blog/tag/explainer/">explainer</a>
+	</div>
+</div>
+	</div>
+	<p>We use the term &#8220;Virtual Machine&#8221; (or &#8220;<span class="caps">VM</span>&#8221;) a lot here at MetaPipe,
+but you might not know what that means. This short explaination should
+help clear things up a&nbsp;bit.</p>
+<p>First, the obtuse, opaque answer: a virtual machine is a computer
+within a computer. But I figure that answer is about as clear as mud,
+right? So let&#8217;s try using something else that we can relate to. You
+can think of virtual machines as something like a russian nesting
+doll. Or better yet, you can think of virtual machines like
+Christopher Nolan&#8217;s <em>Inception</em>. But unlike <em>Inception</em>, you won&#8217;t
+need to pretend like you know what the heck is going on.&nbsp;¯\_(ツ)_/¯</p>
+<!-- image original URL: http://dazedimg.dazedgroup.netdna-cdn.com/786/azure/dazed-prod/1120/2/1122563.jpg -->
+
+<p><img src="/static/img/blog/Inception_top.jpg" width="300"></p>
+
+<p><a href="http://www.dazeddigital.com/artsandculture/article/24949/1/christopher-nolan-explains-the-spinning-top-in-inception">Originally posted by&nbsp;Dazed</a></p>
+
+<p>So in the same way that <em>Inception</em> hangs on the idea of a dream
+within a dream, virtual machines hang on the idea of a computer within
+a computer.  When people talk about a virtual machine what they
+generally mean is a piece of software that exposes only certain parts
+of the underlying hardware to a &#8220;guest&#8221; operating system (or <span class="caps">OS</span>).  By
+doing this, a computer running, say Linux, can simultaneously run
+Microsoft Windows as an application on the desktop. All the features
+of Microsoft Windows are then available to you, without the need to
+run a separate physical machine or needing to reboot your system into
+another Operating&nbsp;System.</p>
+<p>Because virtual machine software only exposes limited parts of the
+underlying hardware, it wasn&#8217;t until recently that advanced graphics
+workloads could be run on a virtual machine. The <span class="caps">VM</span> software running
+on the host operating system would only show the guest <span class="caps">OS</span> the few
+parts that were safe to expose. For instance, CPUs from Intel and <span class="caps">AMD</span>
+have long supported special extensions to make <span class="caps">VM</span> computing both safe
+and fast. Within the past few years, <span class="caps">GPU</span> makers like Nvidia and
+<span class="caps">AMD</span>/<span class="caps">ATI</span> have done the same with their datacenter video cards, adding specific
+extensions to make exposing the <span class="caps">GPU</span> to <span class="caps">VM</span> guests both safe and
+fast. With these new cards available, the last puzzle pieces have now
+been put in place to virtualize all the most critical aspects of
+general purpose&nbsp;computing.</p>
+<p>So, now we have defined what a virtual machine is, but what is the
+point of virtual computing? At first glance, it just sounds like a way
+to further complicate the Gordian Knot that is modern computing. But
+never fear; there are some distinct advantages to virtual computing
+that make it well worth my (and your) time to understand and
+use. Let&#8217;s enumerate them as bullet&nbsp;points:</p>
+<ul>
+<li><strong>Virtual Machines are software.</strong><ul>
+<li>This doesn&#8217;t seem like much of a point, but I promise that it
+is.  As we go down this list I hope you&#8217;ll see&nbsp;why.</li>
+</ul>
+</li>
+<li><strong>Software is easier to modify than hardware.</strong><ul>
+<li>Modifying hardware takes months or years of design and
+fabrication.  Software on the other hand, can be modified,
+recompiled and delivered in as little as minutes. When software
+has a bug, it can be fixed and turned around in relatively little
+time. When hardware has a bug, companies often need to go back to
+the drawing board to fix the problem next&nbsp;time.</li>
+</ul>
+</li>
+<li><strong>Software is easier to control programmatically than hardware.</strong><ul>
+<li>Software can often have a simple scripting interface that makes
+it easy to control from the outside, like a marionette with
+strings. With raw hardware, it can be difficult to externally
+script things like &#8220;turn on&#8221;, &#8220;turn off&#8221;, &#8220;grab another harddrive,
+install it, get the required drivers and then mount it so that the
+operating system can see it.&#8221; You get the&nbsp;picture.</li>
+</ul>
+</li>
+<li><strong>Software is easier to &#8220;move&#8221; than hardware.</strong><ul>
+<li>To move a piece of physical hardware, you need to, well,
+physically move it. To move software (or in our case, a virtual
+machine), you simply need to copy some files around. Much easier,
+much less error prone, and much easier to repeat over and&nbsp;over.</li>
+</ul>
+</li>
+<li><strong>Software can be &#8220;ephemeral&#8221; at almost no cost. Not so with
+  hardware.</strong><ul>
+<li>We can&#8217;t all go around smashing our hardware at the end of each
+performance like Jimi Hendrix. Or can we?  Using virtual machines,
+we can create computers that can be created from scratch almost as
+quickly as it takes to boot up the machine. In fact, that is
+exactly what we try to do at MetaPipe: each time you start a
+machine, it is completely fresh.
+<!-- image original URL: http://reverb-res.cloudinary.com/image/upload/q_10/v1400774613/Hendrix_zitz9h.gif -->
+<p><img src="/static/img/blog/Hendrix_smash.gif" width="300"></p>
+<p><a href="https://reverb.com/news/10-greatest-guitar-carnage-moments">Originally posted by&nbsp;Reverb</a></p></li>
+</ul>
+</li>
+</ul>
+<p>And this (<code>#shamelessplug</code>) is where <a href="http://metapipe.com">MetaPipe</a>
+comes into the picture.  We are trying to democratize Virtual Machine
+computing and make it easy and accessible to everyone, most especially
+to creative professionals who have some of the most extreme computing
+needs on the face of the&nbsp;planet.</p>
+	</div><!-- /.entry-content -->
+</article>
+</section>
             </div>
             <div class="col-md-3">
 <div class="sidebar sidebar-wrapper">

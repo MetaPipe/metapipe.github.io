@@ -51,9 +51,9 @@
     <!-- Feed Information / Copied from Simple Theme -->
     <link href="localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Full Atom Feed" />
     <link href="localhost:8000/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Full RSS Feed" />
-    <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
-    <link href="localhost:8000/feeds/pelican.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Tags Atom Feed" />
-    <link href="localhost:8000/feeds/pelican.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Tags RSS Feed" />
+    <link href="localhost:8000/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
+    <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Tags Atom Feed" />
+    <link href="localhost:8000/feeds/.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Tags RSS Feed" />
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -90,7 +90,7 @@
                         <a id="contact" href="/contact/">Contact</a>
                     </li>
                     <li>
-                        <a id="blog" href="https://medium.com/metapipe-blog">Blog</a>
+                        <a id="blog" href="/blog/">Blog</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow <b class="caret"></b></a>
@@ -113,49 +113,184 @@
             <!-- /.container -->
         </nav>
         <!-- Page Content -->
-        <div class="container mp-body-container">    <div class="container-fluid" id="content">
+        <div class="container mp-body-container">
+    <div class="container-fluid" id="content">
         <div class="row-fluid">
             <div class="col-md-9">
-<!-- If we have articles to display -->
-<!-- Insert any information I want here -->
-	<!-- Iterate through the articles in the page -->
-		<div class="article">
-			<h1><a href="http://metapipe.com/blog/posts/2017/01/05/my-super-post/">My super&nbsp;title</a></h1>
-			<div class="well small">
+<section id="article_content">
+<article>
+	<header>
+		<h1>
+			<a href="http://metapipe.com/blog/posts/2017/02/28/hierarchy-of-needs/">
+				Hierarchy of&nbsp;Needs
+			</a>
+		</h1>
+	</header>
+	<div class="entry-content">
+	<div class="well">
+
 <div class="row">
 	<div class="col-md-6">
 		<span class="label text-center">Author</span>
-		<i class="icon-user"></i> <a href="http://metapipe.com/blog/author/alexis-metaireau/">Alexis Metaireau</a>, <a href="http://metapipe.com/blog/author/conan-doyle/">Conan Doyle</a>
+		<i class="icon-user"></i>&nbsp;
+<a href="http://metapipe.com/blog/author/aaron-estrada/">Aaron Estrada</a>
 	</div>
 	<div class="col-md-6">
 		<span class="label text-center">Date</span>
-		<abbr class="published" title="2017-01-05T00:00:00-07:00">
-			<i class="icon-calendar"></i> Thu 05 January 2017
+		<abbr class="published" title="2017-02-28T12:23:54-07:00">
+			<i class="icon-calendar"></i> Tue 28 February 2017
 		</abbr>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<span class="label text-center">Tags</span>
-			<a href="http://metapipe.com/blog/tag/pelican/">pelican</a>
-			<a href="http://metapipe.com/blog/tag/publishing/">publishing</a>
+		<span class="label text-center">Tags&nbsp;&nbsp;&nbsp;</span>
+		<i class="icon-tags icon-sm"></i>&nbsp;
+			<a href="http://metapipe.com/blog/tag/repost/">repost</a><span>, </span>
+			<a href="http://metapipe.com/blog/tag/planning/">planning</a>
 	</div>
 </div>
-</div>
-			<div class="summary">
-				<p>This is the content of my super blog&nbsp;post.</p>
-			</div>
-		</div>
-		<hr />
+	</div>
+	<p>MetaPipe&#8217;s <span class="caps">CTO</span>, Ethan Estrada, originally posted this article
+on his personal blog. I liked it so much that I asked him if I could
+repost it here on the <a href="http://metapipe.com/blog/">MetaPipe Blog</a>.
+You can find the link to the original article <a href="http://www.misterfidget.com/blog/2017/02/27/hierarchy-of-needs.html">here</a>.
+However, the article is posted below in its entirety. Please&nbsp;enjoy.</p>
+<hr>
+<p>If you couldn&#8217;t tell, the title of this post is a nod to
+<a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs">&#8220;Mazlow&#8217;s hierarchy of needs&#8221;</a>,
+a psychological theory about how we prioritize things as humans. This
+post isn&#8217;t about that theory&nbsp;whatsoever.</p>
+<!-- more -->
 
+<p>This particular hierarchy of needs has to do with prioritizing tasks
+to accomplish a goal. I am not the master goal setter in the world. I
+don&#8217;t claim to be some sort of planning guru. Far from it. But I have
+had a thought about a simple way to deal with task lists. It has all
+been inspired by conversation with my friend and colleague
+<a href="http://metapipe.com/team/"><span class="caps">AJ</span></a> and
+<a href="http://blog.trello.com/why-your-to-do-list-is-going-nowhere">an article I read on Trello&#8217;s blog</a>.</p>
+<p>In short, the article&#8217;s (and <a href="http://metapipe.com/team/"><span class="caps">AJ</span>&#8217;s</a>) point
+is that often our task lists aren&#8217;t correlated to projects; there are
+a bunch of things to get done, but they don&#8217;t always drive us toward
+completing our projects.  The idea is you should prioritize those
+things that actually drive you closer to project completion. So, the
+problem isn&#8217;t your task list; it is the fact that the tasks are just
+tasks, not attached to anything. I love the idea; it&#8217;s something I
+think most of us know, but forget far too easily. I sure know I
+do. Thanks for getting me started down the path
+<a href="http://metapipe.com/team/"><span class="caps">AJ</span></a>!</p>
+<p>Once I finished the article, I thought, &#8220;But how does one actually do
+that? A lot of those tasks that don&#8217;t push us towards our ultimate
+goals and project completions are still critical things that <em>need</em> to
+get done.&#8221; As I thought about it, I came up with a simple list to help
+remind my self what my options are in such circumstances. In essence,
+with any any task that doesn&#8217;t drive you towards a goal, you ask
+yourself if you can do one of the things listed below, in the order
+listed. Do this with each task. In fact, it wouldn&#8217;t be a bad idea to
+do this with all your tasks, both project/goal aligned and&nbsp;otherwise.</p>
+<p>In order of preferability, here are the options you should try to
+apply to each task (with further explanation below): <strong>Eliminate</strong>,
+<strong>Automate</strong>, <strong>Delegate</strong>, <strong>Degenerate</strong>, <strong>Procrastinate</strong>.</p>
+<ol>
+<li>
+<p><strong>Eliminate</strong></p>
+<p>Can a task be outright eliminated? Can you quit a job or quit
+your volunteer position in an organization that isn&#8217;t driving you
+towards your goal/project completion? Do you really need to add
+that one extra cool feature to your
+app/library/product/animation/film/game, or can you do without it
+and ship it on time or earlier? Sometimes elimination just isn&#8217;t
+possible, but it should be our first go to; the easiest tasks to
+complete are the ones you don&#8217;t need to complete in the first&nbsp;place.</p>
+</li>
+<li>
+<p><strong>Automate</strong></p>
+<p>Is there a phone app, a program, a service, an <span class="caps">AI</span> assistant, or a
+script you could use to get the task done for you without your
+intervention or with minimal intervention on your part? If you are
+a software developer, would it take less time to code up a solution
+than it would be to do it repeatedly by hand? Some tasks are one
+offs, so scripting your own solution might not make sense, but
+perhaps someone else has already done the work to automate it. Even
+if this costs money it is often worth it. The simple formula is to
+compare your hourly wage to the cost of the product. For example,
+if you are paid the Federal Minimum wage, any automated service
+that can save you at least one hour of tedious work is worth $7.25
+<span class="caps">USD</span> (the
+<a href="https://www.dol.gov/whd/state/stateMinWageHis.htm"><span class="caps">US</span> Federal Minimum Wage as of last year, 2016</a>).
+Then you could spend your hour doing something more worthwhile;
+like learning a new skill that will earn you more than minimum
+wage.&nbsp;¯\_(ツ)_/¯</p>
+</li>
+<li>
+<p><strong>Delegate</strong></p>
+<p>Is there someone who works for you or with you who has the
+bandwidth and aptitude to accomplish the task? Will it take more
+time to train the person than it would be to just do it yourself?
+If it is a repeating task, perhaps the time lost training someone
+else upfront can be made up in the long run (just as with
+automation via&nbsp;scripting).</p>
+</li>
+<li>
+<p><strong>Degenerate</strong></p>
+<p>Can you sacrifice on quality? Often, 80% of the effort goes into
+the last 20% of quality of a pursuit. Does the task really need to
+be treated as top tier, or is it <span class="caps">OK</span> to just phone it in with 20% of
+the effort for 80% of the quality and save yourself a lot of time?
+Confession time: I am a perfectionist. I don&#8217;t mention this as some
+sort of humble-brag, but with true chagrin. I either do something
+with the best that I have got, or I don&#8217;t do it at all. It is very
+binary and very unhealthy. It means a lot of stuff that should end
+up happening simply doesn&#8217;t. I think a lot of other people are the
+same too. Be <span class="caps">OK</span> with putting in less than your best to get
+something less important off of your list quickly. As for me
+putting this into action, I am not proof-reading this a million
+times or sitting on it for multiple days like I usually do. So,
+please excuse errors. Or don&#8217;t. It doesn&#8217;t matter because I am
+posting it whether you excuse the errors or not. I&#8217;m trying to be
+<span class="caps">OK</span> with not giving 100% on this one, because it doesn&#8217;t further my
+most important goals and associated&nbsp;projects.</p>
+</li>
+<li>
+<p><strong>Procrastinate</strong></p>
+<p>If worst comes to worst and you truly do need to give your level
+best, can this task simply be put off for a while? I know, I know;
+your mother and/or father told you to never procrastinate, but the
+reality is that we do it all the time anyway without thinking about
+it. The difference here is that you are doing it consciously and
+purposefully. Really, another term for procrastination is
+prioritization, but it just sounds far worse. Which is why I chose
+it: so that both you and I will remember to actually do it! Also,
+Prioritize doesn&#8217;t rhyme with the other options like Procrastinate
+does ;). To make it a less dirty word, let&#8217;s call it Planned
+Procrastination. At some point your workload is going to lighten
+some and there will be time to do that one nagging thing. Of
+course, all procrastinated things must eventually be done, which is
+why this is the last possible option available and easily the least&nbsp;desirable.</p>
+</li>
+</ol>
+<p>I have yet to think of any other possibilities. Thoughts and
+suggestions are welcome on this one. More options are always better. I
+wrote this post for myself more than anyone. I need reminders like
+this, and I like simple steps and systems I can follow. Life isn&#8217;t
+always so clean cut and tidy, so they end up just being guidelines,
+not hard and fast rules. But even loose guidelines are better than
+nothing. And with that I say, Carpe&nbsp;Diem!</p>
+	</div><!-- /.entry-content -->
+</article>
+</section>
             </div>
             <div class="col-md-3">
 <div class="sidebar sidebar-wrapper">
 	<ul class="nav nav-list well sidebar-nav">
 			<li class="nav-header"><h4><i class="fa fa-paper-plane fa-md"></i> Recent Posts</h4>
 				<li>
-						<a href="http://metapipe.com/blog/posts/2017/01/05/my-super-post/">
-							My super&nbsp;title
+						<a href="http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/">
+							So, what is a virtual machine&nbsp;anyway?
+						</a>
+						<a href="http://metapipe.com/blog/posts/2017/02/28/hierarchy-of-needs/">
+							Hierarchy of&nbsp;Needs
 						</a>
 				</li>
 			</li>
@@ -179,21 +314,29 @@
 		<li class="nav-header"><h4><i class="icon-tags icon-med"></i> Tags</h4></li>
 		<li>
 			<li>
-				<a class="" href="http://metapipe.com/blog/tag/pelican/">
-					pelican <span class="badge badge-default badge-pill">1</span>				</a>
+				<a class="" href="http://metapipe.com/blog/tag/explainer/">
+					explainer <span class="badge badge-default badge-pill">1</span>				</a>
 			</li>
 			<li>
-				<a class="" href="http://metapipe.com/blog/tag/publishing/">
-					publishing <span class="badge badge-default badge-pill">1</span>				</a>
+				<a class="" href="http://metapipe.com/blog/tag/planning/">
+					planning <span class="badge badge-default badge-pill">1</span>				</a>
+			</li>
+			<li>
+				<a class="" href="http://metapipe.com/blog/tag/repost/">
+					repost <span class="badge badge-default badge-pill">1</span>				</a>
+			</li>
+			<li>
+				<a class="" href="http://metapipe.com/blog/tag/tech/">
+					tech <span class="badge badge-default badge-pill">1</span>				</a>
 			</li>
 		</li>
 		<li class="nav-header"><h4><i class="fa fa-users fa-md"></i> Authors</h4></li>
 		<li>
-			<a href="http://metapipe.com/blog/author/alexis-metaireau/" class="">
-				Alexis Metaireau
+			<a href="http://metapipe.com/blog/author/aaron-estrada/" class="">
+				Aaron Estrada
 			</a>
-			<a href="http://metapipe.com/blog/author/conan-doyle/" class="">
-				Conan Doyle
+			<a href="http://metapipe.com/blog/author/ethan-estrada/" class="">
+				Ethan Estrada
 			</a>
 		</li>
 	</ul>

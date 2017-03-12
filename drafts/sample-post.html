@@ -51,7 +51,7 @@
     <!-- Feed Information / Copied from Simple Theme -->
     <link href="localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Full Atom Feed" />
     <link href="localhost:8000/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Full RSS Feed" />
-    <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
+    <link href="localhost:8000/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
     <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Tags Atom Feed" />
     <link href="localhost:8000/feeds/.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Tags RSS Feed" />
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -90,7 +90,7 @@
                         <a id="contact" href="/contact/">Contact</a>
                     </li>
                     <li>
-                        <a id="blog" href="https://medium.com/metapipe-blog">Blog</a>
+                        <a id="blog" href="/blog/">Blog</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow <b class="caret"></b></a>
@@ -113,55 +113,74 @@
             <!-- /.container -->
         </nav>
         <!-- Page Content -->
-        <div class="container mp-body-container">    <div class="container-fluid" id="content">
+        <div class="container mp-body-container">
+    <div class="container-fluid" id="content">
         <div class="row-fluid">
             <div class="col-md-9">
-<!-- If we have articles to display -->
-	<!-- Iterate through the articles in the page -->
-		<p>
-		Hello and welcome to MetaPipe - A blog by FullMeta Corp..
-		<br/><br/>
-		Here you will find the latest posts, for additional information
-		see the navigation bar.
-		</p>
-		<hr />
-		<div class="article">
-			<h1><a href="http://metapipe.com/blog/posts/2017/01/05/my-super-post/">My super&nbsp;title</a></h1>
-			<div class="well small">
+<section id="article_content">
+<article>
+	<header>
+		<h1>
+			<a href="http://metapipe.com/drafts/sample-post.html">
+				Sample&nbsp;Post
+			</a>
+		</h1>
+	</header>
+	<div class="entry-content">
+	<div class="well">
+
 <div class="row">
 	<div class="col-md-6">
 		<span class="label text-center">Author</span>
-		<i class="icon-user"></i> <a href="http://metapipe.com/blog/author/alexis-metaireau/">Alexis Metaireau</a>, <a href="http://metapipe.com/blog/author/conan-doyle/">Conan Doyle</a>
+		<i class="icon-user"></i>&nbsp;
+<a href="http://metapipe.com/blog/author/john-doe/">John Doe</a><span>, </span><a href="http://metapipe.com/blog/author/john-doh/">John D'oh</a>
 	</div>
 	<div class="col-md-6">
 		<span class="label text-center">Date</span>
-		<abbr class="published" title="2017-01-05T00:00:00-07:00">
-			<i class="icon-calendar"></i> Thu 05 January 2017
+		<abbr class="published" title="2017-02-27T12:23:54-07:00">
+			<i class="icon-calendar"></i> Mon 27 February 2017
 		</abbr>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<span class="label text-center">Tags</span>
-			<a href="http://metapipe.com/blog/tag/pelican/">pelican</a>
-			<a href="http://metapipe.com/blog/tag/publishing/">publishing</a>
+		<span class="label text-center">Tags&nbsp;&nbsp;&nbsp;</span>
+		<i class="icon-tags icon-sm"></i>&nbsp;
+			<a href="http://metapipe.com/blog/tag/1tag/">1tag</a><span>, </span>
+			<a href="http://metapipe.com/blog/tag/2tag/">2tag</a><span>, </span>
+			<a href="http://metapipe.com/blog/tag/redtag/">redtag</a><span>, </span>
+			<a href="http://metapipe.com/blog/tag/bluetag/">bluetag</a>
 	</div>
 </div>
-</div>
-			<div class="summary">
-				<p>This is the content of my super blog&nbsp;post.</p>
-			</div>
-		</div>
-		<hr />
-
+	</div>
+	<p>Change the above Status to <code>published</code> to actually build this post and
+see what it looks&nbsp;like.</p>
+<p>Here is some content written in
+<a href="http://daringfireball.net/projects/markdown/syntax">MarkDown</a>.
+Please be aware that in this implementation
+<a href="https://pythonhosted.org/Markdown/index.html#differences">there are a few differences from vanilla MarkDown</a>.</p>
+<p>Some text editors, like <a href="https://atom.io/">Atom</a>, can give you a live
+MarkDown preview, so you can get a very good idea of what your content
+will look like when you post&nbsp;it.</p>
+<p>Keep in mind that the datetimes in the metadata above are formatted
+according to <a href="https://en.wikipedia.org/wiki/ISO_8601"><span class="caps">ISO</span> 8601</a>. Our blog engine will accept less well
+formed time stamps, but if you want to be accurate, use <a href="https://en.wikipedia.org/wiki/ISO_8601"><span class="caps">ISO</span> 8601</a>.</p>
+<p>Now write some content and publish it for the masses. There will great
+joy and much&nbsp;rejoicing.</p>
+	</div><!-- /.entry-content -->
+</article>
+</section>
             </div>
             <div class="col-md-3">
 <div class="sidebar sidebar-wrapper">
 	<ul class="nav nav-list well sidebar-nav">
 			<li class="nav-header"><h4><i class="fa fa-paper-plane fa-md"></i> Recent Posts</h4>
 				<li>
-						<a href="http://metapipe.com/blog/posts/2017/01/05/my-super-post/">
-							My super&nbsp;title
+						<a href="http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/">
+							So, what is a virtual machine&nbsp;anyway?
+						</a>
+						<a href="http://metapipe.com/blog/posts/2017/02/28/hierarchy-of-needs/">
+							Hierarchy of&nbsp;Needs
 						</a>
 				</li>
 			</li>
@@ -185,21 +204,29 @@
 		<li class="nav-header"><h4><i class="icon-tags icon-med"></i> Tags</h4></li>
 		<li>
 			<li>
-				<a class="" href="http://metapipe.com/blog/tag/pelican/">
-					pelican <span class="badge badge-default badge-pill">1</span>				</a>
+				<a class="" href="http://metapipe.com/blog/tag/explainer/">
+					explainer <span class="badge badge-default badge-pill">1</span>				</a>
 			</li>
 			<li>
-				<a class="" href="http://metapipe.com/blog/tag/publishing/">
-					publishing <span class="badge badge-default badge-pill">1</span>				</a>
+				<a class="" href="http://metapipe.com/blog/tag/planning/">
+					planning <span class="badge badge-default badge-pill">1</span>				</a>
+			</li>
+			<li>
+				<a class="" href="http://metapipe.com/blog/tag/repost/">
+					repost <span class="badge badge-default badge-pill">1</span>				</a>
+			</li>
+			<li>
+				<a class="" href="http://metapipe.com/blog/tag/tech/">
+					tech <span class="badge badge-default badge-pill">1</span>				</a>
 			</li>
 		</li>
 		<li class="nav-header"><h4><i class="fa fa-users fa-md"></i> Authors</h4></li>
 		<li>
-			<a href="http://metapipe.com/blog/author/alexis-metaireau/" class="">
-				Alexis Metaireau
+			<a href="http://metapipe.com/blog/author/aaron-estrada/" class="">
+				Aaron Estrada
 			</a>
-			<a href="http://metapipe.com/blog/author/conan-doyle/" class="">
-				Conan Doyle
+			<a href="http://metapipe.com/blog/author/ethan-estrada/" class="">
+				Ethan Estrada
 			</a>
 		</li>
 	</ul>
