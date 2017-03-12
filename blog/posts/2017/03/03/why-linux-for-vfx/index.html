@@ -51,7 +51,7 @@
     <!-- Feed Information / Copied from Simple Theme -->
     <link href="localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Full Atom Feed" />
     <link href="localhost:8000/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Full RSS Feed" />
-    <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
+    <link href="localhost:8000/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
     <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Tags Atom Feed" />
     <link href="localhost:8000/feeds/.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Tags RSS Feed" />
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -117,15 +117,180 @@
     <div class="container-fluid" id="content">
         <div class="row-fluid">
             <div class="col-md-9">
-<h4><i class="fa-users icon-large"></i> Authors</h4>
-<div class="list-group">
-    <a href="http://metapipe.com/blog/author/aaron-estrada/" class="list-group-item list-group-item-action">
-        Aaron Estrada <span class="badge badge-default badge-pill">1</span>
-    </a>
-    <a href="http://metapipe.com/blog/author/ethan-estrada/" class="list-group-item list-group-item-action">
-        Ethan Estrada <span class="badge badge-default badge-pill">2</span>
-    </a>
+<section id="article_content">
+<article>
+	<header>
+		<h1>
+			<a href="http://metapipe.com/blog/posts/2017/03/03/why-linux-for-vfx/">
+				Why use Linux for <span class="caps">VFX</span>?
+			</a>
+		</h1>
+	</header>
+	<div class="entry-content">
+	<div class="well">
+
+<div class="row">
+	<div class="col-md-6">
+		<span class="label text-center">Author</span>
+		<i class="icon-user"></i>&nbsp;
+<a href="http://metapipe.com/blog/author/ethan-estrada/">Ethan Estrada</a>
+	</div>
+	<div class="col-md-6">
+		<span class="label text-center">Date</span>
+		<abbr class="published" title="2017-03-03T09:23:54-07:00">
+			<i class="icon-calendar"></i> Fri 03 March 2017
+		</abbr>
+	</div>
 </div>
+<div class="row">
+	<div class="col-md-12">
+		<span class="label text-center">Tags&nbsp;&nbsp;&nbsp;</span>
+		<i class="icon-tags icon-sm"></i>&nbsp;
+			<a href="http://metapipe.com/blog/tag/tech/">tech</a><span>, </span>
+			<a href="http://metapipe.com/blog/tag/explainer/">explainer</a><span>, </span>
+			<a href="http://metapipe.com/blog/tag/linux/">Linux</a>
+	</div>
+</div>
+	</div>
+	<!-- A version of this content was first posted on: https://www.quora.com/In-the-VFX-industry-why-would-some-studios-use-UNIX/answer/Ethan-Estrada?srid=Dmy6 -->
+
+<p>When this question is asked, the question between the lines is really
+&#8220;Why don&#8217;t they use Windows?&#8221; since the only other real contender
+outside Linux is Apple <span class="caps">OSX</span>, which itself is based on <span class="caps">BSD</span> Unix. For
+most intents and purposes, Unix and Linux are pretty&nbsp;interchangeable.</p>
+<p>Only very small boutique shops and freelancers use <span class="caps">MS</span> Windows
+exclusively, and I have found that this confounds young artists new to
+the industry as well as veterans who have only ever worked at smaller
+shops. The ease of use and ease of intitial set up of <span class="caps">MS</span> Windows seem
+like home runs to a lot of artists, and so they are left scratching
+their heads. While I could focus on the historical reasons for Unix
+use , I would rather talk specifically about a few technical reasons
+why building a pipeline on Linux/Unix is relatively easy, whereas
+doing the same on Windows is downright painful, if not outright
+unfeasible. Perhaps I will encourage <a href="http://metapipe.com/team/">Aaron</a>
+to make a post about the historical set of reasons for using
+Unix. When I say &#8220;Unix&#8221; from here on out, it also includes Linux,
+unless otherwise&nbsp;stated.</p>
+<h3>1. Support for symbolic&nbsp;links</h3>
+<p>Unix has had solid support for symbolic links for decades. Windows has
+barely added this in Vista, and even then it is still not very good
+(and, no, shortcuts are <span class="caps">NOT</span> the same thing as symbolic links). Why
+would you want symbolic links you ask? Well, let&#8217;s look at a toy
+pipeline for the answer (this will be massively oversimplified and is
+a poor pipeline model, but works for demonstration). Let&#8217;s say our
+system is very simple: for a given shot in a show, we have on
+directory that holds all of our files (scene, geometry, textures, the
+current version of the plates from the client, etc.). This directory
+is a version number. So our directory looks somthing like&nbsp;this:</p>
+<div class="highlight"><pre><span></span>/proj/seq/shot
+    <span class="m">001</span>
+    <span class="m">002</span>
+    <span class="m">003</span>
+</pre></div>
+
+
+<p>Every time we want to version up, we copy the latest version and
+renumber it. Dandy! Now what is the problem that happens when our
+scene file (let&#8217;s say it is Maya) is versioned up from v2 to v3? All
+the file paths still point to v2! Now your supervisor is going to be
+angry because you didn&#8217;t update your geometry of that one creature for
+your scene. &#8220;But I did, I swear I did!&#8221; you screech in
+desperation. Well, it doesn&#8217;t matter that you updated the geometry
+file in version 3, because your scene file was still pointed to the
+version 2 geometry file. This may seem like an easy fix to do by hand,
+but it gets irritating once you are on version 50 and still doing it
+over and over and over again. Also, once you are referencing dozens or
+hundreds of things into your scene, it simply becomes unfeasible to do
+by hand&nbsp;anymore.</p>
+<p>So, what is a simple solution? We write a simple script for versioning
+up. It does the copy operation we previously did by hand, but it also
+adds one more thing: a symbolic link called &#8220;current&#8221;. So now our
+directory looks like&nbsp;this:</p>
+<div class="highlight"><pre><span></span>/proj/seq/shot
+    <span class="m">001</span>
+    <span class="m">002</span>
+    <span class="m">003</span>
+    current -&gt; <span class="m">003</span>
+</pre></div>
+
+
+<p>And we always work out of current. We make sure all of our referenced
+file paths point through current as well. If we need to go back to a
+previous version, we make sure to change the &#8220;current&#8221; sym link to
+point there first. We would probably do this through some sort of &#8220;job
+in&#8221; script so, again, we wouldn&#8217;t need to do this by hand each&nbsp;time.</p>
+<p>Again, this is a simplified example, but these sorts of things happen
+all the time in a real production&nbsp;pipeline.</p>
+<h3>2. Atomic file&nbsp;renames</h3>
+<p>By atomic, I mean the operation either fails or succeeds. There is no
+in between state; the file can&#8217;t be partially renamed. Along with
+this, renames will overwrite other existing files. This is a dual
+edged sword since you do need to be careful, but you have the power to
+do so when you need&nbsp;it.</p>
+<p>Lets use python to show this example. In Unix systems, if I want to
+rename a file, all I do is&nbsp;this:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># I don&#39;t care if the destination file exists, just clobber it</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;some_temp_file.obj&quot;</span><span class="p">,</span> <span class="s2">&quot;final_file.obj&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This previous command will only fail if I don&#8217;t have access to the
+file system where these file(s) exist, or I don&#8217;t have permission to
+modify them. But, barring that, it will&nbsp;work.</p>
+<p>If you try to rename over a file that already exists in windows, it
+will fail with an error, no matter what. Thus, renames cannot ever be
+truly atomic. The only hope on windows is to do one of the following
+(neither of which is very&nbsp;good):</p>
+<p>First&nbsp;solution:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
+<span class="c1"># uh-oh, our file is corrupt if we fail partway through</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">&quot;some_temp_file.obj&quot;</span><span class="p">,</span> <span class="s2">&quot;final_file.obj&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Second&nbsp;solution:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># I sure hope this OTHER temp file doesn&#39;t already exist</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;final_file.obj&quot;</span><span class="p">,</span> <span class="s2">&quot;some_other_temp_file.obj&quot;</span><span class="p">)</span>
+<span class="c1"># someone else could still recreate this file before I have a chance to rename it.</span>
+<span class="c1"># Better known as a race condition. In windows, it is unavoidable in this situation.</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;some_temp_file.obj&quot;</span><span class="p">,</span> <span class="s2">&quot;final_file.obj&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;some_other_temp_file.obj&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>3. Powerful built in file&nbsp;permissions</h3>
+<p>Yes, yes, windows has solutions for this using access lists and other
+such things when doing network logins, but they are far removed from
+the average or even the technical user, which is most <span class="caps">VFX</span>
+artists. Also, they are not a built in part of the <span class="caps">OS</span>. Windows was not
+built with networking in mind; it was bolted on after the fact and it
+shows. Windows was not built as a multi-user <span class="caps">OS</span>; again, bolted on
+after the fact and it shows. Unix has always been multi-user since the
+very beginning. Networking became a part of Unix before Windows (or <span class="caps">MS</span>
+<span class="caps">DOS</span> for that matter) even existed. Thus, both are extremely mature and
+fairly&nbsp;standardized.</p>
+<h3>4. Mount points for networked drives can be&nbsp;anywhere</h3>
+<p>On windows they need to be on a lettered drive, or using a network
+share mount. On Unix, you never need to even know it is a network
+mount. Thus it can easily be swapped out later without totally
+breaking things. With pipelines that are ever evolving, but still need
+to maintain some backwards compatibility, this is a huge boon. As a
+case in point, during university, I worked at a small shop on
+campus. At one point, the <span class="caps">IT</span> folks at the shop decided we all needed
+to move from the <code>S:</code> drive to the <code>K:</code> drive for our network
+shares. Needless to say, pretty much all of our scene files&nbsp;broke.</p>
+<h4>Conclusion</h4>
+<p>There are other things that make Unix easier to work with in
+production pipelines, but the above are the biggest ones
+<span class="caps">IMHO</span>. Hopefully some of the appeal is a bit clearer to you now than it
+was before. If not, send an email to
+<a href="mailto:info@metapipe.com">info@metapipe.com</a>. The message should make
+its way to me and I&#8217;ll do what I can to answer your&nbsp;questions.</p>
+	</div><!-- /.entry-content -->
+</article>
+</section>
             </div>
             <div class="col-md-3">
 <div class="sidebar sidebar-wrapper">

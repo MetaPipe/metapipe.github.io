@@ -1,5 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - posts</title><link href="http://metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/posts.atom.xml" rel="self"></link><id>http://metapipe.com/</id><updated>2017-03-02T10:25:56-07:00</updated><entry><title>So, what is a virtual machine anyway?</title><link href="http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/" rel="alternate"></link><published>2017-03-02T10:25:56-07:00</published><updated>2017-03-02T10:25:56-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-02:/blog/posts/2017/03/02/what-is-a-virtual-machine/</id><summary type="html">&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - posts</title><link href="http://metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/posts.atom.xml" rel="self"></link><id>http://metapipe.com/</id><updated>2017-03-03T09:23:54-07:00</updated><entry><title>Why use Linux for VFX?</title><link href="http://metapipe.com/blog/posts/2017/03/03/why-linux-for-vfx/" rel="alternate"></link><published>2017-03-03T09:23:54-07:00</published><updated>2017-03-03T09:23:54-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-03:/blog/posts/2017/03/03/why-linux-for-vfx/</id><summary type="html">&lt;!-- A version of this content was first posted on: https://www.quora.com/In-the-VFX-industry-why-would-some-studios-use-UNIX/answer/Ethan-Estrada?srid=Dmy6 --&gt;
+
+&lt;p&gt;When this question is asked, the question between the lines is really
+&amp;#8220;Why don&amp;#8217;t they use Windows?&amp;#8221; since the only other real contender
+outside Linux is Apple &lt;span class="caps"&gt;OSX&lt;/span&gt;, which itself is based on &lt;span class="caps"&gt;BSD&lt;/span&gt; Unix. For
+most intents and purposes, Unix and Linux are pretty&amp;nbsp;interchangeable.&lt;/p&gt;
+&lt;p&gt;Only very small …&lt;/p&gt;</summary><content type="html">&lt;!-- A version of this content was first posted on: https://www.quora.com/In-the-VFX-industry-why-would-some-studios-use-UNIX/answer/Ethan-Estrada?srid=Dmy6 --&gt;
+
+&lt;p&gt;When this question is asked, the question between the lines is really
+&amp;#8220;Why don&amp;#8217;t they use Windows?&amp;#8221; since the only other real contender
+outside Linux is Apple &lt;span class="caps"&gt;OSX&lt;/span&gt;, which itself is based on &lt;span class="caps"&gt;BSD&lt;/span&gt; Unix. For
+most intents and purposes, Unix and Linux are pretty&amp;nbsp;interchangeable.&lt;/p&gt;
+&lt;p&gt;Only very small boutique shops and freelancers use &lt;span class="caps"&gt;MS&lt;/span&gt; Windows
+exclusively, and I have found that this confounds young artists new to
+the industry as well as veterans who have only ever worked at smaller
+shops. The ease of use and ease of intitial set up of &lt;span class="caps"&gt;MS&lt;/span&gt; Windows seem
+like home runs to a lot of artists, and so they are left scratching
+their heads. While I could focus on the historical reasons for Unix
+use , I would rather talk specifically about a few technical reasons
+why building a pipeline on Linux/Unix is relatively easy, whereas
+doing the same on Windows is downright painful, if not outright
+unfeasible. Perhaps I will encourage &lt;a href="http://metapipe.com/team/"&gt;Aaron&lt;/a&gt;
+to make a post about the historical set of reasons for using
+Unix. When I say &amp;#8220;Unix&amp;#8221; from here on out, it also includes Linux,
+unless otherwise&amp;nbsp;stated.&lt;/p&gt;
+&lt;h3&gt;1. Support for symbolic&amp;nbsp;links&lt;/h3&gt;
+&lt;p&gt;Unix has had solid support for symbolic links for decades. Windows has
+barely added this in Vista, and even then it is still not very good
+(and, no, shortcuts are &lt;span class="caps"&gt;NOT&lt;/span&gt; the same thing as symbolic links). Why
+would you want symbolic links you ask? Well, let&amp;#8217;s look at a toy
+pipeline for the answer (this will be massively oversimplified and is
+a poor pipeline model, but works for demonstration). Let&amp;#8217;s say our
+system is very simple: for a given shot in a show, we have on
+directory that holds all of our files (scene, geometry, textures, the
+current version of the plates from the client, etc.). This directory
+is a version number. So our directory looks somthing like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/proj/seq/shot
+    &lt;span class="m"&gt;001&lt;/span&gt;
+    &lt;span class="m"&gt;002&lt;/span&gt;
+    &lt;span class="m"&gt;003&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Every time we want to version up, we copy the latest version and
+renumber it. Dandy! Now what is the problem that happens when our
+scene file (let&amp;#8217;s say it is Maya) is versioned up from v2 to v3? All
+the file paths still point to v2! Now your supervisor is going to be
+angry because you didn&amp;#8217;t update your geometry of that one creature for
+your scene. &amp;#8220;But I did, I swear I did!&amp;#8221; you screech in
+desperation. Well, it doesn&amp;#8217;t matter that you updated the geometry
+file in version 3, because your scene file was still pointed to the
+version 2 geometry file. This may seem like an easy fix to do by hand,
+but it gets irritating once you are on version 50 and still doing it
+over and over and over again. Also, once you are referencing dozens or
+hundreds of things into your scene, it simply becomes unfeasible to do
+by hand&amp;nbsp;anymore.&lt;/p&gt;
+&lt;p&gt;So, what is a simple solution? We write a simple script for versioning
+up. It does the copy operation we previously did by hand, but it also
+adds one more thing: a symbolic link called &amp;#8220;current&amp;#8221;. So now our
+directory looks like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/proj/seq/shot
+    &lt;span class="m"&gt;001&lt;/span&gt;
+    &lt;span class="m"&gt;002&lt;/span&gt;
+    &lt;span class="m"&gt;003&lt;/span&gt;
+    current -&amp;gt; &lt;span class="m"&gt;003&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And we always work out of current. We make sure all of our referenced
+file paths point through current as well. If we need to go back to a
+previous version, we make sure to change the &amp;#8220;current&amp;#8221; sym link to
+point there first. We would probably do this through some sort of &amp;#8220;job
+in&amp;#8221; script so, again, we wouldn&amp;#8217;t need to do this by hand each&amp;nbsp;time.&lt;/p&gt;
+&lt;p&gt;Again, this is a simplified example, but these sorts of things happen
+all the time in a real production&amp;nbsp;pipeline.&lt;/p&gt;
+&lt;h3&gt;2. Atomic file&amp;nbsp;renames&lt;/h3&gt;
+&lt;p&gt;By atomic, I mean the operation either fails or succeeds. There is no
+in between state; the file can&amp;#8217;t be partially renamed. Along with
+this, renames will overwrite other existing files. This is a dual
+edged sword since you do need to be careful, but you have the power to
+do so when you need&amp;nbsp;it.&lt;/p&gt;
+&lt;p&gt;Lets use python to show this example. In Unix systems, if I want to
+rename a file, all I do is&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="c1"&gt;# I don&amp;#39;t care if the destination file exists, just clobber it&lt;/span&gt;
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;some_temp_file.obj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;final_file.obj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This previous command will only fail if I don&amp;#8217;t have access to the
+file system where these file(s) exist, or I don&amp;#8217;t have permission to
+modify them. But, barring that, it will&amp;nbsp;work.&lt;/p&gt;
+&lt;p&gt;If you try to rename over a file that already exists in windows, it
+will fail with an error, no matter what. Thus, renames cannot ever be
+truly atomic. The only hope on windows is to do one of the following
+(neither of which is very&amp;nbsp;good):&lt;/p&gt;
+&lt;p&gt;First&amp;nbsp;solution:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
+&lt;span class="c1"&gt;# uh-oh, our file is corrupt if we fail partway through&lt;/span&gt;
+&lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;some_temp_file.obj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;final_file.obj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Second&amp;nbsp;solution:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="c1"&gt;# I sure hope this OTHER temp file doesn&amp;#39;t already exist&lt;/span&gt;
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;final_file.obj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;some_other_temp_file.obj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# someone else could still recreate this file before I have a chance to rename it.&lt;/span&gt;
+&lt;span class="c1"&gt;# Better known as a race condition. In windows, it is unavoidable in this situation.&lt;/span&gt;
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;some_temp_file.obj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;final_file.obj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;some_other_temp_file.obj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;3. Powerful built in file&amp;nbsp;permissions&lt;/h3&gt;
+&lt;p&gt;Yes, yes, windows has solutions for this using access lists and other
+such things when doing network logins, but they are far removed from
+the average or even the technical user, which is most &lt;span class="caps"&gt;VFX&lt;/span&gt;
+artists. Also, they are not a built in part of the &lt;span class="caps"&gt;OS&lt;/span&gt;. Windows was not
+built with networking in mind; it was bolted on after the fact and it
+shows. Windows was not built as a multi-user &lt;span class="caps"&gt;OS&lt;/span&gt;; again, bolted on
+after the fact and it shows. Unix has always been multi-user since the
+very beginning. Networking became a part of Unix before Windows (or &lt;span class="caps"&gt;MS&lt;/span&gt;
+&lt;span class="caps"&gt;DOS&lt;/span&gt; for that matter) even existed. Thus, both are extremely mature and
+fairly&amp;nbsp;standardized.&lt;/p&gt;
+&lt;h3&gt;4. Mount points for networked drives can be&amp;nbsp;anywhere&lt;/h3&gt;
+&lt;p&gt;On windows they need to be on a lettered drive, or using a network
+share mount. On Unix, you never need to even know it is a network
+mount. Thus it can easily be swapped out later without totally
+breaking things. With pipelines that are ever evolving, but still need
+to maintain some backwards compatibility, this is a huge boon. As a
+case in point, during university, I worked at a small shop on
+campus. At one point, the &lt;span class="caps"&gt;IT&lt;/span&gt; folks at the shop decided we all needed
+to move from the &lt;code&gt;S:&lt;/code&gt; drive to the &lt;code&gt;K:&lt;/code&gt; drive for our network
+shares. Needless to say, pretty much all of our scene files&amp;nbsp;broke.&lt;/p&gt;
+&lt;h4&gt;Conclusion&lt;/h4&gt;
+&lt;p&gt;There are other things that make Unix easier to work with in
+production pipelines, but the above are the biggest ones
+&lt;span class="caps"&gt;IMHO&lt;/span&gt;. Hopefully some of the appeal is a bit clearer to you now than it
+was before. If not, send an email to
+&lt;a href="mailto:info@metapipe.com"&gt;info@metapipe.com&lt;/a&gt;. The message should make
+its way to me and I&amp;#8217;ll do what I can to answer your&amp;nbsp;questions.&lt;/p&gt;</content><category term="tech"></category><category term="explainer"></category><category term="Linux"></category></entry><entry><title>So, what is a virtual machine anyway?</title><link href="http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/" rel="alternate"></link><published>2017-03-02T10:25:56-07:00</published><updated>2017-03-02T10:25:56-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-02:/blog/posts/2017/03/02/what-is-a-virtual-machine/</id><summary type="html">&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
 but you might not know what that means. This short explaination should
 help clear things up a&amp;nbsp;bit.&lt;/p&gt;
 &lt;p&gt;First, the obtuse, opaque answer: a virtual machine is a computer

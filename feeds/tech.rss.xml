@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>MetaPipe - tech</title><link>http://metapipe.com/</link><description></description><lastBuildDate>Thu, 02 Mar 2017 10:25:56 -0700</lastBuildDate><item><title>So, what is a virtual machine anyway?</title><link>http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/</link><description>&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
+<rss version="2.0"><channel><title>MetaPipe - tech</title><link>http://metapipe.com/</link><description></description><lastBuildDate>Fri, 03 Mar 2017 09:23:54 -0700</lastBuildDate><item><title>Why use Linux for VFX?</title><link>http://metapipe.com/blog/posts/2017/03/03/why-linux-for-vfx/</link><description>&lt;!-- A version of this content was first posted on: https://www.quora.com/In-the-VFX-industry-why-would-some-studios-use-UNIX/answer/Ethan-Estrada?srid=Dmy6 --&gt;
+
+&lt;p&gt;When this question is asked, the question between the lines is really
+&amp;#8220;Why don&amp;#8217;t they use Windows?&amp;#8221; since the only other real contender
+outside Linux is Apple &lt;span class="caps"&gt;OSX&lt;/span&gt;, which itself is based on &lt;span class="caps"&gt;BSD&lt;/span&gt; Unix. For
+most intents and purposes, Unix and Linux are pretty&amp;nbsp;interchangeable.&lt;/p&gt;
+&lt;p&gt;Only very small …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ethan Estrada</dc:creator><pubDate>Fri, 03 Mar 2017 09:23:54 -0700</pubDate><guid isPermaLink="false">tag:metapipe.com,2017-03-03:/blog/posts/2017/03/03/why-linux-for-vfx/</guid><category>tech</category><category>explainer</category><category>Linux</category></item><item><title>So, what is a virtual machine anyway?</title><link>http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/</link><description>&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
 but you might not know what that means. This short explaination should
 help clear things up a&amp;nbsp;bit.&lt;/p&gt;
 &lt;p&gt;First, the obtuse, opaque answer: a virtual machine is a computer
