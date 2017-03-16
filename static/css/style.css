@@ -83,12 +83,6 @@ span.flip {
     direction: rtl;
 }
 
-/* TODO:  make this a media query matching up with bootstrap?*/
-.intro-video {
-    padding-bottom: 15px;
-}
-
-
 @media (max-height: 784px), (max-width: 374px) {
     h2.cta {
         font-size: 30px;
@@ -98,11 +92,37 @@ span.flip {
 @media (min-width: 768px) {
   #page-wrapper {
     margin: 0 0 0 0;
-
+    border-left: 0;
   }
 }
 
 .dashboard.jumbotron {
     max-width: 70%;
     margin: 0 auto;
+}
+
+/*The map is js-inserted so the flowing gets weird without this.*/
+#contact-map {
+    height: 400px;
+}
+
+/* From https://coderwall.com/p/0jezca/vertical-spacing-for-bootstrap-columns */
+.row.row-grid [class*="col-"] + [class*="col-"] {
+    margin-top: 15px;
+}
+
+@media (min-width: 1200px) {
+    .row.row-grid [class*="col-lg-"] + [class*="col-lg-"] {
+        margin-top: 0;
+    }
+}
+@media (min-width: 992px) {
+    .row.row-grid [class*="col-md-"] + [class*="col-md-"] {
+        margin-top: 0;
+    }
+}
+@media (min-width: 768px) {
+    .row.row-grid [class*="col-sm-"] + [class*="col-sm-"] {
+        margin-top: 0;
+    }
 }
