@@ -174,7 +174,7 @@ barely added this in Vista, and even then it is still not very good
 would you want symbolic links you ask? Well, let&#8217;s look at a toy
 pipeline for the answer (this will be massively oversimplified and is
 a poor pipeline model, but works for demonstration). Let&#8217;s say our
-system is very simple: for a given shot in a show, we have on
+system is very simple: for a given shot in a show, we have a
 directory that holds all of our files (scene, geometry, textures, the
 current version of the plates from the client, etc.). This directory
 is a version number. So our directory looks somthing like&nbsp;this:</p>
@@ -234,7 +234,7 @@ rename a file, all I do is&nbsp;this:</p>
 <p>This previous command will only fail if I don&#8217;t have access to the
 file system where these file(s) exist, or I don&#8217;t have permission to
 modify them. But, barring that, it will&nbsp;work.</p>
-<p>If you try to rename over a file that already exists in windows, it
+<p>If you try to rename over a file that already exists in Windows, it
 will fail with an error, no matter what. Thus, renames cannot ever be
 truly atomic. The only hope on windows is to do one of the following
 (neither of which is very&nbsp;good):</p>
@@ -274,7 +274,7 @@ mount. Thus it can easily be swapped out later without totally
 breaking things. With pipelines that are ever evolving, but still need
 to maintain some backwards compatibility, this is a huge boon. As a
 case in point, during university, I worked at a small shop on
-campus. At one point, the <span class="caps">IT</span> folks at the shop decided we all needed
+campus that used Windows. At one point, the <span class="caps">IT</span> folks at the shop decided we all needed
 to move from the <code>S:</code> drive to the <code>K:</code> drive for our network
 shares. Needless to say, pretty much all of our scene files&nbsp;broke.</p>
 <h4>Conclusion</h4>
