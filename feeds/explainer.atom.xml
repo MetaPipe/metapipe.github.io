@@ -1,5 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - explainer</title><link href="http://metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/explainer.atom.xml" rel="self"></link><id>http://metapipe.com/</id><updated>2017-03-03T09:23:54-07:00</updated><entry><title>Why use Linux for VFX?</title><link href="http://metapipe.com/blog/posts/2017/03/03/why-linux-for-vfx/" rel="alternate"></link><published>2017-03-03T09:23:54-07:00</published><updated>2017-03-03T09:23:54-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-03:/blog/posts/2017/03/03/why-linux-for-vfx/</id><summary type="html">&lt;!-- A version of this content was first posted on: https://www.quora.com/In-the-VFX-industry-why-would-some-studios-use-UNIX/answer/Ethan-Estrada?srid=Dmy6 --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - explainer</title><link href="http://metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/explainer.atom.xml" rel="self"></link><id>http://metapipe.com/</id><updated>2017-03-28T08:31:00-06:00</updated><entry><title>The History of Linux in VFX and Animation</title><link href="http://metapipe.com/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/" rel="alternate"></link><published>2017-03-28T08:31:00-06:00</published><updated>2017-03-28T08:31:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-03-28:/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/</id><summary type="html">&lt;p&gt;Nearly all high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; shops use Linux. Why? In this jaunt down the rabbit hole we explore the history of &lt;span class="caps"&gt;C.G.&lt;/span&gt;I production and how we ended up where we are today. I also talk a little bit about why a studio might specifically choose Linux as a choice for large scale&amp;nbsp;production.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People often seem surprised when I tell them that effectively all
+high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; and animation shops use
+&lt;a href="https://en.wikipedia.org/wiki/Linux"&gt;Linux&lt;/a&gt;. Surely something like
+Windows or &lt;span class="caps"&gt;OSX&lt;/span&gt; would be more convenient, right? Maybe so&amp;#8230; or maybe
+not. As &lt;a href="/blog/author/ethan-estrada/"&gt;Ethan&lt;/a&gt;
+mentioned in an &lt;a href="/blog/posts/2017/03/03/why-linux-for-vfx/"&gt;earlier post&lt;/a&gt;, Linux has some distinct advantages when
+deployed at scale and in a pipeline vs traditional desktop operating
+systems like Windows and &lt;span class="caps"&gt;OSX&lt;/span&gt;. Also, ignoring the history behind how
+the high-end shops ended up where they are today would dismiss a
+critical part of the overall story. Animation and &lt;span class="caps"&gt;VFX&lt;/span&gt; shops don’t only
+use Linux for the advantages it offers today, there is a certain
+amount of legacy behind the choice. Let’s look at the&amp;nbsp;history.&lt;/p&gt;
+&lt;p&gt;Almost all of the larger &lt;span class="caps"&gt;C.G.&lt;/span&gt; shops started back in the Unix days,
+some of them before Windows or Mac &lt;span class="caps"&gt;OS&lt;/span&gt; even existed. The earliest
+&lt;span class="caps"&gt;C.G.&lt;/span&gt; studios were even using Lisp based machines and supercomputers
+with custom OSes. Most of those studios no longer exist. Regardless,
+the legacy of the older studios and the development of &lt;span class="caps"&gt;IT&lt;/span&gt; in general
+impact how we do things&amp;nbsp;today.&lt;/p&gt;
+&lt;p&gt;&lt;span class="caps"&gt;TRON&lt;/span&gt; was released in 1982, over 35 years ago! At the time, 3D
+&lt;span class="caps"&gt;C.G.I.&lt;/span&gt; required a supercomputer to&amp;nbsp;render.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of Cray-1 Supercomputert" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Cray_1_IMG_9126.jpg/640px-Cray_1_IMG_9126.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Pictured above is a &lt;a href="https://en.wikipedia.org/wiki/Cray-1"&gt;Cray-1&lt;/a&gt;
+Supercomputer. One of these was used to render the &lt;span class="caps"&gt;C.G.I.&lt;/span&gt; in &lt;span class="caps"&gt;TRON&lt;/span&gt;. In
+1977 this machine cost $5M - $8M depending on the options ordered. It
+had 32MBytes of &lt;span class="caps"&gt;RAM&lt;/span&gt;, ran at 80 MHz and provided 160 &lt;span class="caps"&gt;MFLOPS&lt;/span&gt; of compute
+power. To put that in perspective, assuming you have a relatively new
+smartphone, the &lt;span class="caps"&gt;ARM&lt;/span&gt; &lt;span class="caps"&gt;CPU&lt;/span&gt; in your phone almost certainly provides over 1
+GigaFlop. (That’s 1000 &lt;span class="caps"&gt;MFLOPS&lt;/span&gt;!) of computing power. It most likely has
+1 or more &lt;span class="caps"&gt;GIGABYTES&lt;/span&gt; of &lt;span class="caps"&gt;RAM&lt;/span&gt;. Think about that. Your phone is more
+powerful than the &lt;span class="caps"&gt;SUPERCOMPUTER&lt;/span&gt; (at the time) used to render
+&lt;span class="caps"&gt;TRON&lt;/span&gt;. More amazingly, it’s likely more powerful than the computers
+used to render even Jurassic Park!  Imagine how powerful modern &lt;span class="caps"&gt;PC&lt;/span&gt;
+hardware is by&amp;nbsp;comparison.&lt;/p&gt;
+&lt;p&gt;Of course, back when the hardware required to render 3D &lt;span class="caps"&gt;C.G.I.&lt;/span&gt; filled
+a room and cost over $5 million, the desktop computers of the same era
+were not even close to being up to the task. There was no 3D hardware
+acceleration and the CPUs were not 32bit. Most did not have any
+provision for calculating floating point math in hardware, which is a
+critical feature for 3D rendering at any reasonable speed. &lt;span class="caps"&gt;RAM&lt;/span&gt; was
+still incredibly expensive and the home computers of the era were only
+8 or 16 bit. Even if the &lt;span class="caps"&gt;RAM&lt;/span&gt; were affordable, they couldn’t address
+very much of it. They were essentially toys compared to the computers
+used to do computer graphics at the time. Windows didn’t even exist
+and neither did Mac &lt;span class="caps"&gt;OS&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Anyone who has heard of
+&lt;a href="https://en.wikipedia.org/wiki/Moore's_law"&gt;Moore&amp;#8217;s Law&lt;/a&gt; knows there
+is an exponential pace of improvement in the state of the art in
+computer science. Computer graphics requires large amounts of compute,
+and for years, the cost of compute seemed high. After the era of the
+mainframes and supercomputers for the production of &lt;span class="caps"&gt;C.G.&lt;/span&gt; came the era
+of the minicomputer and &amp;#8220;workstation&amp;#8221;. These machines were still
+expensive but at least they fit in the same room as the
+artist. Relative to the mainframes and supercomputers they replaced
+for doing &lt;span class="caps"&gt;C.G.&lt;/span&gt; work, they provided a very good performance per
+dollar. Most of these machines ran Unix, and this was the era of early
+&lt;span class="caps"&gt;C.G.&lt;/span&gt; blockbuster films like Jurassic Park, Terminator 2, and Toy
+Story. There was a lot of growth in the &lt;span class="caps"&gt;C.G.&lt;/span&gt; industry in that
+period. Not only was animation starting to shift over to computer
+graphics, visual effects were driving the demand for photo-real &lt;span class="caps"&gt;C.G.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In parallel to the development of modern &lt;span class="caps"&gt;C.G.I.&lt;/span&gt; production, the .com
+and &lt;span class="caps"&gt;WWW&lt;/span&gt; era of the Internet was maturing.  Unix was building a strong
+foothold in the datacenter due to Sun, &lt;span class="caps"&gt;HP&lt;/span&gt;, &lt;span class="caps"&gt;DEC&lt;/span&gt; and &lt;span class="caps"&gt;SGI&lt;/span&gt; servers, which
+all ran proprietary Unix variants. The demand for servers to feed the
+growing demand for data delivered via the Internet drove the sales of
+these computers. It was a less glamourous application of the
+technology than C.G., but the higher volumes of machines being sold
+helped drive the economy of scale so that the machines were more
+affordable for &lt;span class="caps"&gt;C.G.&lt;/span&gt;&amp;nbsp;work.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="TUX, the Linux Mascot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/280px-Tux.svg.png"&gt;&lt;/p&gt;
+&lt;p&gt;By around 1995 Linux,
+&lt;a href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution"&gt;&lt;span class="caps"&gt;BSD&lt;/span&gt; Unix&lt;/a&gt;
+and &lt;span class="caps"&gt;PC&lt;/span&gt; hardware were becoming mature enough relative to the established
+Minicomputer and “Workstation” class machines that some adventurous
+Internet server admins began putting parts of their workloads on &lt;span class="caps"&gt;PC&lt;/span&gt;
+hardware. Graphic accelerator cards capable of running OpenGL became
+available for the &lt;span class="caps"&gt;PC&lt;/span&gt;.  Folks in the &lt;span class="caps"&gt;VFX&lt;/span&gt; and animation business noticed
+this. Home computers were no longer toy-like. They supported 32 bit
+processors with integrated floating point units, could accept large
+amounts of &lt;span class="caps"&gt;RAM&lt;/span&gt; and be networked via ethernet to connect with high
+performance network attached storage. They were getting good enough to
+compete with the workstation class machines and clusters of them
+worked well for making inexpensive render&amp;nbsp;farms.&lt;/p&gt;
+&lt;p&gt;The demand for home computers commoditized the &lt;span class="caps"&gt;PC&lt;/span&gt; and helped drive the
+&lt;span class="caps"&gt;PC&lt;/span&gt; revolution. The economy of scale possible when selling commodity &lt;span class="caps"&gt;PC&lt;/span&gt;
+hardware allowed for better R&amp;amp;D budgets than what the workstation and
+minicomputer vendors could match. &lt;span class="caps"&gt;PC&lt;/span&gt; hardware was catching up with
+workstation class hardware and actually started to surpass it in many
+ways.  By around 1997, when Linux had begun to really mature,
+commodity &lt;span class="caps"&gt;PC&lt;/span&gt; hardware had begun to outpace the minicomputer and
+&amp;#8220;workstation&amp;#8221; class stuff from the likes of Sun, &lt;span class="caps"&gt;SGI&lt;/span&gt;, &lt;span class="caps"&gt;HP&lt;/span&gt; and &lt;span class="caps"&gt;IBM&lt;/span&gt;.  The
+new &lt;span class="caps"&gt;PC&lt;/span&gt; hardware was sufficiently faster (per dollar spent) than the
+&amp;#8220;workstation&amp;#8221; and &amp;#8220;minicomputer&amp;#8221; class stuff from the legacy vendors
+that the economics could no longer be ignored. Running Linux on the
+new &lt;span class="caps"&gt;PC&lt;/span&gt; hardware was the obvious choice because all the custom software
+(after re-compilation) and automation scripts they had created over
+the years for Unix would just keep working as usual. Porting the
+custom code over to a &lt;span class="caps"&gt;NON&lt;/span&gt;-Unix-Like &lt;span class="caps"&gt;OS&lt;/span&gt; would have been a huge chore
+but tweaking it for Linux (which is mostly Posix compliant) was a much
+less difficult task. Plus, all the artists at the shops knew and
+trusted Unix-like systems. At the time, Windows was for playing video
+games and doing spreadsheets, not making &lt;span class="caps"&gt;C.G.&lt;/span&gt; for feature films.  A
+little bit of trivia&amp;#8230; I worked at one shop that even still used &lt;span class="caps"&gt;CSH&lt;/span&gt;
+(rather than the more modern Bash shell or a more robust scripting
+language like Python) due to still having so much automation that was
+still dependent on &lt;span class="caps"&gt;CSH&lt;/span&gt;. Legacy support was definitely part of the
+equation when making the switch to Linux from proprietary Unix&amp;nbsp;variants.&lt;/p&gt;
+&lt;p&gt;So, that’s a quick history of how we ended up where we are. But does
+that mean we only use Linux today because we are stuck supporting some
+old legacy code from the stone ages? Far from it! I have to agree with
+&lt;a href="/blog/author/ethan-estrada/"&gt;Ethan&lt;/a&gt; that even
+today, Unix-like OSes are more suitable for large scale deployments
+and automation. There is a reason nearly the entire the Internet and
+your smartphone run Linux or some flavor of Unix. What works at scale
+for the Internet of course also works at scale for
+&lt;span class="caps"&gt;C.G.&lt;/span&gt; production. The standard system shell and file system semantics
+alone completely smoke anything on Windows.  Scripting languages like
+Python are first class citizens and there is a wealth of Free Open
+Source Software available to help address just about any conceivable
+need. Basically, with Linux you have some great building blocks for
+creating large systems. Plus, the larger the render farm, the more you
+save when running Linux vs Windows (While &lt;span class="caps"&gt;OSX&lt;/span&gt; is based on Unix, it
+isn&amp;#8217;t an option since Apple doesn&amp;#8217;t license the &lt;span class="caps"&gt;OS&lt;/span&gt; alone. It’s not
+possible to run &lt;span class="caps"&gt;OSX&lt;/span&gt; in the cloud.) Netbooting Linux is more straight
+forward than Windows also, which makes managing huge fleets of
+machines&amp;nbsp;easier.&lt;/p&gt;
+&lt;p&gt;Linux supports most of the high end &lt;span class="caps"&gt;DCC&lt;/span&gt; applications a &lt;span class="caps"&gt;C.G.&lt;/span&gt; artist
+might want to use but a few notable examples, like Photoshop, are
+missing. At present, this is really the only negative of using Linux
+vs using something else. Of course, the same could be said for any
+&lt;span class="caps"&gt;OS&lt;/span&gt;. There is always some killer app missing from any given
+platform. (Final Cut is missing from Windows, &lt;span class="caps"&gt;3DS&lt;/span&gt; Max is missing on
+&lt;span class="caps"&gt;OSX&lt;/span&gt;,&amp;nbsp;etc.)&lt;/p&gt;
+&lt;p&gt;If you are an aspiring &lt;span class="caps"&gt;VFX&lt;/span&gt; artist I recommend you learn enough Linux
+to at least get around in it. Consider learning Python and possibly
+some more advanced shell scripting. Assuming your other skills are
+solid, a working knowledge of Linux will help you stand out as an
+artist &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; &lt;span class="caps"&gt;TD&lt;/span&gt;.&lt;/p&gt;</content><category term="Linux"></category><category term="tech"></category><category term="explainer"></category></entry><entry><title>Why use Linux for VFX?</title><link href="http://metapipe.com/blog/posts/2017/03/03/why-linux-for-vfx/" rel="alternate"></link><published>2017-03-03T09:23:54-07:00</published><updated>2017-03-03T09:23:54-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-03:/blog/posts/2017/03/03/why-linux-for-vfx/</id><summary type="html">&lt;!-- A version of this content was first posted on: https://www.quora.com/In-the-VFX-industry-why-would-some-studios-use-UNIX/answer/Ethan-Estrada?srid=Dmy6 --&gt;
 
 &lt;p&gt;When this question is asked, the question between the lines is really
 &amp;#8220;Why don&amp;#8217;t they use Windows?&amp;#8221; since the only other real contender
