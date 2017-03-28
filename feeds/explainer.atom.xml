@@ -108,9 +108,9 @@ equation when making the switch to Linux from proprietary Unix&amp;nbsp;variants
 &lt;p&gt;So, that’s a quick history of how we ended up where we are. But does
 that mean we only use Linux today because we are stuck supporting some
 old legacy code from the stone ages? Far from it! I have to agree with
-&lt;a href="/blog/author/ethan-estrada/"&gt;Ethan&lt;/a&gt; that even
+&lt;a href="/blog/posts/2017/03/03/why-linux-for-vfx/"&gt;Ethan&lt;/a&gt; that even
 today, Unix-like OSes are more suitable for large scale deployments
-and automation. There is a reason nearly the entire the Internet and
+and automation. There is a reason nearly the entire Internet and
 your smartphone run Linux or some flavor of Unix. What works at scale
 for the Internet of course also works at scale for
 &lt;span class="caps"&gt;C.G.&lt;/span&gt; production. The standard system shell and file system semantics
@@ -276,7 +276,7 @@ production pipelines, but the above are the biggest ones
 &lt;span class="caps"&gt;IMHO&lt;/span&gt;. Hopefully some of the appeal is a bit clearer to you now than it
 was before. If not, send an email to
 &lt;a href="mailto:info@metapipe.com"&gt;info@metapipe.com&lt;/a&gt;. The message should make
-its way to me and I&amp;#8217;ll do what I can to answer your&amp;nbsp;questions.&lt;/p&gt;</content><category term="tech"></category><category term="explainer"></category><category term="Linux"></category></entry><entry><title>So, what is a virtual machine anyway?</title><link href="http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/" rel="alternate"></link><published>2017-03-02T10:25:56-07:00</published><updated>2017-03-02T10:25:56-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-02:/blog/posts/2017/03/02/what-is-a-virtual-machine/</id><summary type="html">&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
+its way to me and I&amp;#8217;ll do what I can to answer your&amp;nbsp;questions.&lt;/p&gt;</content><category term="Linux"></category><category term="tech"></category><category term="explainer"></category></entry><entry><title>So, what is a virtual machine anyway?</title><link href="http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/" rel="alternate"></link><published>2017-03-02T10:25:56-07:00</published><updated>2017-03-02T10:25:56-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-02:/blog/posts/2017/03/02/what-is-a-virtual-machine/</id><summary type="html">&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
 but you might not know what that means. This short explaination should
 help clear things up a&amp;nbsp;bit.&lt;/p&gt;
 &lt;p&gt;First, the obtuse, opaque answer: a virtual machine is a computer

@@ -126,3 +126,34 @@ span.flip {
         margin-top: 0;
     }
 }
+
+article img {
+    /* Make sure that images within blog articles never take more width
+     than the article width; `height: auto` ensures the height is also
+     resized proportionally.
+
+     This is useful given that Markdown itself gives you little
+     control over image resizing, and in particular no way to achieve
+     this "best fit" behavior.
+    */
+    max-width: 100%;
+    height: auto;
+
+    /*Also center horizontally*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article .entry-content p a {
+    color: #94d694;
+    text-decoration: underline;
+}
+
+article .entry-content p a:hover {
+    color: #62c462;
+}
+
+article .entry-content p a:visited {
+    color: #4baa4b
+}
