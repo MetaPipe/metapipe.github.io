@@ -157,3 +157,7 @@ article .entry-content p a:hover {
 article .entry-content p a:visited {
     color: #4baa4b
 }
+
+#sidebar-sub {
+    margin-bottom: 1em;
+}
