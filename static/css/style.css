@@ -161,3 +161,13 @@ article .entry-content p a:visited {
 #sidebar-sub {
     margin-bottom: 1em;
 }
+
+.share-grid {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.share-grid li {
+    padding: 0 .5em;
+}
