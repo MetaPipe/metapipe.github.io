@@ -127,7 +127,14 @@ span.flip {
     }
 }
 
-article img {
+.center.div {
+    /*center horizontally*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article img, .center-and-size {
     /* Make sure that images within blog articles never take more width
      than the article width; `height: auto` ensures the height is also
      resized proportionally.
@@ -170,4 +177,10 @@ article .entry-content p a:visited {
 
 .share-grid li {
     padding: 0 .5em;
+}
+
+.bottom-left-shadow {
+  -moz-box-shadow:    -5px 5px 15px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: -5px 5px 15px 0 rgba(0, 0, 0, 0.3);
+  box-shadow:         -5px 5px 15px 0 rgba(0, 0, 0, 0.3);
 }
