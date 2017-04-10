@@ -184,3 +184,9 @@ article .entry-content p a:visited {
   -webkit-box-shadow: -5px 5px 15px 0 rgba(0, 0, 0, 0.3);
   box-shadow:         -5px 5px 15px 0 rgba(0, 0, 0, 0.3);
 }
+
+.bottom-right-shadow {
+  -moz-box-shadow:    5px 5px 15px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.3);
+  box-shadow:         5px 5px 15px 0 rgba(0, 0, 0, 0.3);
+}

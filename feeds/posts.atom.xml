@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - posts</title><link href="http://metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/posts.atom.xml" rel="self"></link><id>http://metapipe.com/</id><updated>2017-03-28T08:31:00-06:00</updated><entry><title>The History of Linux in VFX and Animation</title><link href="http://metapipe.com/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/" rel="alternate"></link><published>2017-03-28T08:31:00-06:00</published><updated>2017-03-28T08:31:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-03-28:/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/</id><summary type="html">&lt;p&gt;Nearly all high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; shops use Linux. Why? In this jaunt down the rabbit hole we explore the history of &lt;span class="caps"&gt;C.G.&lt;/span&gt;I production and how we ended up where we are today. I also talk a little bit about why a studio might specifically choose Linux as a choice for large scale&amp;nbsp;production.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People often seem surprised when I tell them that effectively all
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - posts</title><link href="http://metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/posts.atom.xml" rel="self"></link><id>http://metapipe.com/</id><updated>2017-10-07T16:30:00-06:00</updated><entry><title>Creating Panoramas for CG</title><link href="http://metapipe.com/blog/posts/2017/10/07/creating-panos-for-cg/" rel="alternate"></link><published>2017-10-07T16:30:00-06:00</published><updated>2017-10-07T16:30:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-10-07:/blog/posts/2017/10/07/creating-panos-for-cg/</id><summary type="html">&lt;p&gt;Free Nuke tutorials on how to create Tile Worlds and use Panoramas in &lt;span class="caps"&gt;CG&lt;/span&gt;. &lt;span class="caps"&gt;PLUS&lt;/span&gt;, advanced green screen matte extraction&amp;nbsp;techniques.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Tile Worlds, Camera Projection and Image Based Lighting all have one thing in
+common: They use photographic elements as their main source inputs. While I tend
+to say this about nearly every &lt;span class="caps"&gt;VFX&lt;/span&gt; technique (I love them all!), the above are
+among my favorites. There is nothing more photo-realistic than a photograph or
+live action plate so it’s the best source material one can hope for! More
+excitingly, once you understand how they work, the techniques allow you to mix
+and match and move back and forth between &lt;span class="caps"&gt;C.G.&lt;/span&gt; and reality as you see&amp;nbsp;fit.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Tileworld How-To Illustration" src="/static/img/blog/tile_world_figure_s.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;After releasing the free &lt;span class="caps"&gt;HDRI&lt;/span&gt; panoramas, we received some questions as to just
+how they might be useful for &lt;span class="caps"&gt;VFX&lt;/span&gt;.  It’s easy to say “Virtual Set” and &amp;#8220;&lt;span class="caps"&gt;IBL&lt;/span&gt;&amp;#8221; but
+not so easy to visualize if you aren’t familiar with the techniques involved.
+To help everyone build some new skills, we decided to give away some lessons on
+Tile Worlds and panoramas so people can try their hand at using the panoramas we
+gave away last week. It doesn&amp;#8217;t cover Image Based Lighting but it should give
+you a sense of how you can use panoramas for virtual&amp;nbsp;sets.&lt;/p&gt;
+&lt;p&gt;As I mentioned, along with matte paintings, camera projection, and &lt;span class="caps"&gt;IBL&lt;/span&gt; these are
+some of my favorite &lt;span class="caps"&gt;VFX&lt;/span&gt; techniques. It’s possible to get very impressive results
+without a huge amount of effort. I’m excited to be able to share these
+techniques with you and hope they help you create some amazing stuff. In fact,
+everyone here would love to see what you come up with. If you make something
+cool using these techniques, please post them on your video sharing site of
+choice and share the link with us:
+&lt;a href="https://twitter.com/fullmetapipe"&gt;@FullMetaPipe&lt;/a&gt; on Twitter or
+&lt;a href="https://www.facebook.com/metapipe"&gt;@MetaPipe&lt;/a&gt; on&amp;nbsp;Facebook.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pano/Tileworld WIP" src="/static/img/blog/tile_world_figure2_s.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;You can use the non-commercial version of Nuke or use Blackmagic Design&amp;#8217;s Fusion
+for your experiments. The techniques work in either. They are probably adaptable
+to After Effects, though I’m not familiar enough with the 3D system in &lt;span class="caps"&gt;AE&lt;/span&gt; to say
+for certain. The Tile World technique will also work in any 3D package that has
+a camera with a physically accurate aperture gate and lens system so you can
+even do it right in your favorite 3D system if you&amp;nbsp;like.&lt;/p&gt;
+&lt;p&gt;Here are the links to the lessons (over two and a half hours of free training).
+You need to register but the lessons are free: &lt;a href="http://courses.learnvfx.com/courses/nk101?coupon=metapipe_blog_pano_promo"&gt;&lt;span class="caps"&gt;NK101&lt;/span&gt; Lesson 7: Intro to Nuke’s
+3D system and Tile
+Worlds&lt;/a&gt;
+&lt;a href="http://courses.learnvfx.com/courses/nk201?coupon=metapipe_blog_pano_promo"&gt;&lt;span class="caps"&gt;NK201&lt;/span&gt; Lesson 3: Mixing Scale and Deep&amp;nbsp;Compositing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you like what you see, here is a coupon code for 80% off anything at
+LearnVFX:&amp;nbsp;metapipe_blog_pano_promo&lt;/p&gt;
+&lt;p&gt;I already applied it to the links above for you. You can also manually enter it
+at&amp;nbsp;checkout.&lt;/p&gt;
+&lt;p&gt;The coupon makes the &lt;a href="http://courses.learnvfx.com/bundles/nk101-and-nk201?coupon=metapipe_blog_pano_promo"&gt;&lt;span class="caps"&gt;NK101&lt;/span&gt; &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; &lt;span class="caps"&gt;NK201&lt;/span&gt;
+bundle&lt;/a&gt;
+just $49.60 (normally&amp;nbsp;$248.00)&lt;/p&gt;
+&lt;p&gt;The free lessons are free forever but the coupon for 80% off lifetime access
+expires April 30th&amp;nbsp;2017.&lt;/p&gt;
+&lt;p&gt;Enjoy the free&amp;nbsp;lessons!&lt;/p&gt;</content><category term="free"></category></entry><entry><title>The History of Linux in VFX and Animation</title><link href="http://metapipe.com/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/" rel="alternate"></link><published>2017-03-28T08:31:00-06:00</published><updated>2017-03-28T08:31:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-03-28:/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/</id><summary type="html">&lt;p&gt;Nearly all high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; shops use Linux. Why? In this jaunt down the rabbit hole we explore the history of &lt;span class="caps"&gt;C.G.&lt;/span&gt;I production and how we ended up where we are today. I also talk a little bit about why a studio might specifically choose Linux as a choice for large scale&amp;nbsp;production.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People often seem surprised when I tell them that effectively all
 high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; and animation shops use
 &lt;a href="https://en.wikipedia.org/wiki/Linux"&gt;Linux&lt;/a&gt;. Surely something like
 Windows or &lt;span class="caps"&gt;OSX&lt;/span&gt; would be more convenient, right? Maybe so&amp;#8230; or maybe
