@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - planning</title><link href="http://metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/planning.atom.xml" rel="self"></link><id>http://metapipe.com/</id><updated>2017-02-28T12:23:54-07:00</updated><entry><title>Hierarchy of Needs</title><link href="http://metapipe.com/blog/posts/2017/02/28/hierarchy-of-needs/" rel="alternate"></link><published>2017-02-28T12:23:54-07:00</published><updated>2017-02-28T12:23:54-07:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-02-28:/blog/posts/2017/02/28/hierarchy-of-needs/</id><summary type="html">&lt;p&gt;Task list out of control? Struggling to cut it down to the essentials. Read on for 5 simple steps to clear out your task&amp;nbsp;queue.&lt;/p&gt;</summary><content type="html">&lt;p&gt;MetaPipe&amp;#8217;s &lt;span class="caps"&gt;CTO&lt;/span&gt;, Ethan Estrada, originally posted this article
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - planning</title><link href="http://www.metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/planning.atom.xml" rel="self"></link><id>http://www.metapipe.com/</id><updated>2017-02-28T12:23:54-07:00</updated><entry><title>Hierarchy of Needs</title><link href="http://www.metapipe.com/blog/posts/2017/02/28/hierarchy-of-needs/" rel="alternate"></link><published>2017-02-28T12:23:54-07:00</published><updated>2017-02-28T12:23:54-07:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-02-28:/blog/posts/2017/02/28/hierarchy-of-needs/</id><summary type="html">&lt;p&gt;Task list out of control? Struggling to cut it down to the essentials. Read on for 5 simple steps to clear out your task&amp;nbsp;queue.&lt;/p&gt;</summary><content type="html">&lt;p&gt;MetaPipe&amp;#8217;s &lt;span class="caps"&gt;CTO&lt;/span&gt;, Ethan Estrada, originally posted this article
 on his personal blog. I liked it so much that I asked him if I could
-repost it here on the &lt;a href="http://metapipe.com/blog/"&gt;MetaPipe Blog&lt;/a&gt;.
+repost it here on the &lt;a href="/blog/"&gt;MetaPipe Blog&lt;/a&gt;.
 You can find the link to the original article &lt;a href="http://www.misterfidget.com/blog/2017/02/27/hierarchy-of-needs.html"&gt;here&lt;/a&gt;.
 However, the article is posted below in its entirety. Please&amp;nbsp;enjoy.&lt;/p&gt;
 &lt;hr&gt;
@@ -16,9 +16,9 @@ to accomplish a goal. I am not the master goal setter in the world. I
 don&amp;#8217;t claim to be some sort of planning guru. Far from it. But I have
 had a thought about a simple way to deal with task lists. It has all
 been inspired by conversation with my friend and colleague
-&lt;a href="http://metapipe.com/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&lt;/a&gt; and
+&lt;a href="/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&lt;/a&gt; and
 &lt;a href="http://blog.trello.com/why-your-to-do-list-is-going-nowhere"&gt;an article I read on Trello&amp;#8217;s blog&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In short, the article&amp;#8217;s (and &lt;a href="http://metapipe.com/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&amp;#8217;s&lt;/a&gt;) point
+&lt;p&gt;In short, the article&amp;#8217;s (and &lt;a href="/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&amp;#8217;s&lt;/a&gt;) point
 is that often our task lists aren&amp;#8217;t correlated to projects; there are
 a bunch of things to get done, but they don&amp;#8217;t always drive us toward
 completing our projects.  The idea is you should prioritize those
@@ -27,7 +27,7 @@ problem isn&amp;#8217;t your task list; it is the fact that the tasks are just
 tasks, not attached to anything. I love the idea; it&amp;#8217;s something I
 think most of us know, but forget far too easily. I sure know I
 do. Thanks for getting me started down the path
-&lt;a href="http://metapipe.com/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;a href="/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;Once I finished the article, I thought, &amp;#8220;But how does one actually do
 that? A lot of those tasks that don&amp;#8217;t push us towards our ultimate
 goals and project completions are still critical things that &lt;em&gt;need&lt;/em&gt; to

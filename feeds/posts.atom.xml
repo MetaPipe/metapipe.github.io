@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - posts</title><link href="http://metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/posts.atom.xml" rel="self"></link><id>http://metapipe.com/</id><updated>2017-04-07T16:30:00-06:00</updated><entry><title>Creating Panoramas for CG</title><link href="http://metapipe.com/blog/posts/2017/04/07/creating-panos-for-cg/" rel="alternate"></link><published>2017-04-07T16:30:00-06:00</published><updated>2017-04-07T16:30:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-04-07:/blog/posts/2017/04/07/creating-panos-for-cg/</id><summary type="html">&lt;p&gt;Free Nuke tutorials on how to create Tile Worlds and use Panoramas in &lt;span class="caps"&gt;CG&lt;/span&gt;. &lt;span class="caps"&gt;PLUS&lt;/span&gt;, advanced green screen matte extraction&amp;nbsp;techniques.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Tile Worlds, Camera Projection and Image Based Lighting all have one thing in
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - posts</title><link href="http://www.metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/posts.atom.xml" rel="self"></link><id>http://www.metapipe.com/</id><updated>2017-04-07T16:30:00-06:00</updated><entry><title>Creating Panoramas for CG</title><link href="http://www.metapipe.com/blog/posts/2017/04/07/creating-panos-for-cg/" rel="alternate"></link><published>2017-04-07T16:30:00-06:00</published><updated>2017-04-07T16:30:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-04-07:/blog/posts/2017/04/07/creating-panos-for-cg/</id><summary type="html">&lt;p&gt;Free Nuke tutorials on how to create Tile Worlds and use Panoramas in &lt;span class="caps"&gt;CG&lt;/span&gt;. &lt;span class="caps"&gt;PLUS&lt;/span&gt;, advanced green screen matte extraction&amp;nbsp;techniques.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Tile Worlds, Camera Projection and Image Based Lighting all have one thing in
 common: They use photographic elements as their main source inputs. While I tend
 to say this about nearly every &lt;span class="caps"&gt;VFX&lt;/span&gt; technique (I love them all!), the above are
 among my favorites. There is nothing more photo-realistic than a photograph or
@@ -7,7 +7,7 @@ live action plate so it’s the best source material one can hope for! More
 excitingly, once you understand how they work, the techniques allow you to mix
 and match and move back and forth between &lt;span class="caps"&gt;C.G.&lt;/span&gt; and reality as you see&amp;nbsp;fit.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Tileworld How-To Illustration" src="/static/img/blog/tile_world_figure_s.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;After releasing the &lt;a href="http://metapipe.com/offers/railyard-hdri"&gt;free &lt;span class="caps"&gt;HDRI&lt;/span&gt; panoramas&lt;/a&gt;, we received some questions as to just
+&lt;p&gt;After releasing the &lt;a href="/offers/railyard-hdri/"&gt;free &lt;span class="caps"&gt;HDRI&lt;/span&gt; panoramas&lt;/a&gt;, we received some questions as to just
 how they might be useful for &lt;span class="caps"&gt;VFX&lt;/span&gt;.  It’s easy to say “Virtual Set” and &amp;#8220;&lt;span class="caps"&gt;IBL&lt;/span&gt;&amp;#8221; but
 not so easy to visualize if you aren’t familiar with the techniques involved.
 To help everyone build some new skills, we decided to give away some lessons on
@@ -44,7 +44,7 @@ bundle&lt;/a&gt;
 just $49.60 (normally&amp;nbsp;$248.00)&lt;/p&gt;
 &lt;p&gt;The free lessons are free forever but the coupon for 80% off lifetime access
 expires April 30th&amp;nbsp;2017.&lt;/p&gt;
-&lt;p&gt;Enjoy the free&amp;nbsp;lessons!&lt;/p&gt;</content><category term="free"></category></entry><entry><title>The History of Linux in VFX and Animation</title><link href="http://metapipe.com/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/" rel="alternate"></link><published>2017-03-28T08:31:00-06:00</published><updated>2017-03-28T08:31:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-03-28:/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/</id><summary type="html">&lt;p&gt;Nearly all high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; shops use Linux. Why? In this jaunt down the rabbit hole we explore the history of &lt;span class="caps"&gt;C.G.&lt;/span&gt;I production and how we ended up where we are today. I also talk a little bit about why a studio might specifically choose Linux as a choice for large scale&amp;nbsp;production.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People often seem surprised when I tell them that effectively all
+&lt;p&gt;Enjoy the free&amp;nbsp;lessons!&lt;/p&gt;</content><category term="free"></category></entry><entry><title>The History of Linux in VFX and Animation</title><link href="http://www.metapipe.com/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/" rel="alternate"></link><published>2017-03-28T08:31:00-06:00</published><updated>2017-03-28T08:31:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-03-28:/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/</id><summary type="html">&lt;p&gt;Nearly all high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; shops use Linux. Why? In this jaunt down the rabbit hole we explore the history of &lt;span class="caps"&gt;C.G.&lt;/span&gt;I production and how we ended up where we are today. I also talk a little bit about why a studio might specifically choose Linux as a choice for large scale&amp;nbsp;production.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People often seem surprised when I tell them that effectively all
 high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; and animation shops use
 &lt;a href="https://en.wikipedia.org/wiki/Linux"&gt;Linux&lt;/a&gt;. Surely something like
 Windows or &lt;span class="caps"&gt;OSX&lt;/span&gt; would be more convenient, right? Maybe so&amp;#8230; or maybe
@@ -180,7 +180,7 @@ platform. (Final Cut is missing from Windows, &lt;span class="caps"&gt;3DS&lt;/s
 to at least get around in it. Consider learning Python and possibly
 some more advanced shell scripting. Assuming your other skills are
 solid, a working knowledge of Linux will help you stand out as an
-artist &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; &lt;span class="caps"&gt;TD&lt;/span&gt;.&lt;/p&gt;</content><category term="Linux"></category><category term="tech"></category><category term="explainer"></category></entry><entry><title>LearnVFX Acquisition</title><link href="http://metapipe.com/blog/posts/2017/03/22/learnvfx-acquired-by-fullmeta/" rel="alternate"></link><published>2017-03-22T12:30:54-07:00</published><updated>2017-03-22T12:30:54-07:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-03-22:/blog/posts/2017/03/22/learnvfx-acquired-by-fullmeta/</id><summary type="html">&lt;p&gt;LearnVFX.com has been acquired by FullMeta Corp. (Creators of MetaPipe.com). To celebrate, we are giving away a free book, Pipeline&amp;nbsp;101&lt;/p&gt;</summary><content type="html">&lt;p&gt;FullMeta Corp., the creators of MetaPipe.com have acquired
+artist &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; &lt;span class="caps"&gt;TD&lt;/span&gt;.&lt;/p&gt;</content><category term="Linux"></category><category term="tech"></category><category term="explainer"></category></entry><entry><title>LearnVFX Acquisition</title><link href="http://www.metapipe.com/blog/posts/2017/03/22/learnvfx-acquired-by-fullmeta/" rel="alternate"></link><published>2017-03-22T12:30:54-07:00</published><updated>2017-03-22T12:30:54-07:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-03-22:/blog/posts/2017/03/22/learnvfx-acquired-by-fullmeta/</id><summary type="html">&lt;p&gt;LearnVFX.com has been acquired by FullMeta Corp. (Creators of MetaPipe.com). To celebrate, we are giving away a free book, Pipeline&amp;nbsp;101&lt;/p&gt;</summary><content type="html">&lt;p&gt;FullMeta Corp., the creators of MetaPipe.com have acquired
 LearnVFX.com, my former training company.  LearnVFX will become our
 portal for providing training and cool content for the &lt;span class="caps"&gt;VFX&lt;/span&gt; and
 animation&amp;nbsp;community.&lt;/p&gt;
@@ -189,7 +189,7 @@ animation&amp;nbsp;community.&lt;/p&gt;
 free to share the link below. Pipeline 101 is for anyone interested in
 how &lt;span class="caps"&gt;C.G.&lt;/span&gt; animation and &lt;span class="caps"&gt;VFX&lt;/span&gt; studios work under the hood. Did I mention
 it’s&amp;nbsp;free?&lt;/p&gt;
-&lt;p&gt;Grab your free copy here: &lt;a href="http://metapipe.com/offers/pipeline101/?utm_source=metapipe.com&amp;amp;utm_medium=blog-post&amp;amp;utm_campaign=pipeline101"&gt;Pipeline&amp;nbsp;101&lt;/a&gt;&lt;/p&gt;</content><category term="free"></category></entry><entry><title>SXSW 2017</title><link href="http://metapipe.com/blog/posts/2017/03/17/sxsw-2017/" rel="alternate"></link><published>2017-03-17T07:30:00-06:00</published><updated>2017-03-17T07:30:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-03-17:/blog/posts/2017/03/17/sxsw-2017/</id><summary type="html">&lt;p&gt;Aaron attended sxsw 2017 and it was incredibly inspirational. There’s never been a better time to be a filmmaker. These days, the only constraint in what you can do is your imagination and&amp;nbsp;skill.&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you’ve been watching the
+&lt;p&gt;Grab your free copy here: &lt;a href="/offers/pipeline101/?utm_source=metapipe.com&amp;amp;utm_medium=blog-post&amp;amp;utm_campaign=pipeline101"&gt;Pipeline&amp;nbsp;101&lt;/a&gt;&lt;/p&gt;</content><category term="free"></category></entry><entry><title>SXSW 2017</title><link href="http://www.metapipe.com/blog/posts/2017/03/17/sxsw-2017/" rel="alternate"></link><published>2017-03-17T07:30:00-06:00</published><updated>2017-03-17T07:30:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-03-17:/blog/posts/2017/03/17/sxsw-2017/</id><summary type="html">&lt;p&gt;Aaron attended sxsw 2017 and it was incredibly inspirational. There’s never been a better time to be a filmmaker. These days, the only constraint in what you can do is your imagination and&amp;nbsp;skill.&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you’ve been watching the
 &lt;a href="https://twitter.com/FullMetaPipe"&gt;MetaPipe Twitter feed&lt;/a&gt; you know I
 was at South by Southwest this&amp;nbsp;week.&lt;/p&gt;
 &lt;p&gt;It was my first time at sxsw and I have to say I was blown away by the
@@ -237,7 +237,7 @@ with that.  We want to empower people with MetaPipe in every way
 possible. We started the company to help remove the technical barriers
 holding back artists but as a natural benefit of working in the cloud,
 remote collaboration becomes a first class feature. If you have a
-dream you want to bring to fruition, contact us. We want to hear from&amp;nbsp;you.&lt;/p&gt;</content><category term="sxsw"></category><category term="conference"></category><category term="inspiration"></category></entry><entry><title>Why use Linux for VFX?</title><link href="http://metapipe.com/blog/posts/2017/03/03/why-linux-for-vfx/" rel="alternate"></link><published>2017-03-03T09:23:54-07:00</published><updated>2017-03-03T09:23:54-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-03:/blog/posts/2017/03/03/why-linux-for-vfx/</id><summary type="html">&lt;!-- A version of this content was first posted on: https://www.quora.com/In-the-VFX-industry-why-would-some-studios-use-UNIX/answer/Ethan-Estrada?srid=Dmy6 --&gt;
+dream you want to bring to fruition, contact us. We want to hear from&amp;nbsp;you.&lt;/p&gt;</content><category term="sxsw"></category><category term="conference"></category><category term="inspiration"></category></entry><entry><title>Why use Linux for VFX?</title><link href="http://www.metapipe.com/blog/posts/2017/03/03/why-linux-for-vfx/" rel="alternate"></link><published>2017-03-03T09:23:54-07:00</published><updated>2017-03-03T09:23:54-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:www.metapipe.com,2017-03-03:/blog/posts/2017/03/03/why-linux-for-vfx/</id><summary type="html">&lt;!-- A version of this content was first posted on: https://www.quora.com/In-the-VFX-industry-why-would-some-studios-use-UNIX/answer/Ethan-Estrada?srid=Dmy6 --&gt;
 
 &lt;p&gt;When this question is asked, the question between the lines is really
 &amp;#8220;Why don&amp;#8217;t they use Windows?&amp;#8221; since the only other real contender
@@ -258,7 +258,7 @@ their heads. While I could focus on the historical reasons for Unix
 use , I would rather talk specifically about a few technical reasons
 why building a pipeline on Linux/Unix is relatively easy, whereas
 doing the same on Windows is downright painful, if not outright
-unfeasible. Perhaps I will encourage &lt;a href="http://metapipe.com/team/"&gt;Aaron&lt;/a&gt;
+unfeasible. Perhaps I will encourage &lt;a href="/team/"&gt;Aaron&lt;/a&gt;
 to make a post about the historical set of reasons for using
 Unix. When I say &amp;#8220;Unix&amp;#8221; from here on out, it also includes Linux,
 unless otherwise&amp;nbsp;stated.&lt;/p&gt;
@@ -378,7 +378,7 @@ production pipelines, but the above are the biggest ones
 &lt;span class="caps"&gt;IMHO&lt;/span&gt;. Hopefully some of the appeal is a bit clearer to you now than it
 was before. If not, send an email to
 &lt;a href="mailto:info@metapipe.com"&gt;info@metapipe.com&lt;/a&gt;. The message should make
-its way to me and I&amp;#8217;ll do what I can to answer your&amp;nbsp;questions.&lt;/p&gt;</content><category term="Linux"></category><category term="tech"></category><category term="explainer"></category></entry><entry><title>So, what is a virtual machine anyway?</title><link href="http://metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/" rel="alternate"></link><published>2017-03-02T10:25:56-07:00</published><updated>2017-03-02T10:25:56-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:metapipe.com,2017-03-02:/blog/posts/2017/03/02/what-is-a-virtual-machine/</id><summary type="html">&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
+its way to me and I&amp;#8217;ll do what I can to answer your&amp;nbsp;questions.&lt;/p&gt;</content><category term="Linux"></category><category term="tech"></category><category term="explainer"></category></entry><entry><title>So, what is a virtual machine anyway?</title><link href="http://www.metapipe.com/blog/posts/2017/03/02/what-is-a-virtual-machine/" rel="alternate"></link><published>2017-03-02T10:25:56-07:00</published><updated>2017-03-02T10:25:56-07:00</updated><author><name>Ethan Estrada</name></author><id>tag:www.metapipe.com,2017-03-02:/blog/posts/2017/03/02/what-is-a-virtual-machine/</id><summary type="html">&lt;p&gt;We use the term &amp;#8220;Virtual Machine&amp;#8221; (or &amp;#8220;&lt;span class="caps"&gt;VM&lt;/span&gt;&amp;#8221;) a lot here at MetaPipe,
 but you might not know what that means. This short explaination should
 help clear things up a&amp;nbsp;bit.&lt;/p&gt;
 &lt;p&gt;First, the obtuse, opaque answer: a virtual machine is a computer
@@ -471,13 +471,13 @@ machine, it is completely fresh.
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;And this (&lt;code&gt;#shamelessplug&lt;/code&gt;) is where &lt;a href="http://metapipe.com"&gt;MetaPipe&lt;/a&gt;
+&lt;p&gt;And this (&lt;code&gt;#shamelessplug&lt;/code&gt;) is where &lt;a href="/"&gt;MetaPipe&lt;/a&gt;
 comes into the picture.  We are trying to democratize Virtual Machine
 computing and make it easy and accessible to everyone, most especially
 to creative professionals who have some of the most extreme computing
-needs on the face of the&amp;nbsp;planet.&lt;/p&gt;</content><category term="tech"></category><category term="explainer"></category></entry><entry><title>Hierarchy of Needs</title><link href="http://metapipe.com/blog/posts/2017/02/28/hierarchy-of-needs/" rel="alternate"></link><published>2017-02-28T12:23:54-07:00</published><updated>2017-02-28T12:23:54-07:00</updated><author><name>Aaron Estrada</name></author><id>tag:metapipe.com,2017-02-28:/blog/posts/2017/02/28/hierarchy-of-needs/</id><summary type="html">&lt;p&gt;Task list out of control? Struggling to cut it down to the essentials. Read on for 5 simple steps to clear out your task&amp;nbsp;queue.&lt;/p&gt;</summary><content type="html">&lt;p&gt;MetaPipe&amp;#8217;s &lt;span class="caps"&gt;CTO&lt;/span&gt;, Ethan Estrada, originally posted this article
+needs on the face of the&amp;nbsp;planet.&lt;/p&gt;</content><category term="tech"></category><category term="explainer"></category></entry><entry><title>Hierarchy of Needs</title><link href="http://www.metapipe.com/blog/posts/2017/02/28/hierarchy-of-needs/" rel="alternate"></link><published>2017-02-28T12:23:54-07:00</published><updated>2017-02-28T12:23:54-07:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-02-28:/blog/posts/2017/02/28/hierarchy-of-needs/</id><summary type="html">&lt;p&gt;Task list out of control? Struggling to cut it down to the essentials. Read on for 5 simple steps to clear out your task&amp;nbsp;queue.&lt;/p&gt;</summary><content type="html">&lt;p&gt;MetaPipe&amp;#8217;s &lt;span class="caps"&gt;CTO&lt;/span&gt;, Ethan Estrada, originally posted this article
 on his personal blog. I liked it so much that I asked him if I could
-repost it here on the &lt;a href="http://metapipe.com/blog/"&gt;MetaPipe Blog&lt;/a&gt;.
+repost it here on the &lt;a href="/blog/"&gt;MetaPipe Blog&lt;/a&gt;.
 You can find the link to the original article &lt;a href="http://www.misterfidget.com/blog/2017/02/27/hierarchy-of-needs.html"&gt;here&lt;/a&gt;.
 However, the article is posted below in its entirety. Please&amp;nbsp;enjoy.&lt;/p&gt;
 &lt;hr&gt;
@@ -492,9 +492,9 @@ to accomplish a goal. I am not the master goal setter in the world. I
 don&amp;#8217;t claim to be some sort of planning guru. Far from it. But I have
 had a thought about a simple way to deal with task lists. It has all
 been inspired by conversation with my friend and colleague
-&lt;a href="http://metapipe.com/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&lt;/a&gt; and
+&lt;a href="/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&lt;/a&gt; and
 &lt;a href="http://blog.trello.com/why-your-to-do-list-is-going-nowhere"&gt;an article I read on Trello&amp;#8217;s blog&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In short, the article&amp;#8217;s (and &lt;a href="http://metapipe.com/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&amp;#8217;s&lt;/a&gt;) point
+&lt;p&gt;In short, the article&amp;#8217;s (and &lt;a href="/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&amp;#8217;s&lt;/a&gt;) point
 is that often our task lists aren&amp;#8217;t correlated to projects; there are
 a bunch of things to get done, but they don&amp;#8217;t always drive us toward
 completing our projects.  The idea is you should prioritize those
@@ -503,7 +503,7 @@ problem isn&amp;#8217;t your task list; it is the fact that the tasks are just
 tasks, not attached to anything. I love the idea; it&amp;#8217;s something I
 think most of us know, but forget far too easily. I sure know I
 do. Thanks for getting me started down the path
-&lt;a href="http://metapipe.com/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;a href="/team/"&gt;&lt;span class="caps"&gt;AJ&lt;/span&gt;&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;Once I finished the article, I thought, &amp;#8220;But how does one actually do
 that? A lot of those tasks that don&amp;#8217;t push us towards our ultimate
 goals and project completions are still critical things that &lt;em&gt;need&lt;/em&gt; to
