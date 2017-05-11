@@ -1,5 +1,354 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - Linux</title><link href="http://www.metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/linux.atom.xml" rel="self"></link><id>http://www.metapipe.com/</id><updated>2017-03-28T08:31:00-06:00</updated><entry><title>The History of Linux in VFX and Animation</title><link href="http://www.metapipe.com/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/" rel="alternate"></link><published>2017-03-28T08:31:00-06:00</published><updated>2017-03-28T08:31:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-03-28:/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/</id><summary type="html">&lt;p&gt;Nearly all high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; shops use Linux. Why? In this jaunt down the rabbit hole we explore the history of &lt;span class="caps"&gt;C.G.&lt;/span&gt;I production and how we ended up where we are today. I also talk a little bit about why a studio might specifically choose Linux as a choice for large scale&amp;nbsp;production.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People often seem surprised when I tell them that effectively all
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - linux</title><link href="http://www.metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/linux.atom.xml" rel="self"></link><id>http://www.metapipe.com/</id><updated>2017-05-10T19:08:51-06:00</updated><entry><title>Shell Basics For Artists</title><link href="http://www.metapipe.com/blog/posts/2017/05/10/shell-basics-for-artists/" rel="alternate"></link><published>2017-05-10T19:08:51-06:00</published><updated>2017-05-10T19:08:51-06:00</updated><author><name>Liz Benard</name></author><id>tag:www.metapipe.com,2017-05-10:/blog/posts/2017/05/10/shell-basics-for-artists/</id><summary type="html">&lt;p&gt;&lt;span class="dquo"&gt;&amp;#8220;&lt;/span&gt;Don&amp;#8217;t be shell shocked; the terminal ain&amp;#8217;t that scary!&amp;#8221; A basic understanding of how to get around and find and move files is invaluable to an artist in the &lt;span class="caps"&gt;VFX&lt;/span&gt;/Animation industry (or any industry, if you ask&amp;nbsp;me).&lt;/p&gt;</summary><content type="html">&lt;p&gt;The terminal is pretty daunting. All that basically-formatted text, those
+sometimes extensive commands, and so much typing make for a barrier to entry
+that many artists find hard to get over. But a basic understanding of how to get
+around and find and move files is invaluable. And since Unix/Linux has a long
+&lt;a href="/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/"&gt;history in the industry&lt;/a&gt;, you&amp;#8217;ll probably have to become familiar with
+it&amp;nbsp;eventually.&lt;/p&gt;
+&lt;p&gt;I have one example from my experience which will hopefully inspire you to power
+through this basic guide and expand your&amp;nbsp;repertoire:&lt;/p&gt;
+&lt;p&gt;My file browser showed two folders, &amp;#8220;&lt;strong&gt;w&lt;/strong&gt;all&amp;#8221; and &amp;#8220;&lt;strong&gt;W&lt;/strong&gt;all.&amp;#8221; Fine. But when I
+tried to click on &amp;#8220;Wall,&amp;#8221; it would disappear and only &amp;#8220;wall&amp;#8221; would remain. I was
+thoroughly confused. Thankfully, the terminal showed both folders and let me
+look at their contents. Since there was only ever supposed to be &amp;#8220;wall,&amp;#8221; anyway,
+I moved all the files over from &amp;#8220;Wall&amp;#8221; and deleted&amp;nbsp;it.&lt;/p&gt;
+&lt;p&gt;Apparently, there exist file browsers (I won&amp;#8217;t say which for now; that&amp;#8217;s for
+another discussion) which ignore the case of a file or folder&amp;#8217;s name and act
+strangely when they encounter files with differing case. There are ways to get
+around this issue without the terminal, but it was so much quicker to verify the
+problem and fix it with the power of the&amp;nbsp;shell.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ll be talking about the bash shell, but these simple commands should apply to
+most standard *nix shells. Windows&amp;#8217; shell is a different beast, and we&amp;#8217;re not
+going to cover that here, but some of the basic commands here exist in&amp;nbsp;PowerShell.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Getting to the&amp;nbsp;shell&lt;/h2&gt;
+&lt;p&gt;This depends on your system, of course. I get to mine by going to the
+Application menu and searching for &amp;#8220;Terminal.&amp;#8221; It is sometimes filed under
+something like&amp;nbsp;&amp;#8220;Administration.&amp;#8221;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Terminal Window" src="/static/img/blog/Shell_1.png"&gt;
+&lt;em&gt;Terminal&amp;nbsp;window&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;What to&amp;nbsp;expect&lt;/h2&gt;
+&lt;p&gt;Your shell probably looks different from mine, but here are some things to look
+out for as we go through&amp;nbsp;this.&lt;/p&gt;
+&lt;h3&gt;Is it &amp;#8220;Terminal&amp;#8221; or&amp;nbsp;&amp;#8220;Shell?&amp;#8221;&lt;/h3&gt;
+&lt;p&gt;People often use &amp;#8220;terminal&amp;#8221; and &amp;#8220;shell&amp;#8221; interchangeably, and I guess I do
+too. Technically, the terminal is a program which lets us interact with the
+shell, which does the&amp;nbsp;work.&lt;/p&gt;
+&lt;h3&gt;Prompt&amp;nbsp;($)&lt;/h3&gt;
+&lt;p&gt;In my shell, it&amp;#8217;s a &lt;code&gt;$&lt;/code&gt; after which I can type in commands. When I press
+&lt;code&gt;Enter&lt;/code&gt;, the command is run. For&amp;nbsp;example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ hi
+hi: &lt;span class="nb"&gt;command&lt;/span&gt; not found
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here the command &amp;#8220;hi&amp;#8221; isn&amp;#8217;t recognized by the shell, so it tells us. The shell
+is all business. &lt;span class="small"&gt;(&lt;a href="https://en.wikipedia.org/wiki/Cowsay"&gt;Ususally.&lt;/a&gt;)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;For the purposes of this post, you can type things in your shell that follow the &lt;code&gt;$&lt;/code&gt;,
+and other lines are example output of those&amp;nbsp;commands.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTE&lt;/span&gt;&lt;/strong&gt;: Often there is more before the &lt;code&gt;$&lt;/code&gt;, like your username, the machine
+name, or what folder you&amp;#8217;re in, but for simplicity we&amp;#8217;ll just show the &lt;code&gt;$&lt;/code&gt; in
+examples&amp;nbsp;here.&lt;/p&gt;
+&lt;h3&gt;Cases &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;&amp;nbsp;spaces&lt;/h3&gt;
+&lt;p&gt;In the shell, &lt;code&gt;Wall&lt;/code&gt; is not the same as &lt;code&gt;wall&lt;/code&gt;, and it won&amp;#8217;t assume to know what
+you meant, it&amp;#8217;ll spit out an error or do something you weren&amp;#8217;t expecting (which
+is sometimes&amp;nbsp;scary).&lt;/p&gt;
+&lt;p&gt;Also, spaces separate options in a command, so if you have
+a folder with spaces, you can surround it with&amp;nbsp;quotes.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ls Spaces folder
+ls: cannot access &lt;span class="s1"&gt;&amp;#39;Spaces&amp;#39;&lt;/span&gt;: No such file or directory
+ls: cannot access &lt;span class="s1"&gt;&amp;#39;folder&amp;#39;&lt;/span&gt;: No such file or directory
+$ ls &lt;span class="s2"&gt;&amp;quot;Spaces folder&amp;quot;&lt;/span&gt;
+its_just_easier_to_never_put_spaces_into_folder_names.txt  file_names_either.txt
+but_sometimes_you_have_to_deal_with_others_mistakes.txt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Tilde&amp;nbsp;(~)&lt;/h3&gt;
+&lt;p&gt;In a path in the shell, the tilde character (~) is an alias for your home
+folder. So, for me, &lt;code&gt;~&lt;/code&gt; is equivalent to &lt;code&gt;/home/ebenard&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Where you&amp;nbsp;are&lt;/h2&gt;
+&lt;h3&gt;pwd &amp;#8212; print working&amp;nbsp;directory&lt;/h3&gt;
+&lt;p&gt;Short for &amp;#8220;print working directory,&amp;#8221; this is like looking at the top of the page
+in a book to remind yourself where you&amp;nbsp;are.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;pwd&lt;/span&gt;
+/home/ebenard
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;My shell starts me out in my home folder, so this is what I see when I use the
+&lt;code&gt;pwd&lt;/code&gt; command. While you&amp;#8217;re moving around the filesystem, it can be helpful to
+remind yourself where you&amp;nbsp;are.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;What&amp;#8217;s&amp;nbsp;here&lt;/h2&gt;
+&lt;h3&gt;ls &amp;#8212; list&amp;nbsp;files&lt;/h3&gt;
+&lt;p&gt;To &lt;strong&gt;list&lt;/strong&gt; the files and folders in our current location, we use this&amp;nbsp;command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  stuff.py  Videos
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This shows a space-separated list of the contents of the folder we&amp;#8217;re currently
+in. There aren&amp;#8217;t many details to this default view, so now might be the time to
+talk about command&amp;nbsp;options.&lt;/p&gt;
+&lt;h3&gt;Command&amp;nbsp;options&lt;/h3&gt;
+&lt;p&gt;When reading documentation about shell commands, you&amp;#8217;ll often see lots of dashes
+and letters. These are options, which are essential to understand if you&amp;#8217;re
+going to be using the&amp;nbsp;shell.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ls -l --sort size Desktop/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here&amp;#8217;s a breakdown of this&amp;nbsp;command:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-l&lt;/code&gt; is an example of a flag-type option. It needs no more information to
+    activate the option. In this case, &lt;code&gt;-l&lt;/code&gt; tells the &lt;code&gt;ls&lt;/code&gt; command to output in a
+    long format. &lt;span class="caps"&gt;NOTE&lt;/span&gt;: Both flag options and keyword options can have both short and
+    long names. For example, &lt;code&gt;-a&lt;/code&gt; and &lt;code&gt;--all&lt;/code&gt; represent the same flag-type option
+    (which lists both hidden and normally-visible files), &lt;code&gt;-a&lt;/code&gt; is just quicker to&amp;nbsp;type.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--sort&lt;/code&gt; is an example of a keyword option which takes a value. The next thing
+    separated by a space will be that value. In this case, &lt;code&gt;size&lt;/code&gt; is the value for
+    the &lt;code&gt;--sort&lt;/code&gt; option, so &lt;code&gt;ls&lt;/code&gt; will sort the output by size, instead of by the
+    default, &lt;code&gt;name&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Desktop/&lt;/code&gt; is an example of a positional option. Its position as the first
+    option without a keyword option before it makes it the &amp;#8220;first positional option&amp;#8221;
+    of the command, which in this case, is the folder of which we&amp;#8217;re trying to list
+    the contents. Although other options can be in almost any order, the positional
+    options must be in the order the command&amp;nbsp;expects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I don&amp;#8217;t have anything on my Desktop, but here&amp;#8217;s the output from my home&amp;nbsp;directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ls -l --sort size ~/
+total &lt;span class="m"&gt;8&lt;/span&gt;
+drwxr-xr-x &lt;span class="m"&gt;6&lt;/span&gt; ebenard ebenard &lt;span class="m"&gt;12288&lt;/span&gt; May &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="m"&gt;12&lt;/span&gt;:01 Downloads
+drwxr-xr-x &lt;span class="m"&gt;2&lt;/span&gt; ebenard ebenard  &lt;span class="m"&gt;4096&lt;/span&gt; Apr &lt;span class="m"&gt;17&lt;/span&gt; &lt;span class="m"&gt;03&lt;/span&gt;:16 Desktop
+drwxr-xr-x &lt;span class="m"&gt;2&lt;/span&gt; ebenard ebenard  &lt;span class="m"&gt;4096&lt;/span&gt; Apr &lt;span class="m"&gt;17&lt;/span&gt; &lt;span class="m"&gt;03&lt;/span&gt;:16 Documents
+drwxr-xr-x &lt;span class="m"&gt;2&lt;/span&gt; ebenard ebenard  &lt;span class="m"&gt;4096&lt;/span&gt; Apr &lt;span class="m"&gt;17&lt;/span&gt; &lt;span class="m"&gt;03&lt;/span&gt;:16 Music
+drwxr-xr-x &lt;span class="m"&gt;2&lt;/span&gt; ebenard ebenard  &lt;span class="m"&gt;4096&lt;/span&gt; May &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="m"&gt;13&lt;/span&gt;:39 Pictures
+drwxr-xr-x &lt;span class="m"&gt;2&lt;/span&gt; ebenard ebenard  &lt;span class="m"&gt;4096&lt;/span&gt; Apr &lt;span class="m"&gt;17&lt;/span&gt; &lt;span class="m"&gt;03&lt;/span&gt;:16 Public
+drwxr-xr-x &lt;span class="m"&gt;2&lt;/span&gt; ebenard ebenard  &lt;span class="m"&gt;4096&lt;/span&gt; Apr &lt;span class="m"&gt;17&lt;/span&gt; &lt;span class="m"&gt;03&lt;/span&gt;:16 Videos
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can see here that it formed the output into a columned list, and
+&lt;code&gt;Downloads&lt;/code&gt;, which is the largest (at 12288 bytes), is sorted to the top. The
+columns preceding &lt;code&gt;ebenard&lt;/code&gt; are showing &lt;strong&gt;r&lt;/strong&gt;ead/&lt;strong&gt;w&lt;/strong&gt;rite/e&lt;strong&gt;x&lt;/strong&gt;ecute
+permissions, which are important, but outside the scope for us here&amp;nbsp;today.&lt;/p&gt;
+&lt;h3&gt;less &amp;#8212; view contents of a&amp;nbsp;file&lt;/h3&gt;
+&lt;p&gt;This command can be used to see the contents of a plain-text file. &lt;code&gt;stuff.py&lt;/code&gt; is
+in this directory, so we&amp;#8217;ll look at it by using this&amp;nbsp;command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ less stuff.py
+&lt;span class="c1"&gt;#! /usr/bin/env python&lt;/span&gt;
+
+print&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+stuff.py &lt;span class="o"&gt;(&lt;/span&gt;END&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It shows the first &amp;#8220;page,&amp;#8221; and then you can use the spacebar to page through the
+contents. It&amp;#8217;ll tell you what page you&amp;#8217;re on at the bottom (or &amp;#8220;&lt;span class="caps"&gt;END&lt;/span&gt;&amp;#8221; if you&amp;#8217;ve
+reached the end). At any time, you can press &lt;code&gt;q&lt;/code&gt; to exit back to the&amp;nbsp;prompt.&lt;/p&gt;
+&lt;h3&gt;Launching&amp;nbsp;programs&lt;/h3&gt;
+&lt;p&gt;To launch external programs from the terminal, usually we just type the program
+name at the prompt and hit&amp;nbsp;enter.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ firefox
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Which will launch Firefox as if you had clicked the entry in the Application
+menu. When we go back to our terminal, though, we don&amp;#8217;t have a prompt to keep
+working at. To get the prompt back, we have to close&amp;nbsp;Firefox.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;TIP&lt;/span&gt;&lt;/strong&gt;: To prevent a launched program like Firefox from holding our prompt
+hostage, when we launch it we can add a space and the ampersand &lt;code&gt;&amp;amp;&lt;/code&gt; after the&amp;nbsp;command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ firefox &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If we want to edit &lt;code&gt;stuff.py&lt;/code&gt; in an external program, we&amp;#8217;ll have to know the
+program&amp;#8217;s name. My basic text editor is &amp;#8220;xed,&amp;#8221; another common one on Linux is
+&amp;#8220;gedit.&amp;#8221; To open &lt;code&gt;stuff.py&lt;/code&gt; in xed, I&amp;#8217;d type the&amp;nbsp;following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ xed stuff.py &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Which opens a xed window with the &lt;code&gt;stuff.py&lt;/code&gt; file opened and ready for editing.
+Since we used the ampersand (&lt;code&gt;&amp;amp;&lt;/code&gt;), we can continue using our terminal window
+without closing the text&amp;nbsp;editor.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Getting&amp;nbsp;around&lt;/h2&gt;
+&lt;h3&gt;cd &amp;#8212; change&amp;nbsp;directory&lt;/h3&gt;
+&lt;p&gt;To move around folders, we use &lt;code&gt;cd&lt;/code&gt; to &lt;strong&gt;change directories&lt;/strong&gt;. If we want to get
+to the Downloads folder, we&amp;#8217;d type the&amp;nbsp;following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; Downloads
+$ &lt;span class="nb"&gt;pwd&lt;/span&gt;
+/home/ebenard/Downloads
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Which moves us to the Downloads folder. We can check by using &lt;code&gt;pwd&lt;/code&gt;. We can also
+specify a whole path to change&amp;nbsp;to.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /home/ebenard
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can specify any path to change to if you have permission to access it.
+Typing all this can be very tedious, though. So now is probably a good time to
+talk about auto-complete with the tab&amp;nbsp;key.&lt;/p&gt;
+&lt;h3&gt;Auto-complete&lt;/h3&gt;
+&lt;p&gt;If you don&amp;#8217;t know what something is called, or even if you do, you can use the
+tab key to auto-complete a command or path. If there are more than one option,
+it won&amp;#8217;t auto-complete, but if you press tab again, the options will be&amp;nbsp;listed.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; D &lt;span class="o"&gt;[&lt;/span&gt;tab&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;tab&lt;span class="o"&gt;]&lt;/span&gt;
+Desktop/  Documents/  Downloads/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can use this to find what we want and continue typing until pressing tab&amp;nbsp;auto-completes.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; De &lt;span class="o"&gt;[&lt;/span&gt;tab&lt;span class="o"&gt;]&lt;/span&gt;
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; Desktop/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Relative&amp;nbsp;paths&lt;/h3&gt;
+&lt;p&gt;If we want to move up a folder without specifying the whole path from the top,
+we can use &lt;code&gt;../&lt;/code&gt; to go up a&amp;nbsp;level.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;pwd&lt;/span&gt;
+/home/ebenard/Desktop
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; ../
+$ &lt;span class="nb"&gt;pwd&lt;/span&gt;
+/home/ebenard
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;../&lt;/code&gt; represents the parent folder of the one we&amp;#8217;re currently in. If we
+wanted to move up several levels, we can use &lt;code&gt;../&lt;/code&gt; in series. For&amp;nbsp;example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; ../../
+$ &lt;span class="nb"&gt;pwd&lt;/span&gt;
+/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTE&lt;/span&gt;&lt;/strong&gt;: Where &lt;code&gt;../&lt;/code&gt; represents the parent folder, &lt;code&gt;./&lt;/code&gt; represents the folder
+we&amp;#8217;re currently in. So trying to &lt;code&gt;cd ./&lt;/code&gt; won&amp;#8217;t move us anywhere, since we&amp;#8217;re
+specifying the folder we&amp;#8217;re&amp;nbsp;in.&lt;/p&gt;
+&lt;h2&gt;Making your&amp;nbsp;mark&lt;/h2&gt;
+&lt;h3&gt;mkdir &amp;#8212; make&amp;nbsp;directory&lt;/h3&gt;
+&lt;p&gt;If we want to create a folder to keep our &lt;code&gt;.py&lt;/code&gt; file in, we can use &lt;code&gt;mkdir&lt;/code&gt; to
+make a directory called &amp;#8220;Code&amp;#8221; (after &lt;code&gt;cd&lt;/code&gt;ing back to our home&amp;nbsp;folder).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir Code
+$ ls
+Code  Desktop  Documents  Downloads  Music  Pictures  Public  stuff.py  Videos
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If we want to make another folder inside &lt;code&gt;Code&lt;/code&gt;, maybe &amp;#8220;Python,&amp;#8221; we can do that,
+even without moving into the &lt;code&gt;Code&lt;/code&gt; folder.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir Code/Python
+$ ls Code/
+Python
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;mv &amp;#8212;&amp;nbsp;move&lt;/h3&gt;
+&lt;p&gt;Now if we want to move our &lt;code&gt;stuff.py&lt;/code&gt; file into the &lt;code&gt;Code/Python/&lt;/code&gt;folder, we
+would use the &lt;code&gt;mv&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mv stuff.py Code/Python/
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; Code/Python/
+$ ls
+stuff.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;mv&lt;/code&gt; command takes two positional options: source and&amp;nbsp;destination.&lt;/p&gt;
+&lt;p&gt;One way we can use this command is to rename a file. For example, if we decided
+that &lt;code&gt;stuff.py&lt;/code&gt; was a woefully non-descriptive&amp;nbsp;name.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mv stuff.py hello.py
+$ ls
+hello.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;cp &amp;#8212;&amp;nbsp;copy&lt;/h3&gt;
+&lt;p&gt;To copy files or folders around, we can use the &lt;code&gt;cp&lt;/code&gt; command. It takes a source
+and destination, just like the &lt;code&gt;mv&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cp hello.py new_hello.py
+$ ls
+hello.py  new_hello.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;At some point we may want to copy a whole folder of stuff. To do this we have to
+use the &amp;#8220;recursive&amp;#8221; option (after we &lt;code&gt;cd&lt;/code&gt; out of the &lt;code&gt;Code&lt;/code&gt; folder).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; ../../
+$ ls
+Code  Desktop  Documents  Downloads  Music  Pictures  Public  Videos
+$ cp -r Code/ New_Code/
+$ ls
+Code  Desktop  Documents  Downloads  Music  New_Code  Pictures  Public  Videos
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h2&gt;Cleaning&amp;nbsp;up&lt;/h2&gt;
+&lt;h3&gt;rm &amp;#8212;&amp;nbsp;remove&lt;/h3&gt;
+&lt;p&gt;To remove individual files, use the &lt;code&gt;rm&lt;/code&gt; command with the path to the file after a&amp;nbsp;space.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ rm Code/Python/new_hello.py
+$ ls Code/Python/
+hello.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can remove all the files in a folder using a &amp;#8220;wildcard,&amp;#8221; which will match an
+arbitrary number of characters. For&amp;nbsp;example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ rm New_Code/Python/*.py
+$ ls New_Code/Python/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;BEWARE&lt;/span&gt;&lt;/strong&gt;: The asterisk is a dangerous thing if used unwisely. If you use &lt;code&gt;rm *&lt;/code&gt;
+it&amp;#8217;ll remove every file in the current folder. Useful for clearing things out,
+but bad if you didn&amp;#8217;t mean to delete everything. Combined with the recursive
+option explained below, this is extra dangerous. &lt;strong&gt;Be careful&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If we want to use &lt;code&gt;rm&lt;/code&gt; to delete folders and their entire contents, you can use
+the &amp;#8220;recursive&amp;#8221; option, &lt;code&gt;-r&lt;/code&gt;. &lt;strong&gt;Be careful&lt;/strong&gt; with this as well, since it will
+remove everything in and including the folder that you&amp;nbsp;specify.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ rm -r New_Code
+$ ls
+Code  Desktop  Documents  Downloads  Music  Pictures  Public  Videos
+$ rm -r Code
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Videos
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;While you&amp;#8217;re getting used to how the terminal and the &lt;code&gt;rm&lt;/code&gt; command work, and
+especially when you&amp;#8217;re using the recursive option explained above, the &lt;code&gt;-i&lt;/code&gt;
+(interactive) option for &lt;code&gt;rm&lt;/code&gt; can be useful. It will ask you every step of the
+way if it should continue. So, if you have a folder called &lt;code&gt;test&lt;/code&gt; with a file
+called &lt;code&gt;thing.txt&lt;/code&gt; in it, you can combine &lt;code&gt;-r&lt;/code&gt; and &lt;code&gt;-i&lt;/code&gt; to get the following
+step-by-step&amp;nbsp;process:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ rm -r -i &lt;span class="nb"&gt;test&lt;/span&gt;
+rm: descend into directory &lt;span class="s1"&gt;&amp;#39;test&amp;#39;&lt;/span&gt;? y
+rm: remove regular file &lt;span class="s1"&gt;&amp;#39;test/thing.txt&amp;#39;&lt;/span&gt;? y
+rm: remove directory &lt;span class="s1"&gt;&amp;#39;test&amp;#39;&lt;/span&gt;? n
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  &lt;span class="nb"&gt;test&lt;/span&gt;  Videos
+$ rm -r -i &lt;span class="nb"&gt;test&lt;/span&gt;
+rm: remove directory &lt;span class="s1"&gt;&amp;#39;test&amp;#39;&lt;/span&gt;? y
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Videos
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will almost definitely get annoying after you&amp;#8217;ve become comfortable with
+the shell, but it is very useful to understand how &lt;code&gt;rm&lt;/code&gt; moves through the
+folders and&amp;nbsp;files.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I hope this quick intro was useful to get you started in the shell. Even if you
+don&amp;#8217;t use it day-to-day, being familiar with the structure and concepts can open
+up methods of getting things done that weren&amp;#8217;t available&amp;nbsp;before.&lt;/p&gt;</content><category term="linux"></category><category term="tech"></category><category term="shell"></category></entry><entry><title>The History of Linux in VFX and Animation</title><link href="http://www.metapipe.com/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/" rel="alternate"></link><published>2017-03-28T08:31:00-06:00</published><updated>2017-03-28T08:31:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-03-28:/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/</id><summary type="html">&lt;p&gt;Nearly all high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; shops use Linux. Why? In this jaunt down the rabbit hole we explore the history of &lt;span class="caps"&gt;C.G.&lt;/span&gt;I production and how we ended up where we are today. I also talk a little bit about why a studio might specifically choose Linux as a choice for large scale&amp;nbsp;production.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People often seem surprised when I tell them that effectively all
 high-end &lt;span class="caps"&gt;VFX&lt;/span&gt; and animation shops use
 &lt;a href="https://en.wikipedia.org/wiki/Linux"&gt;Linux&lt;/a&gt;. Surely something like
 Windows or &lt;span class="caps"&gt;OSX&lt;/span&gt; would be more convenient, right? Maybe so&amp;#8230; or maybe

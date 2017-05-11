@@ -152,6 +152,11 @@ article img, .center-and-size {
     margin-right: auto;
 }
 
+article img + em {
+    display: block;
+    text-align: center;
+}
+
 article .entry-content p a {
     color: #94d694;
     text-decoration: underline;
@@ -163,6 +168,10 @@ article .entry-content p a:hover {
 
 article .entry-content p a:visited {
     color: #4baa4b
+}
+
+section#article_content {
+    margin-bottom: 3em;
 }
 
 #sidebar-sub {
