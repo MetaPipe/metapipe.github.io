@@ -1,5 +1,549 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - Aaron Estrada</title><link href="http://www.metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/aaron-estrada.atom.xml" rel="self"></link><id>http://www.metapipe.com/</id><updated>2017-04-07T16:30:00-06:00</updated><entry><title>Creating Panoramas for CG</title><link href="http://www.metapipe.com/blog/posts/2017/04/07/creating-panos-for-cg/" rel="alternate"></link><published>2017-04-07T16:30:00-06:00</published><updated>2017-04-07T16:30:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-04-07:/blog/posts/2017/04/07/creating-panos-for-cg/</id><summary type="html">&lt;p&gt;Free Nuke tutorials on how to create Tile Worlds and use Panoramas in &lt;span class="caps"&gt;CG&lt;/span&gt;. &lt;span class="caps"&gt;PLUS&lt;/span&gt;, advanced green screen matte extraction&amp;nbsp;techniques.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Tile Worlds, Camera Projection and Image Based Lighting all have one thing in
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MetaPipe - Aaron Estrada</title><link href="http://www.metapipe.com/" rel="alternate"></link><link href="localhost:8000/feeds/aaron-estrada.atom.xml" rel="self"></link><id>http://www.metapipe.com/</id><updated>2017-05-26T15:30:00-06:00</updated><entry><title>Data Compression 101</title><link href="http://www.metapipe.com/blog/posts/2017/05/26/data-compression-101/" rel="alternate"></link><published>2017-05-26T15:30:00-06:00</published><updated>2017-05-26T15:30:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-05-26:/blog/posts/2017/05/26/data-compression-101/</id><summary type="html">&lt;p&gt;What is data compression and how can it help you in your &lt;span class="caps"&gt;VFX&lt;/span&gt; and Animation work? In this post we’ll look at the basics of data compression both lossless and lossy. What are the options and what are the tradeoffs when using compression vs. not using&amp;nbsp;compression?&lt;/p&gt;</summary><content type="html">&lt;p&gt;What is data compression and how can it help you in &lt;span class="caps"&gt;VFX&lt;/span&gt; and Animation?
+In this post we’ll look at the basics of data compression both
+lossless and lossy. What are the options and what are the tradeoffs
+when using compression vs. not using&amp;nbsp;compression?&lt;/p&gt;
+&lt;p&gt;I recently had a conversation with an experienced colleague that made
+me realize just how much confusion there can be about data
+compression, even among experienced folks. If my experienced colleague
+could be confused I assume less experienced folks might be equally
+confused. Let&amp;#8217;s demystify lossy vs. lossless compression for&amp;nbsp;good.&lt;/p&gt;
+&lt;p&gt;The first thing that seems to confuse most people about compression is
+that there are two types of compression: &lt;strong&gt;&lt;span class="caps"&gt;LOSSLESS&lt;/span&gt;&lt;/strong&gt; and
+&lt;strong&gt;&lt;span class="caps"&gt;LOSSY&lt;/span&gt;&lt;/strong&gt;. Each is useful for its intended purpose. However, they have
+slightly different use cases that only intersect in the goal of
+reducing data footprint. I think that’s what makes the distinction
+between them confusing for some of people. They both compress data, but
+use wildly different strategies to achieve their&amp;nbsp;goal.&lt;/p&gt;
+&lt;p&gt;Lossy compression, which we will dive into in more detail later, uses
+techniques that discard some amount of data in order to achieve higher
+compression ratios. When decoded, lossy compression schemes can only
+create an approximation of the original data rather than reproducing
+the original data faithfully. They can only be used used for types of
+data that can tolerate data loss without destroying the intent of the
+data. Examples of this type of data are images and sound, which can
+tolerate some loss of data without a large perceptible loss in
+quality. (at least not perceptible by&amp;nbsp;humans)&lt;/p&gt;
+&lt;p&gt;Lossless compression on the other hand is used for reducing the
+footprint of data when no loss of data is tolerable. Data integrity is
+just as important as data compaction in this use case so certain
+approaches to compression (like the various schemes of approximation
+used by lossy compression techniques for sound and images) are off the&amp;nbsp;table.&lt;/p&gt;
+&lt;p&gt;You may also have heard the phrase &amp;#8220;Perceptually Lossless&amp;#8221;. Well, I
+hate to break it to you, but strictly speaking that means lossy. Almost
+any lossy algorithm can be tuned to create a perceptually lossless
+result. But &amp;#8220;Perceptually Lossless&amp;#8221; is not the same as lossless,
+especially when absolute data fidelity is&amp;nbsp;important.&lt;/p&gt;
+&lt;p&gt;For some reason, many people seem to assume that compression always
+requires some kind of loss. This is perhaps because it’s a somewhat
+intuitive conclusion. There must be some kind of equivalent exchange
+in order shrink the size of a data set, right? How can a file be made
+smaller without throwing data away? As we will see, throwing away data
+to reduce the size of a data set is not a requirement. There is
+however an equivalent exchange, which we will dive into&amp;nbsp;now.&lt;/p&gt;
+&lt;p&gt;As it’s name implies, lossless compression is perfectly mathematically
+reversible. It is lossless. What you get from when you unpack the data
+from an algorithm is &lt;span class="caps"&gt;IDENTICAL&lt;/span&gt; to the original data, down the bit. If
+not, the algorithm cannot be called lossless. Lossless compression
+algorithms exploit the fact that most data has redundancy in it. They
+identify redundancy in a dataset and create shorthand representations
+of the redundant data which can be stored in a more compact
+form. Examples of common lossless compression tools are zip, gzip,
+7zip, xz, bzip2. They are based on the plethora of
+&lt;a href="https://en.wikipedia.org/wiki/Category:Lossless_compression_algorithms"&gt;lossless data compression algorithms&lt;/a&gt;
+available in the wild.  This type of tool is commonly used to compress
+data that can’t tolerate loss of any kind. Examples might be text
+files like logs, scene descriptions like .ma, .mb and .hip files and
+geometry formats like .bgeo, .obj etc. It can also be used to compress
+image data when any amount of quality loss is unacceptable.  How
+compressible a particular data set is will depend on the content of
+the data and the algorithm. Certain algorithms perform better on
+specific types of data. There is no perfect algorithm, though there
+are several good general purpose compression algorithms. Highly
+compressible data (that is data with a lot of redundancy in the set)
+might allow for compression of 50% or better, whereas data with
+practically no redundancy might not compress at all and might in fact
+become larger if run through a compression algorithm. Truly random
+data cannot be&amp;nbsp;compressed.&lt;/p&gt;
+&lt;p&gt;With lossless compression, the trade off for smaller file sizes is
+increased computation time and &lt;span class="caps"&gt;RAM&lt;/span&gt; usage during compression and
+decompression. The computational cost will depend on the specific
+algorithm being used. A good rule of thumb is, the more compute and
+&lt;span class="caps"&gt;RAM&lt;/span&gt; intensive an algorithm, the better the compression it will
+provide. (Though not always. Some implementations of even the same
+algorithm can out-perform more poorly implemented versions of the same
+algorithm. It&amp;#8217;s tricky to do straight apples to apples comparisons&amp;nbsp;sometimes!)&lt;/p&gt;
+&lt;p&gt;Due to how fast modern CPUs have become an unexpected benefit of using
+compression might be faster overall file access. This can be true for
+even fast storage devices like SSDs, but is especially true for slower
+devices like hard drives and network attached storage.  Assuming the
+cost of on-the-fly decompression is less than the speed up of
+transferring the smaller compressed file from disk or over a network,
+the end result will be overall faster file access. Given just how much
+&lt;span class="caps"&gt;CPU&lt;/span&gt; power modern computers have to spare, this is almost true these
+days. This benefit is something many people don’t consider. There
+still seems to be a prevailing belief (which has been outdated for
+years) that compression is slow. It’s simply not true any more.  We
+often have so many &lt;span class="caps"&gt;CPU&lt;/span&gt; cycles to spare we might as well use them for
+something&amp;nbsp;useful.&lt;/p&gt;
+&lt;p&gt;As an added benefit, if the overall network usage can be cut in half
+by using compression, it means twice as many files can be copied over
+a given network in the same amount of time. It might not seem like
+such a big deal if you are working alone on a fast network, but if
+there are tens or hundreds of other people working on the same network
+and automated processes like a render farm hitting the same pool of
+storage, the bandwidth being consumed adds up fast. In that case
+compression can be a huge win.  The benefits are obviously apparent
+when network bandwidth is highly constrained, for example when sending
+data over the Internet.  Most people seem to understand intuitively
+why it works on the web, but fail to generalize the same concept to
+local area networks. Network bandwidth is never infinite, no matter
+how fast a&amp;nbsp;network.&lt;/p&gt;
+&lt;p&gt;In addition to fitting more info over the a network connection,
+compressing the files also allows for more files to fit on disk. It’s
+a double win in most cases. Consider the value of space on an &lt;span class="caps"&gt;SSD&lt;/span&gt;,
+which is still priced at a premium compared to hard drive space. The
+only trade off is that there is a potential computational cost, but as
+we will see, that cost can be balanced against the upside of the other
+factors in&amp;nbsp;play.&lt;/p&gt;
+&lt;p&gt;Let’s look at a simple example where we losslessly compress some text
+files with gzip, a very common compression tool available in the base
+install of pretty much every Linux distro. You can use these as
+inspiration for how you manage files on your file&amp;nbsp;system.&lt;/p&gt;
+&lt;p&gt;First we will run them through md5sum to generate checksums for
+them. A checksum is like the fingerprint for the data in a file. If
+the data changes even the tiniest amount, the checksum will&amp;nbsp;change.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;aaron@minty:~/project_gutenberg$ md5sum *.txt | tee  MD5SUMS
+022cb6af4d7c84b4043ece93e071d8ef  Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8.txt
+424c7f50d156aa6c021ee616cfba6e31  Moby_Dick_by_Herman_Melville_utf8.txt
+5f2319239819dfa7ff89ef847b08aff0  Pride_and_Prejudice_by_Jane_Austen_utf8.txt
+8676b5095efce2e900de83ab339ac753  The_Art_of_War_by_Sun_Tzu_utf8.txt
+2c89aeaa17956a955d789fb393934b9a  War_and_Peace_by_Leo_Tolstoy_utf8.txt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We used ‘tee’ to also redirect the output to the file &lt;span class="caps"&gt;MD5SUMS&lt;/span&gt; so we
+can keep that info around for later. Now let’s look at the sizes of
+the&amp;nbsp;files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;aaron@minty:~/project_gutenberg$ ls -lh *.txt
+-rw-rw-r-- 1 aaron aaron 439K Apr 15 21:11 Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8.txt
+-rw-rw-r-- 1 aaron aaron 1.3M Apr 15 21:13 Moby_Dick_by_Herman_Melville_utf8.txt
+-rw-rw-r-- 1 aaron aaron 710K Apr 15 21:12 Pride_and_Prejudice_by_Jane_Austen_utf8.txt
+-rw-rw-r-- 1 aaron aaron 336K Apr 15 21:09 The_Art_of_War_by_Sun_Tzu_utf8.txt
+-rw-rw-r-- 1 aaron aaron 3.3M Apr 15 21:06 War_and_Peace_by_Leo_Tolstoy_utf8.txt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Even as plain utf-8, War and Peace takes 3.3 megs of disk space. Now we
+know how big the files started out and are and what their md5sums are,
+let’s compress them with good old gzip. I’ll time each compression so
+we can get a sense of how much time it’s costing us to compress each&amp;nbsp;file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;aaron&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;minty&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="nt"&gt;project_gutenberg&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="nt"&gt;for&lt;/span&gt; &lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="nt"&gt;in&lt;/span&gt; &lt;span class="o"&gt;$(&lt;/span&gt;&lt;span class="nt"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nt"&gt;do&lt;/span&gt; &lt;span class="nt"&gt;time&lt;/span&gt; &lt;span class="nt"&gt;gzip&lt;/span&gt; &lt;span class="nt"&gt;-v&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="nt"&gt;done&lt;/span&gt;
+&lt;span class="nt"&gt;Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;    &lt;span class="nt"&gt;62&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;045s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;044s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;000s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Moby_Dick_by_Herman_Melville_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="nt"&gt;59&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;9&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;Moby_Dick_by_Herman_Melville_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;125s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;116s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;008s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Pride_and_Prejudice_by_Jane_Austen_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;     &lt;span class="nt"&gt;64&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;Pride_and_Prejudice_by_Jane_Austen_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;079s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;079s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;000s&lt;/span&gt;
+
+&lt;span class="nt"&gt;The_Art_of_War_by_Sun_Tzu_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;      &lt;span class="nt"&gt;62&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;0&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;The_Art_of_War_by_Sun_Tzu_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;055s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;043s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;012s&lt;/span&gt;
+
+&lt;span class="nt"&gt;War_and_Peace_by_Leo_Tolstoy_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="nt"&gt;63&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;5&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;War_and_Peace_by_Leo_Tolstoy_utf8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;354s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;321s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;018s&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We’ll use the “real” time which is how long we had to wait for each
+one of these files to compress inclusive of all factors. Nice! Every
+single one of these text files compressed more than 50% and took less
+than half a second (on one core&amp;#8230; gzip is only single threaded!). War
+and Peace, our largest file, actually got the second highest
+compression ratio. (Perhaps it’s sheer size increased the chances of
+there being redundancies in it gzip could compress away.)  Let’s check
+out the absolute file sizes of the now compressed&amp;nbsp;files.&lt;/p&gt;
+&lt;p&gt;One of the things I like about gzip and similar archiving tools on
+Linux is that they are typically able to compress files in place. As
+you can see in my example, all the txt files have been replaced by
+their .gz compressed counterpart. This is great if you need to free up
+space, but don’t have a lot of disk space to work with since gzip can
+go through all the files, file by file, and compress them one at a
+time cleaning up the old uncompressed files for you as it goes. (Even
+if the tool itself wasn’t able to do this you can easily script a
+simple one-liner in bash to do it, which I demonstrate&amp;nbsp;later.)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;aaron@minty:~/project_gutenberg$ ls -lh *.txt.gz
+-rw-rw-r-- 1 aaron aaron 166K Apr 15 21:11 Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8.txt.gz
+-rw-rw-r-- 1 aaron aaron 501K Apr 15 21:13 Moby_Dick_by_Herman_Melville_utf8.txt.gz
+-rw-rw-r-- 1 aaron aaron 255K Apr 15 21:12 Pride_and_Prejudice_by_Jane_Austen_utf8.txt.gz
+-rw-rw-r-- 1 aaron aaron 128K Apr 15 21:09 The_Art_of_War_by_Sun_Tzu_utf8.txt.gz
+-rw-rw-r-- 1 aaron aaron 1.2M Apr 15 21:06 War_and_Peace_by_Leo_Tolstoy_utf8.txt.gz
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sweet! They are all certainly much smaller than they were. But was the
+data altered in any way? Let’s uncompress the files and check the
+md5sums. A difference of even a single bit will cause the md5sum to
+change so we’ll be able to spot if the output files are identical to
+the&amp;nbsp;originals.&lt;/p&gt;
+&lt;p&gt;Let’s use the gunzip command to uncompress all the files and if that
+succeeds, we’ll have md5sum check the checksums we cached away&amp;nbsp;earlier.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;aaron@minty:~/project_gutenberg$ gunzip *.gz &amp;amp;&amp;amp; md5sum -c MD5SUMS
+Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8.txt: OK
+Moby_Dick_by_Herman_Melville_utf8.txt: OK
+Pride_and_Prejudice_by_Jane_Austen_utf8.txt: OK
+The_Art_of_War_by_Sun_Tzu_utf8.txt: OK
+War_and_Peace_by_Leo_Tolstoy_utf8.txt: OK
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;“&lt;span class="caps"&gt;OK&lt;/span&gt;” means the file matched the md5sum in the file &lt;span class="caps"&gt;MD5SUMS&lt;/span&gt; that we
+checked it against. The files we round-tripped through gzip are
+identical to the originals. If you are an old hand with archive tools
+like zip and gzip this won&amp;#8217;t be a surprise to you. If not, you just
+learned something&amp;nbsp;new.&lt;/p&gt;
+&lt;p&gt;&lt;span class="caps"&gt;OK&lt;/span&gt;, so we proved the output is identical and that it can compress
+text, but how about something more production data-like? How about
+some 3D models? We’ll skip checking the md5sums since hopefully I’ve
+sufficiently demonstrated how lossless compression is in fact&amp;nbsp;lossless.&lt;/p&gt;
+&lt;p&gt;First let’s check the files&amp;nbsp;sizes.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;aaron@minty:~/3d_models$ ls -lh
+total 83M
+-rw-rw-r-- 1 aaron aaron  11M Jul 13  2010 Advanced_Crew_Escape_Suit.obj
+-rw-rw-r-- 1 aaron aaron  43M Jul 13  2010 Extravehicular_Mobility_Unit.obj
+-rw------- 1 aaron aaron 468K Oct 29  2008 Shuttle.3ds
+-rw------- 1 aaron aaron 677K Sep  5  2008 skylab_carbajal.3ds
+-rw-rw-r-- 1 aaron aaron  28M Jun  9  2015 Space_Exploration_Vehicle.obj
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;These are some non-trivial file sizes here. Plus we have some binary
+files to work with (the .3ds files). Let’s compress them and see how
+well gzip does. We’ll time each one again so we know what it’s costing
+us in cpu&amp;nbsp;time.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;aaron&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;minty&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="nt"&gt;3d_models&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="nt"&gt;for&lt;/span&gt; &lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="nt"&gt;in&lt;/span&gt; &lt;span class="o"&gt;$(&lt;/span&gt;&lt;span class="nt"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;*.?&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;d&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;?);&lt;/span&gt; &lt;span class="nt"&gt;do&lt;/span&gt; &lt;span class="nt"&gt;time&lt;/span&gt; &lt;span class="nt"&gt;gzip&lt;/span&gt; &lt;span class="nt"&gt;-v&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="nt"&gt;done&lt;/span&gt;
+&lt;span class="nt"&gt;Advanced_Crew_Escape_Suit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="nt"&gt;78&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;8&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;Advanced_Crew_Escape_Suit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;920s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;891s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;027s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Extravehicular_Mobility_Unit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;    &lt;span class="nt"&gt;80&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;4&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;Extravehicular_Mobility_Unit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;421s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;287s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;119s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Shuttle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;     &lt;span class="nt"&gt;59&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;0&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;Shuttle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;045s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;036s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;007s&lt;/span&gt;
+
+&lt;span class="nt"&gt;skylab_carbajal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;     &lt;span class="nt"&gt;62&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;4&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;skylab_carbajal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;027s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;026s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;005s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Space_Exploration_Vehicle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="nt"&gt;75&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;9&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nt"&gt;--&lt;/span&gt; &lt;span class="nt"&gt;replaced&lt;/span&gt; &lt;span class="nt"&gt;with&lt;/span&gt; &lt;span class="nt"&gt;Space_Exploration_Vehicle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;gz&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;939s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;813s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;114s&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ok. Now that we are compressing some hefty files the time it’s taking
+to compress them has gone up quite a bit. It’s pretty apparent
+compression isn’t free. How much disk space did we save though? Was
+the disk space savings worth the computational&amp;nbsp;cost?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;aaron@minty:~/3d_models$ ls -lh
+total 18M
+-rw-rw-r-- 1 aaron aaron 2.3M Jul 13  2010 Advanced_Crew_Escape_Suit.obj.gz
+-rw-rw-r-- 1 aaron aaron 8.4M Jul 13  2010 Extravehicular_Mobility_Unit.obj.gz
+-rw------- 1 aaron aaron 192K Oct 29  2008 Shuttle.3ds.gz
+-rw------- 1 aaron aaron 255K Sep  5  2008 skylab_carbajal.3ds.gz
+-rw-rw-r-- 1 aaron aaron 6.7M Jun  9  2015 Space_Exploration_Vehicle.obj.gz
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It took 7.352 seconds, but we were able to pack 83M of data into
+18M. We actually got better compression ratios with the
+production-like data than we got with english language text! If we
+were to use a faster setting on gzip or use an alternate algorithm
+like lz4 perhaps we can balance this compute/size trade off so the cpu
+cost is nominal yet we still gain the benefit of the smaller file
+sizes. lz4 is a newer faster algorithm than gzip (zlib). It’s designed
+for &lt;em&gt;speed&lt;/em&gt; rather than maximum compression. The goal the the authors
+of lz4 had was to reduce the computational cost of compression enough
+that we gain all the benefits of compression with very little of the
+computational expense. It’s meant to be very high-throughput. As we
+will see, they they’ve succeeded.  lz4 is available in pretty much
+every Linux distro nowadays. You just may need to install it
+yourself. Let’s give it a&amp;nbsp;try.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;aaron&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;minty&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="nt"&gt;3d_models&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="nt"&gt;for&lt;/span&gt; &lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="nt"&gt;in&lt;/span&gt; &lt;span class="o"&gt;$(&lt;/span&gt;&lt;span class="nt"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;*.?&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;d&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;?);&lt;/span&gt; &lt;span class="nt"&gt;do&lt;/span&gt; &lt;span class="nt"&gt;time&lt;/span&gt; &lt;span class="nt"&gt;lz4&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nt"&gt;rm&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="nt"&gt;done&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Advanced_Crew_Escape_Suit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;11299355&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;4110010&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;36&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;37&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;043s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;037s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;008s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Extravehicular_Mobility_Unit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;44645513&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;15566248&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;34&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;87&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;184s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;119s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;064s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Shuttle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;478597&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;273672&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;57&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;18&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;004s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;000s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;003s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;skylab_carbajal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;692377&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;360167&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;52&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;02&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;004s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;003s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;000s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Space_Exploration_Vehicle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;29032555&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;12957232&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;44&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;63&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;127s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;094s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;031s&lt;/span&gt;
+
+&lt;span class="nt"&gt;aaron&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;minty&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="nt"&gt;3d_models&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="nt"&gt;ls&lt;/span&gt; &lt;span class="nt"&gt;-lh&lt;/span&gt;
+&lt;span class="nt"&gt;total&lt;/span&gt; &lt;span class="nt"&gt;32M&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;0M&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;36&lt;/span&gt; &lt;span class="nt"&gt;Advanced_Crew_Escape_Suit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt;  &lt;span class="nt"&gt;15M&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;36&lt;/span&gt; &lt;span class="nt"&gt;Extravehicular_Mobility_Unit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;268K&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;36&lt;/span&gt; &lt;span class="nt"&gt;Shuttle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;352K&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;36&lt;/span&gt; &lt;span class="nt"&gt;skylab_carbajal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt;  &lt;span class="nt"&gt;13M&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;36&lt;/span&gt; &lt;span class="nt"&gt;Space_Exploration_Vehicle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Looking good! I would practically call this “free” compression. It
+might take us nearly as long to simply copy these files as we are able
+to compress them. As you can see, it’s possible to balance compression
+times vs. file sizes. lz4 can&amp;#8217;t typically produce as high a compression
+ratio as gzip and others, but the tradeoff is that it’s substantially&amp;nbsp;faster.&lt;/p&gt;
+&lt;p&gt;I’d hesitate to consider the time measurements very scientifically
+valid on this example since they are so short. It only took 0.362
+seconds to compress every file and yet we still got better than 50%
+compression across all the files. By default lz4 is tuned to be as
+fast as possible. We might be able to afford to give it a bit more
+time for compression. Let’s give it a try with the -4 flag (higher
+compression than the default&amp;nbsp;-1)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;aaron&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;minty&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="nt"&gt;3d_models&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="nt"&gt;for&lt;/span&gt; &lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="nt"&gt;in&lt;/span&gt; &lt;span class="o"&gt;$(&lt;/span&gt;&lt;span class="nt"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;*.?&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;d&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;?);&lt;/span&gt; &lt;span class="nt"&gt;do&lt;/span&gt; &lt;span class="nt"&gt;time&lt;/span&gt; &lt;span class="nt"&gt;lz4&lt;/span&gt; &lt;span class="nt"&gt;-4&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nt"&gt;rm&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="nt"&gt;done&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Advanced_Crew_Escape_Suit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;11299355&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;3211153&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;28&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;42&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;235s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;198s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;031s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Extravehicular_Mobility_Unit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;44645513&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;12460628&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;27&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;91&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;945s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;877s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;071s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Shuttle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;478597&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;255729&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;53&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;43&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;011s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;011s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;000s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;skylab_carbajal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;692377&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;348951&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;50&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;40&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;016s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;011s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;004s&lt;/span&gt;
+
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Space_Exploration_Vehicle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;29032555&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;9917149&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;34&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;16&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="nt"&gt;real&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;697s&lt;/span&gt;
+&lt;span class="nt"&gt;user&lt;/span&gt;    &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;644s&lt;/span&gt;
+&lt;span class="nt"&gt;sys&lt;/span&gt; &lt;span class="nt"&gt;0m0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;045s&lt;/span&gt;
+
+&lt;span class="nt"&gt;aaron&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;minty&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="nt"&gt;3d_models&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="nt"&gt;ls&lt;/span&gt; &lt;span class="nt"&gt;-lh&lt;/span&gt;
+&lt;span class="nt"&gt;total&lt;/span&gt; &lt;span class="nt"&gt;25M&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;1M&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;50&lt;/span&gt; &lt;span class="nt"&gt;Advanced_Crew_Escape_Suit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt;  &lt;span class="nt"&gt;12M&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;50&lt;/span&gt; &lt;span class="nt"&gt;Extravehicular_Mobility_Unit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;250K&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;50&lt;/span&gt; &lt;span class="nt"&gt;Shuttle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;341K&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;50&lt;/span&gt; &lt;span class="nt"&gt;skylab_carbajal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;3ds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;span class="nt"&gt;-rw-rw-r--&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;aaron&lt;/span&gt; &lt;span class="nt"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;5M&lt;/span&gt; &lt;span class="nt"&gt;Apr&lt;/span&gt; &lt;span class="nt"&gt;15&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;50&lt;/span&gt; &lt;span class="nt"&gt;Space_Exploration_Vehicle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Not bad! We have improved our overall compression ratio, but no file
+takes more than 1 second to compress.  One nice thing about lz4 is
+that it’s extremely fast to decompress, regardless of what settings
+are used for compression. If you feel like throwing more compute at it
+you can increase the compression ratios provided by lz4 without any
+real impact on the later decompression of the files. Considering files
+typically only need to be compressed once, but will likely be read and
+&lt;em&gt;decompressed&lt;/em&gt; many times, it&amp;#8217;s a huge feature of the algorithm. It&amp;#8217;s
+very production friendly that&amp;nbsp;way.&lt;/p&gt;
+&lt;p&gt;So that was a run through of how you might compress files with
+lossless compression utilities in the &lt;span class="caps"&gt;OS&lt;/span&gt;, but what about applications?
+How do you make them use compressed&amp;nbsp;files?&lt;/p&gt;
+&lt;p&gt;Because so much of the data we use in &lt;span class="caps"&gt;VFX&lt;/span&gt; and animation can benefit
+from compression, many of the modern file formats we use have some
+provision for transparent lossless compression built in. OpenEXR has
+several options for lossless compression (as well as lossy, which
+we’ll look at later) Alembic has deduplication to help compress data
+and OpenVDB has built in compression.  Many applications can also
+transparently deal with files compressed with operating system tools
+like gzip. For example, Houdini can transparently deal with .gz files
+(actually any compression type if you have the handler set up for it)
+Many other programs have such a capability and if they don’t have it
+built in often times you can extend them by scripting support for it&amp;nbsp;yourself.&lt;/p&gt;
+&lt;p&gt;When using the native lossless compression in formats like OpenEXR and
+&lt;span class="caps"&gt;PNG&lt;/span&gt;, you must often make the same trade off of computational cost vs
+compression. I personally tend to leave some kind of compression on
+full time since I know that at some point in the files life cycle it
+will go through some kind of &lt;span class="caps"&gt;IO&lt;/span&gt; bottleneck, either by needing to be
+copied over a network or to a bandwidth constrained storage device
+like a &lt;span class="caps"&gt;USB&lt;/span&gt; 3.0 drive. File size is &lt;span class="caps"&gt;ALWAYS&lt;/span&gt; going to become an issue at
+some point in a project lifecycle due to either storage or bandwidth
+constraints so it make sense to protect against a &amp;#8220;crunch&amp;#8221; by always
+using lossless compression when possible.  Just do some tests for
+yourself to make sure it not too computationally expensive to live
+with and that the trade off is worth it to you. You’ll most likely
+find that it&amp;nbsp;is.&lt;/p&gt;
+&lt;p&gt;One last note on lossless compression. Many filesystems like &lt;span class="caps"&gt;ZFS&lt;/span&gt; and
+even &lt;span class="caps"&gt;NTFS&lt;/span&gt; offer on-the-fly data compression. &lt;span class="caps"&gt;ZFS&lt;/span&gt; in particular is
+quite good at on-the-fly data compression and the recommended setting
+for it is to just leave lz4 compression on full time for all file
+systems.  On-the-fly file compression is great since it does reduce
+your disk footprint. However, if you are using a &lt;span class="caps"&gt;NAS&lt;/span&gt; it may not
+improve performance much since the network will likely be your real
+bottleneck. It’s for this reason I still advocate using application
+level compression on files when possible. Your files will also already
+be staged for archiving if they are already compressed before needing
+to be&amp;nbsp;archived.&lt;/p&gt;
+&lt;p&gt;Now let’s look at lossy compression. If you’ve ever done any photo
+editing or used a digital camera, you’ve probably encountered the
+&lt;a href="https://en.wikipedia.org/wiki/JPEG"&gt;&lt;span class="caps"&gt;JPEG&lt;/span&gt;&lt;/a&gt; image format. &lt;span class="caps"&gt;JPEG&lt;/span&gt; is an
+extremely common format for lossy storage of image data. It uses
+Discrete Cosine Transforms to decompose an image into a frequency
+domain representation of itself. When you change the quality slider on
+a &lt;span class="caps"&gt;JPEG&lt;/span&gt; saver what you are doing is telling the saver how much
+frequency data to throw away.  &lt;span class="caps"&gt;JPEG&lt;/span&gt;’s &lt;span class="caps"&gt;DCT&lt;/span&gt; quantizing approach is tuned
+to somewhat match human perception. It selectively removes detail
+starting from the high frequency detail that a human is not likely to
+notice missing. The lower you turn the quality slider, the more detail
+it removes until it begins to remove even the lower
+frequencies. Eventually the loss in quality will become apparent, but
+it’s possible to get reductions of 6 to even 10x before the quality
+reduction is visible to most humans.  With a lossy compression scheme
+like &lt;span class="caps"&gt;JPEG&lt;/span&gt;, it’s impossible to fully reverse the algorithm to reproduce
+the original data. It is only possible to create an
+approximation. There is no going back to the original since the &lt;span class="caps"&gt;JPEG&lt;/span&gt;
+algorithm literally threw away data to achieve its high compression&amp;nbsp;rate.&lt;/p&gt;
+&lt;p&gt;Because lossy formats can lose additional data with each generation
+it’s possible to get compounding loss with each generation or
+re-compression. This is why it’s important avoid recompressing lossy
+codecs when&amp;nbsp;possible.&lt;/p&gt;
+&lt;p&gt;In version 2.2
+&lt;a href="https://en.wikipedia.org/wiki/OpenEXR#Compression_methods"&gt;OpenEXR&lt;/a&gt;
+gained a lossy codec donated by Dreamworks Animation. It’s like &lt;span class="caps"&gt;JPEG&lt;/span&gt;,
+but allows for lossy compression of floating point data. I personally
+would be judicious with my use of lossy codecs for &lt;span class="caps"&gt;VFX&lt;/span&gt; work, but there
+are cases where they could be useful. It boils down to the same
+balancing of concerns I mentioned earlier of compute, network
+bandwidth, disk footprint, etc. For example, perhaps you&amp;#8217;d prefer to
+keep a lot of versions your work on disk rather than have perfect
+quality in every version. Perhaps you are only making draft versions
+and perfect quality isn’t even important or you have a real-time
+playback requirement that only a lossy codec can satisfy. Maybe your
+network is very slow and the only way you can tame the pain of your
+slow network is by compressing the heck out of your images. Having to
+live with a little bit of lossiness in your images might be better
+than not delivering a job at all!  For years, Dreamworks saved &lt;span class="caps"&gt;ALL&lt;/span&gt;
+their output files into their own proprietary .r format into a custom
+12 bit &lt;span class="caps"&gt;JPEG&lt;/span&gt;-like codec. JPEGing every frame never seemed to be the
+detail that hurt their box office numbers!  The new &lt;span class="caps"&gt;DWAA&lt;/span&gt; and &lt;span class="caps"&gt;DWAB&lt;/span&gt;
+codecs in OpenEXR are their contribution to the industry
+standards. The &lt;span class="caps"&gt;JPEG&lt;/span&gt;-like codec served them well in their own business
+so I must assume they believed others might benefit from them as&amp;nbsp;well.&lt;/p&gt;
+&lt;p&gt;When it comes to lossy compression, the trade off is usually about how
+much visual loss you are willing to live with vs. how much disk space
+you save in exchange. Most lossy codecs are computationally intense as
+they include in their pipelines the very same algorithms used in
+lossless compression (like Huffman coding), in addition to
+others. Video codecs are a pretty complicated topic and rather than go
+into all the detail I will stick to a 10,000ft&amp;nbsp;overview.&lt;/p&gt;
+&lt;p&gt;When it comes to video codecs, there are two basic types, I-Frame only
+and Long &lt;span class="caps"&gt;GOP&lt;/span&gt;. I-Frame only codecs compress video on a frame by frame
+basis, that is to say, there are no dependencies between
+frames. Examples of this are
+&lt;a href="https://en.wikipedia.org/wiki/Avid_DNxHD"&gt;DNxHD&lt;/a&gt;,
+&lt;a href="https://en.wikipedia.org/wiki/Apple_ProRes"&gt;ProRes&lt;/a&gt;,
+&lt;a href="https://en.wikipedia.org/wiki/Motion_JPEG"&gt;&lt;span class="caps"&gt;MJPEG&lt;/span&gt;&lt;/a&gt; and frame based
+formats like &lt;span class="caps"&gt;JPEG2000&lt;/span&gt;, &lt;span class="caps"&gt;JPEG&lt;/span&gt;, &lt;span class="caps"&gt;PNG&lt;/span&gt;,
+&lt;a href="https://en.wikipedia.org/wiki/OpenEXR"&gt;OpenEXR&lt;/a&gt; and
+&lt;a href="https://en.wikipedia.org/wiki/Digital_Picture_Exchange"&gt;&lt;span class="caps"&gt;DPX&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Depending on semantics, “Uncompressed Video” could also mean
+“losslessly compressed” if such an option is available. These would
+usually be included in the family of I-Frame codecs. There are several
+lossless codecs available for movie type formats including
+&lt;a href="https://en.wikipedia.org/wiki/FFV1"&gt;&lt;span class="caps"&gt;FFV1&lt;/span&gt;&lt;/a&gt;, and
+&lt;a href="https://en.wikipedia.org/wiki/Huffyuv"&gt;&lt;span class="caps"&gt;HUFFYUV&lt;/span&gt;&lt;/a&gt; Lossless video codecs
+are great since they kind of straddle the fence between using no
+compression at all and lossy options. They don’t provide the same
+level of compression as lossy codecs, but they don’t damage the image
+at all&amp;nbsp;either.&lt;/p&gt;
+&lt;p&gt;Long Group of Pictures (&lt;span class="caps"&gt;GOP&lt;/span&gt;) codecs encode video by exploiting the
+fact that often there are often similarities between frames in
+video. In a Long &lt;span class="caps"&gt;GOP&lt;/span&gt; type codec, each from may be dependent on frames
+that come before or after the current frame. As a result, these codecs
+tend to be quite computationally intensive. They are also tricky to
+decode when shuttling forward or especially backward due to the
+dependence on the surrounding frames. Examples of Long &lt;span class="caps"&gt;GOP&lt;/span&gt; codecs are
+common video codecs like
+&lt;a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC"&gt;h.264&lt;/a&gt;,
+&lt;a href="https://en.wikipedia.org/wiki/MPEG-2"&gt;mpeg2&lt;/a&gt; and
+&lt;a href="https://en.wikipedia.org/wiki/Theora"&gt;theora&lt;/a&gt;.  The benefit is that
+Long &lt;span class="caps"&gt;GOP&lt;/span&gt; codecs are able to produce significantly higher compression
+ratios than I-Frame only codec. (or superior quality for the same&amp;nbsp;bandwidth)&lt;/p&gt;
+&lt;p&gt;For &lt;span class="caps"&gt;VFX&lt;/span&gt; and animation work, both types of formats have their
+place. However, for the bulk of &lt;span class="caps"&gt;VFX&lt;/span&gt; and animation production work
+frame based formats like OpenEXR tend to be the most suitable. This is
+because of the frame-by-frame nature of the work. While it’s possible
+read movie type formats with frame accuracy, it’s not possible to
+write into the middle of a file easily. Take for example rendering
+from a render farm. When a shot is submitted to a render farm, a grid
+of machines are all unleashed on the same scene for rendering. There
+might be 100 computers each running a different frame of the
+scene. When it’s time for the computer to write it’s completed frame
+to disk, how would it write it into the correct place in a movie file?
+It’s much easier for it to simply write a single numbered frame to
+disk. Once all the frames for the shot are rendered, a follow up job
+can be triggered that will compile the frames into a movie file for
+playback in a sweatbox or at the artist’s desk.  Depending on what
+frame format was used, it’s sometimes possible to create a movie from
+a sequence of frames, even if they are in a lossy format, by simply
+re-wrapping the data into movie file with no re-compression of the&amp;nbsp;data.&lt;/p&gt;
+&lt;p&gt;The choice of whether to use lossy or lossless compression for output
+frames and preview movies depends on the resources available and the
+goals of the studio. If the studio has a lot of resources and a purist
+approach to the process, they can stick with losslessly compressed
+formats. If saving disk space and network bandwidth is a higher
+priority, then it’s possible that lossy formats might have a place in
+parts of the&amp;nbsp;pipeline.&lt;/p&gt;
+&lt;p&gt;I hope this blog post provides you with a good starting place to start
+thinking about how you deploy compression in your&amp;nbsp;pipeline.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ll be rolling a version of this into my Pipeline 101 eBook. If you
+don&amp;#8217;t have it yet you can get a free copy of it here:
+&lt;a href="http://www.metapipe.com/offers/pipeline101"&gt;Pipeline&amp;nbsp;101&lt;/a&gt;&lt;/p&gt;</content><category term="tech"></category><category term="explainer"></category><category term="Linux"></category></entry><entry><title>Creating Panoramas for CG</title><link href="http://www.metapipe.com/blog/posts/2017/04/07/creating-panos-for-cg/" rel="alternate"></link><published>2017-04-07T16:30:00-06:00</published><updated>2017-04-07T16:30:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-04-07:/blog/posts/2017/04/07/creating-panos-for-cg/</id><summary type="html">&lt;p&gt;Free Nuke tutorials on how to create Tile Worlds and use Panoramas in &lt;span class="caps"&gt;CG&lt;/span&gt;. &lt;span class="caps"&gt;PLUS&lt;/span&gt;, advanced green screen matte extraction&amp;nbsp;techniques.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Tile Worlds, Camera Projection and Image Based Lighting all have one thing in
 common: They use photographic elements as their main source inputs. While I tend
 to say this about nearly every &lt;span class="caps"&gt;VFX&lt;/span&gt; technique (I love them all!), the above are
 among my favorites. There is nothing more photo-realistic than a photograph or

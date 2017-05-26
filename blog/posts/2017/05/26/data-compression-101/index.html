@@ -1,0 +1,935 @@
+<!-- static -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" style="background-color: #272b30;">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <title>MetaPipe</title>
+
+        <!-- We must keep our CSS lightweight. Fast load times are paramount.
+            I'd rather have fast load times than slick interactive styling,
+            and AJAX-y interaction.  But it would be great to have both. :)
+            -->
+
+        <!-- Font Awesome CSS -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" /> -->
+        <!-- TODO: make fallback instead of only local -->
+        <!-- <link rel="stylesheet" href="/static/css/font-awesome.min.css" /> -->
+        <!-- Font Awesome embed code. Download from website doesn't work for some reason. -->
+        <script type="text/javascript" src="https://use.fontawesome.com/5c85e4640b.js"></script>
+
+        <!-- Latest compiled and minified bootstrap CSS (unused since bootswatch copy-pasted boostrap and changed some things...)-->
+        <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" /> -->
+
+        <!-- Slate theme bootstrap CSS-->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous" />
+        <!-- TODO: make fallback instead of only local -->
+        <!-- <link rel="stylesheet" type="text/css" href="/static/css/slate-bootstrap.min.css" /> -->
+
+        <!-- Modern Business template CSS -->
+        <link rel="stylesheet" href="/static/css/modern-business.css" />
+    <meta name="author" content="FullMeta Corp." />
+
+    <!-- JS Libraries to Load -->
+    <script src="/theme/js/progressbars.js"></script>
+
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="/theme/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/theme/css/pygment.css" type="text/css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/theme/css/font-awesome-ie7.min.css">
+    <![endif]-->
+
+    <!-- Feed Information / Copied from Simple Theme -->
+    <link href="localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Full Atom Feed" />
+    <link href="localhost:8000/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Full RSS Feed" />
+    <link href="localhost:8000/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Categories Atom Feed" />
+    <link href="localhost:8000/feeds/.atom.xml" type="application/atom+xml" rel="alternate" title="MetaPipe Tags Atom Feed" />
+    <link href="localhost:8000/feeds/.rss.xml" type="application/rss+xml" rel="alternate" title="MetaPipe Tags RSS Feed" />
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js" />
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" />
+        <![endif]-->
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+
+<script src="https://load.sumome.com/" data-sumo-site-id="6909b396e067676be9a79c165e06a7918722be6bad5728693f1d6a6184b76caf" async="async"></script>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-left" href="/">MetaPipe</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-main">
+                    <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="team" href="/team/">Team</a>
+                    </li>
+                    <li>
+                        <a id="contact" href="/contact/">Contact</a>
+                    </li>
+                    <li>
+                        <a id="blog" href="/blog/">Blog</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="https://www.linkedin.com/company/metapipe" target="_blank">LinkedIn</a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/metapipe" target="_blank">Facebook</a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/fullmetapipe" target="_blank">Twitter</a>
+                            </li>
+                        </ul>
+                    </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        <!-- Page Content -->
+        <div class="container mp-body-container">
+    <div class="container-fluid" id="content">
+        <div class="row-fluid">
+            <div class="col-md-9">
+<section id="article_content">
+<article>
+    <header>
+        <h1>
+            <a href="/blog/posts/2017/05/26/data-compression-101/">
+                Data Compression&nbsp;101
+            </a>
+        </h1>
+    </header>
+    <div class="entry-content">
+    <div class="well">
+
+<div class="row">
+    <div class="col-md-6">
+        <span class="label text-center">Author</span>
+        <i class="fa fa-user fa-sm"></i>&nbsp;
+<a href="http://www.metapipe.com/blog/author/aaron-estrada/">Aaron Estrada</a>
+    </div>
+    <div class="col-md-6">
+        <span class="label text-center">Date</span>
+        <abbr class="published" title="2017-05-26T15:30:00-06:00">
+            <i class="fa fa-calendar fa-sm"></i> Fri 26 May 2017
+        </abbr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <span class="label text-center">Tags&nbsp;&nbsp;&nbsp;</span>
+        <i class="fa fa-tags fa-sm"></i>&nbsp;
+            <a href="http://www.metapipe.com/blog/tag/tech/">tech</a><span>, </span>
+            <a href="http://www.metapipe.com/blog/tag/explainer/">explainer</a><span>, </span>
+            <a href="http://www.metapipe.com/blog/tag/linux/">Linux</a>
+    </div>
+</div>
+    </div>
+    <p>What is data compression and how can it help you in <span class="caps">VFX</span> and Animation?
+In this post we’ll look at the basics of data compression both
+lossless and lossy. What are the options and what are the tradeoffs
+when using compression vs. not using&nbsp;compression?</p>
+<p>I recently had a conversation with an experienced colleague that made
+me realize just how much confusion there can be about data
+compression, even among experienced folks. If my experienced colleague
+could be confused I assume less experienced folks might be equally
+confused. Let&#8217;s demystify lossy vs. lossless compression for&nbsp;good.</p>
+<p>The first thing that seems to confuse most people about compression is
+that there are two types of compression: <strong><span class="caps">LOSSLESS</span></strong> and
+<strong><span class="caps">LOSSY</span></strong>. Each is useful for its intended purpose. However, they have
+slightly different use cases that only intersect in the goal of
+reducing data footprint. I think that’s what makes the distinction
+between them confusing for some of people. They both compress data, but
+use wildly different strategies to achieve their&nbsp;goal.</p>
+<p>Lossy compression, which we will dive into in more detail later, uses
+techniques that discard some amount of data in order to achieve higher
+compression ratios. When decoded, lossy compression schemes can only
+create an approximation of the original data rather than reproducing
+the original data faithfully. They can only be used used for types of
+data that can tolerate data loss without destroying the intent of the
+data. Examples of this type of data are images and sound, which can
+tolerate some loss of data without a large perceptible loss in
+quality. (at least not perceptible by&nbsp;humans)</p>
+<p>Lossless compression on the other hand is used for reducing the
+footprint of data when no loss of data is tolerable. Data integrity is
+just as important as data compaction in this use case so certain
+approaches to compression (like the various schemes of approximation
+used by lossy compression techniques for sound and images) are off the&nbsp;table.</p>
+<p>You may also have heard the phrase &#8220;Perceptually Lossless&#8221;. Well, I
+hate to break it to you, but strictly speaking that means lossy. Almost
+any lossy algorithm can be tuned to create a perceptually lossless
+result. But &#8220;Perceptually Lossless&#8221; is not the same as lossless,
+especially when absolute data fidelity is&nbsp;important.</p>
+<p>For some reason, many people seem to assume that compression always
+requires some kind of loss. This is perhaps because it’s a somewhat
+intuitive conclusion. There must be some kind of equivalent exchange
+in order shrink the size of a data set, right? How can a file be made
+smaller without throwing data away? As we will see, throwing away data
+to reduce the size of a data set is not a requirement. There is
+however an equivalent exchange, which we will dive into&nbsp;now.</p>
+<p>As it’s name implies, lossless compression is perfectly mathematically
+reversible. It is lossless. What you get from when you unpack the data
+from an algorithm is <span class="caps">IDENTICAL</span> to the original data, down the bit. If
+not, the algorithm cannot be called lossless. Lossless compression
+algorithms exploit the fact that most data has redundancy in it. They
+identify redundancy in a dataset and create shorthand representations
+of the redundant data which can be stored in a more compact
+form. Examples of common lossless compression tools are zip, gzip,
+7zip, xz, bzip2. They are based on the plethora of
+<a href="https://en.wikipedia.org/wiki/Category:Lossless_compression_algorithms">lossless data compression algorithms</a>
+available in the wild.  This type of tool is commonly used to compress
+data that can’t tolerate loss of any kind. Examples might be text
+files like logs, scene descriptions like .ma, .mb and .hip files and
+geometry formats like .bgeo, .obj etc. It can also be used to compress
+image data when any amount of quality loss is unacceptable.  How
+compressible a particular data set is will depend on the content of
+the data and the algorithm. Certain algorithms perform better on
+specific types of data. There is no perfect algorithm, though there
+are several good general purpose compression algorithms. Highly
+compressible data (that is data with a lot of redundancy in the set)
+might allow for compression of 50% or better, whereas data with
+practically no redundancy might not compress at all and might in fact
+become larger if run through a compression algorithm. Truly random
+data cannot be&nbsp;compressed.</p>
+<p>With lossless compression, the trade off for smaller file sizes is
+increased computation time and <span class="caps">RAM</span> usage during compression and
+decompression. The computational cost will depend on the specific
+algorithm being used. A good rule of thumb is, the more compute and
+<span class="caps">RAM</span> intensive an algorithm, the better the compression it will
+provide. (Though not always. Some implementations of even the same
+algorithm can out-perform more poorly implemented versions of the same
+algorithm. It&#8217;s tricky to do straight apples to apples comparisons&nbsp;sometimes!)</p>
+<p>Due to how fast modern CPUs have become an unexpected benefit of using
+compression might be faster overall file access. This can be true for
+even fast storage devices like SSDs, but is especially true for slower
+devices like hard drives and network attached storage.  Assuming the
+cost of on-the-fly decompression is less than the speed up of
+transferring the smaller compressed file from disk or over a network,
+the end result will be overall faster file access. Given just how much
+<span class="caps">CPU</span> power modern computers have to spare, this is almost true these
+days. This benefit is something many people don’t consider. There
+still seems to be a prevailing belief (which has been outdated for
+years) that compression is slow. It’s simply not true any more.  We
+often have so many <span class="caps">CPU</span> cycles to spare we might as well use them for
+something&nbsp;useful.</p>
+<p>As an added benefit, if the overall network usage can be cut in half
+by using compression, it means twice as many files can be copied over
+a given network in the same amount of time. It might not seem like
+such a big deal if you are working alone on a fast network, but if
+there are tens or hundreds of other people working on the same network
+and automated processes like a render farm hitting the same pool of
+storage, the bandwidth being consumed adds up fast. In that case
+compression can be a huge win.  The benefits are obviously apparent
+when network bandwidth is highly constrained, for example when sending
+data over the Internet.  Most people seem to understand intuitively
+why it works on the web, but fail to generalize the same concept to
+local area networks. Network bandwidth is never infinite, no matter
+how fast a&nbsp;network.</p>
+<p>In addition to fitting more info over the a network connection,
+compressing the files also allows for more files to fit on disk. It’s
+a double win in most cases. Consider the value of space on an <span class="caps">SSD</span>,
+which is still priced at a premium compared to hard drive space. The
+only trade off is that there is a potential computational cost, but as
+we will see, that cost can be balanced against the upside of the other
+factors in&nbsp;play.</p>
+<p>Let’s look at a simple example where we losslessly compress some text
+files with gzip, a very common compression tool available in the base
+install of pretty much every Linux distro. You can use these as
+inspiration for how you manage files on your file&nbsp;system.</p>
+<p>First we will run them through md5sum to generate checksums for
+them. A checksum is like the fingerprint for the data in a file. If
+the data changes even the tiniest amount, the checksum will&nbsp;change.</p>
+<div class="highlight"><pre><span></span>aaron@minty:~/project_gutenberg$ md5sum *.txt | tee  MD5SUMS
+022cb6af4d7c84b4043ece93e071d8ef  Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8.txt
+424c7f50d156aa6c021ee616cfba6e31  Moby_Dick_by_Herman_Melville_utf8.txt
+5f2319239819dfa7ff89ef847b08aff0  Pride_and_Prejudice_by_Jane_Austen_utf8.txt
+8676b5095efce2e900de83ab339ac753  The_Art_of_War_by_Sun_Tzu_utf8.txt
+2c89aeaa17956a955d789fb393934b9a  War_and_Peace_by_Leo_Tolstoy_utf8.txt
+</pre></div>
+
+
+<p>We used ‘tee’ to also redirect the output to the file <span class="caps">MD5SUMS</span> so we
+can keep that info around for later. Now let’s look at the sizes of
+the&nbsp;files.</p>
+<div class="highlight"><pre><span></span>aaron@minty:~/project_gutenberg$ ls -lh *.txt
+-rw-rw-r-- 1 aaron aaron 439K Apr 15 21:11 Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8.txt
+-rw-rw-r-- 1 aaron aaron 1.3M Apr 15 21:13 Moby_Dick_by_Herman_Melville_utf8.txt
+-rw-rw-r-- 1 aaron aaron 710K Apr 15 21:12 Pride_and_Prejudice_by_Jane_Austen_utf8.txt
+-rw-rw-r-- 1 aaron aaron 336K Apr 15 21:09 The_Art_of_War_by_Sun_Tzu_utf8.txt
+-rw-rw-r-- 1 aaron aaron 3.3M Apr 15 21:06 War_and_Peace_by_Leo_Tolstoy_utf8.txt
+</pre></div>
+
+
+<p>Even as plain utf-8, War and Peace takes 3.3 megs of disk space. Now we
+know how big the files started out and are and what their md5sums are,
+let’s compress them with good old gzip. I’ll time each compression so
+we can get a sense of how much time it’s costing us to compress each&nbsp;file.</p>
+<div class="highlight"><pre><span></span><span class="nt">aaron</span><span class="p">@</span><span class="k">minty</span><span class="o">:~/</span><span class="nt">project_gutenberg</span><span class="o">$</span> <span class="nt">for</span> <span class="nt">file</span> <span class="nt">in</span> <span class="o">$(</span><span class="nt">ls</span> <span class="o">*</span><span class="p">.</span><span class="nc">txt</span><span class="o">)</span><span class="p">;</span> <span class="nt">do</span> <span class="nt">time</span> <span class="nt">gzip</span> <span class="nt">-v</span> <span class="o">$</span><span class="nt">file</span><span class="o">;</span> <span class="nt">done</span>
+<span class="nt">Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="o">:</span>    <span class="nt">62</span><span class="p">.</span><span class="nc">3</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">045s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">044s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">000s</span>
+
+<span class="nt">Moby_Dick_by_Herman_Melville_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="o">:</span>   <span class="nt">59</span><span class="p">.</span><span class="nc">9</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">Moby_Dick_by_Herman_Melville_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">125s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">116s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">008s</span>
+
+<span class="nt">Pride_and_Prejudice_by_Jane_Austen_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="o">:</span>     <span class="nt">64</span><span class="p">.</span><span class="nc">1</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">Pride_and_Prejudice_by_Jane_Austen_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">079s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">079s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">000s</span>
+
+<span class="nt">The_Art_of_War_by_Sun_Tzu_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="o">:</span>      <span class="nt">62</span><span class="p">.</span><span class="nc">0</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">The_Art_of_War_by_Sun_Tzu_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">055s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">043s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">012s</span>
+
+<span class="nt">War_and_Peace_by_Leo_Tolstoy_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="o">:</span>   <span class="nt">63</span><span class="p">.</span><span class="nc">5</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">War_and_Peace_by_Leo_Tolstoy_utf8</span><span class="p">.</span><span class="nc">txt</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">354s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">321s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">018s</span>
+</pre></div>
+
+
+<p>We’ll use the “real” time which is how long we had to wait for each
+one of these files to compress inclusive of all factors. Nice! Every
+single one of these text files compressed more than 50% and took less
+than half a second (on one core&#8230; gzip is only single threaded!). War
+and Peace, our largest file, actually got the second highest
+compression ratio. (Perhaps it’s sheer size increased the chances of
+there being redundancies in it gzip could compress away.)  Let’s check
+out the absolute file sizes of the now compressed&nbsp;files.</p>
+<p>One of the things I like about gzip and similar archiving tools on
+Linux is that they are typically able to compress files in place. As
+you can see in my example, all the txt files have been replaced by
+their .gz compressed counterpart. This is great if you need to free up
+space, but don’t have a lot of disk space to work with since gzip can
+go through all the files, file by file, and compress them one at a
+time cleaning up the old uncompressed files for you as it goes. (Even
+if the tool itself wasn’t able to do this you can easily script a
+simple one-liner in bash to do it, which I demonstrate&nbsp;later.)</p>
+<div class="highlight"><pre><span></span>aaron@minty:~/project_gutenberg$ ls -lh *.txt.gz
+-rw-rw-r-- 1 aaron aaron 166K Apr 15 21:11 Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8.txt.gz
+-rw-rw-r-- 1 aaron aaron 501K Apr 15 21:13 Moby_Dick_by_Herman_Melville_utf8.txt.gz
+-rw-rw-r-- 1 aaron aaron 255K Apr 15 21:12 Pride_and_Prejudice_by_Jane_Austen_utf8.txt.gz
+-rw-rw-r-- 1 aaron aaron 128K Apr 15 21:09 The_Art_of_War_by_Sun_Tzu_utf8.txt.gz
+-rw-rw-r-- 1 aaron aaron 1.2M Apr 15 21:06 War_and_Peace_by_Leo_Tolstoy_utf8.txt.gz
+</pre></div>
+
+
+<p>Sweet! They are all certainly much smaller than they were. But was the
+data altered in any way? Let’s uncompress the files and check the
+md5sums. A difference of even a single bit will cause the md5sum to
+change so we’ll be able to spot if the output files are identical to
+the&nbsp;originals.</p>
+<p>Let’s use the gunzip command to uncompress all the files and if that
+succeeds, we’ll have md5sum check the checksums we cached away&nbsp;earlier.</p>
+<div class="highlight"><pre><span></span>aaron@minty:~/project_gutenberg$ gunzip *.gz &amp;&amp; md5sum -c MD5SUMS
+Frankenstein_by_Mary_Wollstonecraft_Shelley_utf8.txt: OK
+Moby_Dick_by_Herman_Melville_utf8.txt: OK
+Pride_and_Prejudice_by_Jane_Austen_utf8.txt: OK
+The_Art_of_War_by_Sun_Tzu_utf8.txt: OK
+War_and_Peace_by_Leo_Tolstoy_utf8.txt: OK
+</pre></div>
+
+
+<p>“<span class="caps">OK</span>” means the file matched the md5sum in the file <span class="caps">MD5SUMS</span> that we
+checked it against. The files we round-tripped through gzip are
+identical to the originals. If you are an old hand with archive tools
+like zip and gzip this won&#8217;t be a surprise to you. If not, you just
+learned something&nbsp;new.</p>
+<p><span class="caps">OK</span>, so we proved the output is identical and that it can compress
+text, but how about something more production data-like? How about
+some 3D models? We’ll skip checking the md5sums since hopefully I’ve
+sufficiently demonstrated how lossless compression is in fact&nbsp;lossless.</p>
+<p>First let’s check the files&nbsp;sizes.</p>
+<div class="highlight"><pre><span></span>aaron@minty:~/3d_models$ ls -lh
+total 83M
+-rw-rw-r-- 1 aaron aaron  11M Jul 13  2010 Advanced_Crew_Escape_Suit.obj
+-rw-rw-r-- 1 aaron aaron  43M Jul 13  2010 Extravehicular_Mobility_Unit.obj
+-rw------- 1 aaron aaron 468K Oct 29  2008 Shuttle.3ds
+-rw------- 1 aaron aaron 677K Sep  5  2008 skylab_carbajal.3ds
+-rw-rw-r-- 1 aaron aaron  28M Jun  9  2015 Space_Exploration_Vehicle.obj
+</pre></div>
+
+
+<p>These are some non-trivial file sizes here. Plus we have some binary
+files to work with (the .3ds files). Let’s compress them and see how
+well gzip does. We’ll time each one again so we know what it’s costing
+us in cpu&nbsp;time.</p>
+<div class="highlight"><pre><span></span><span class="nt">aaron</span><span class="p">@</span><span class="k">minty</span><span class="o">:~/</span><span class="nt">3d_models</span><span class="o">$</span> <span class="nt">for</span> <span class="nt">file</span> <span class="nt">in</span> <span class="o">$(</span><span class="nt">ls</span> <span class="o">*.?</span><span class="p">{</span><span class="nt">b</span><span class="o">,</span><span class="nt">d</span><span class="p">}</span><span class="o">?);</span> <span class="nt">do</span> <span class="nt">time</span> <span class="nt">gzip</span> <span class="nt">-v</span> <span class="o">$</span><span class="nt">file</span><span class="o">;</span> <span class="nt">done</span>
+<span class="nt">Advanced_Crew_Escape_Suit</span><span class="p">.</span><span class="nc">obj</span><span class="o">:</span>   <span class="nt">78</span><span class="p">.</span><span class="nc">8</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">Advanced_Crew_Escape_Suit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">920s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">891s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">027s</span>
+
+<span class="nt">Extravehicular_Mobility_Unit</span><span class="p">.</span><span class="nc">obj</span><span class="o">:</span>    <span class="nt">80</span><span class="p">.</span><span class="nc">4</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">Extravehicular_Mobility_Unit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m3</span><span class="p">.</span><span class="nc">421s</span>
+<span class="nt">user</span>    <span class="nt">0m3</span><span class="p">.</span><span class="nc">287s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">119s</span>
+
+<span class="nt">Shuttle</span><span class="p">.</span><span class="nc">3ds</span><span class="o">:</span>     <span class="nt">59</span><span class="p">.</span><span class="nc">0</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">Shuttle</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">045s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">036s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">007s</span>
+
+<span class="nt">skylab_carbajal</span><span class="p">.</span><span class="nc">3ds</span><span class="o">:</span>     <span class="nt">62</span><span class="p">.</span><span class="nc">4</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">skylab_carbajal</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">027s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">026s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">005s</span>
+
+<span class="nt">Space_Exploration_Vehicle</span><span class="p">.</span><span class="nc">obj</span><span class="o">:</span>   <span class="nt">75</span><span class="p">.</span><span class="nc">9</span><span class="o">%</span> <span class="nt">--</span> <span class="nt">replaced</span> <span class="nt">with</span> <span class="nt">Space_Exploration_Vehicle</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">gz</span>
+<span class="nt">real</span>    <span class="nt">0m2</span><span class="p">.</span><span class="nc">939s</span>
+<span class="nt">user</span>    <span class="nt">0m2</span><span class="p">.</span><span class="nc">813s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">114s</span>
+</pre></div>
+
+
+<p>Ok. Now that we are compressing some hefty files the time it’s taking
+to compress them has gone up quite a bit. It’s pretty apparent
+compression isn’t free. How much disk space did we save though? Was
+the disk space savings worth the computational&nbsp;cost?</p>
+<div class="highlight"><pre><span></span>aaron@minty:~/3d_models$ ls -lh
+total 18M
+-rw-rw-r-- 1 aaron aaron 2.3M Jul 13  2010 Advanced_Crew_Escape_Suit.obj.gz
+-rw-rw-r-- 1 aaron aaron 8.4M Jul 13  2010 Extravehicular_Mobility_Unit.obj.gz
+-rw------- 1 aaron aaron 192K Oct 29  2008 Shuttle.3ds.gz
+-rw------- 1 aaron aaron 255K Sep  5  2008 skylab_carbajal.3ds.gz
+-rw-rw-r-- 1 aaron aaron 6.7M Jun  9  2015 Space_Exploration_Vehicle.obj.gz
+</pre></div>
+
+
+<p>It took 7.352 seconds, but we were able to pack 83M of data into
+18M. We actually got better compression ratios with the
+production-like data than we got with english language text! If we
+were to use a faster setting on gzip or use an alternate algorithm
+like lz4 perhaps we can balance this compute/size trade off so the cpu
+cost is nominal yet we still gain the benefit of the smaller file
+sizes. lz4 is a newer faster algorithm than gzip (zlib). It’s designed
+for <em>speed</em> rather than maximum compression. The goal the the authors
+of lz4 had was to reduce the computational cost of compression enough
+that we gain all the benefits of compression with very little of the
+computational expense. It’s meant to be very high-throughput. As we
+will see, they they’ve succeeded.  lz4 is available in pretty much
+every Linux distro nowadays. You just may need to install it
+yourself. Let’s give it a&nbsp;try.</p>
+<div class="highlight"><pre><span></span><span class="nt">aaron</span><span class="p">@</span><span class="k">minty</span><span class="o">:~/</span><span class="nt">3d_models</span><span class="o">$</span> <span class="nt">for</span> <span class="nt">file</span> <span class="nt">in</span> <span class="o">$(</span><span class="nt">ls</span> <span class="o">*.?</span><span class="p">{</span><span class="nt">b</span><span class="o">,</span><span class="nt">d</span><span class="p">}</span><span class="o">?);</span> <span class="nt">do</span> <span class="nt">time</span> <span class="nt">lz4</span> <span class="o">$</span><span class="nt">file</span> <span class="o">&amp;&amp;</span> <span class="nt">rm</span> <span class="o">$</span><span class="nt">file</span> <span class="o">;</span> <span class="nt">done</span>
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">Advanced_Crew_Escape_Suit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">11299355</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">4110010</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">36</span><span class="p">.</span><span class="nc">37</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">043s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">037s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">008s</span>
+
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">Extravehicular_Mobility_Unit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">44645513</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">15566248</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">34</span><span class="p">.</span><span class="nc">87</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">184s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">119s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">064s</span>
+
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">Shuttle</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">478597</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">273672</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">57</span><span class="p">.</span><span class="nc">18</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">004s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">000s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">003s</span>
+
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">skylab_carbajal</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">692377</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">360167</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">52</span><span class="p">.</span><span class="nc">02</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">004s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">003s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">000s</span>
+
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">Space_Exploration_Vehicle</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">29032555</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">12957232</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">44</span><span class="p">.</span><span class="nc">63</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">127s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">094s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">031s</span>
+
+<span class="nt">aaron</span><span class="p">@</span><span class="k">minty</span><span class="o">:~/</span><span class="nt">3d_models</span><span class="o">$</span> <span class="nt">ls</span> <span class="nt">-lh</span>
+<span class="nt">total</span> <span class="nt">32M</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span> <span class="nt">4</span><span class="p">.</span><span class="nc">0M</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">36</span> <span class="nt">Advanced_Crew_Escape_Suit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span>  <span class="nt">15M</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">36</span> <span class="nt">Extravehicular_Mobility_Unit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span> <span class="nt">268K</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">36</span> <span class="nt">Shuttle</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span> <span class="nt">352K</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">36</span> <span class="nt">skylab_carbajal</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span>  <span class="nt">13M</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">36</span> <span class="nt">Space_Exploration_Vehicle</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+</pre></div>
+
+
+<p>Looking good! I would practically call this “free” compression. It
+might take us nearly as long to simply copy these files as we are able
+to compress them. As you can see, it’s possible to balance compression
+times vs. file sizes. lz4 can&#8217;t typically produce as high a compression
+ratio as gzip and others, but the tradeoff is that it’s substantially&nbsp;faster.</p>
+<p>I’d hesitate to consider the time measurements very scientifically
+valid on this example since they are so short. It only took 0.362
+seconds to compress every file and yet we still got better than 50%
+compression across all the files. By default lz4 is tuned to be as
+fast as possible. We might be able to afford to give it a bit more
+time for compression. Let’s give it a try with the -4 flag (higher
+compression than the default&nbsp;-1)</p>
+<div class="highlight"><pre><span></span><span class="nt">aaron</span><span class="p">@</span><span class="k">minty</span><span class="o">:~/</span><span class="nt">3d_models</span><span class="o">$</span> <span class="nt">for</span> <span class="nt">file</span> <span class="nt">in</span> <span class="o">$(</span><span class="nt">ls</span> <span class="o">*.?</span><span class="p">{</span><span class="nt">b</span><span class="o">,</span><span class="nt">d</span><span class="p">}</span><span class="o">?);</span> <span class="nt">do</span> <span class="nt">time</span> <span class="nt">lz4</span> <span class="nt">-4</span> <span class="o">$</span><span class="nt">file</span> <span class="o">&amp;&amp;</span> <span class="nt">rm</span> <span class="o">$</span><span class="nt">file</span> <span class="o">;</span> <span class="nt">done</span>
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">Advanced_Crew_Escape_Suit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">11299355</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">3211153</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">28</span><span class="p">.</span><span class="nc">42</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">235s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">198s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">031s</span>
+
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">Extravehicular_Mobility_Unit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">44645513</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">12460628</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">27</span><span class="p">.</span><span class="nc">91</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">945s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">877s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">071s</span>
+
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">Shuttle</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">478597</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">255729</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">53</span><span class="p">.</span><span class="nc">43</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">011s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">011s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">000s</span>
+
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">skylab_carbajal</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">692377</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">348951</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">50</span><span class="p">.</span><span class="nc">40</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">016s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">011s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">004s</span>
+
+<span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">Space_Exploration_Vehicle</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">Compressed</span> <span class="nt">29032555</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">9917149</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">34</span><span class="p">.</span><span class="nc">16</span><span class="o">%</span>
+<span class="nt">real</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">697s</span>
+<span class="nt">user</span>    <span class="nt">0m0</span><span class="p">.</span><span class="nc">644s</span>
+<span class="nt">sys</span> <span class="nt">0m0</span><span class="p">.</span><span class="nc">045s</span>
+
+<span class="nt">aaron</span><span class="p">@</span><span class="k">minty</span><span class="o">:~/</span><span class="nt">3d_models</span><span class="o">$</span> <span class="nt">ls</span> <span class="nt">-lh</span>
+<span class="nt">total</span> <span class="nt">25M</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span> <span class="nt">3</span><span class="p">.</span><span class="nc">1M</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">50</span> <span class="nt">Advanced_Crew_Escape_Suit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span>  <span class="nt">12M</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">50</span> <span class="nt">Extravehicular_Mobility_Unit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span> <span class="nt">250K</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">50</span> <span class="nt">Shuttle</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span> <span class="nt">341K</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">50</span> <span class="nt">skylab_carbajal</span><span class="p">.</span><span class="nc">3ds</span><span class="p">.</span><span class="nc">lz4</span>
+<span class="nt">-rw-rw-r--</span> <span class="nt">1</span> <span class="nt">aaron</span> <span class="nt">aaron</span> <span class="nt">9</span><span class="p">.</span><span class="nc">5M</span> <span class="nt">Apr</span> <span class="nt">15</span> <span class="nt">22</span><span class="p">:</span><span class="nd">50</span> <span class="nt">Space_Exploration_Vehicle</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
+</pre></div>
+
+
+<p>Not bad! We have improved our overall compression ratio, but no file
+takes more than 1 second to compress.  One nice thing about lz4 is
+that it’s extremely fast to decompress, regardless of what settings
+are used for compression. If you feel like throwing more compute at it
+you can increase the compression ratios provided by lz4 without any
+real impact on the later decompression of the files. Considering files
+typically only need to be compressed once, but will likely be read and
+<em>decompressed</em> many times, it&#8217;s a huge feature of the algorithm. It&#8217;s
+very production friendly that&nbsp;way.</p>
+<p>So that was a run through of how you might compress files with
+lossless compression utilities in the <span class="caps">OS</span>, but what about applications?
+How do you make them use compressed&nbsp;files?</p>
+<p>Because so much of the data we use in <span class="caps">VFX</span> and animation can benefit
+from compression, many of the modern file formats we use have some
+provision for transparent lossless compression built in. OpenEXR has
+several options for lossless compression (as well as lossy, which
+we’ll look at later) Alembic has deduplication to help compress data
+and OpenVDB has built in compression.  Many applications can also
+transparently deal with files compressed with operating system tools
+like gzip. For example, Houdini can transparently deal with .gz files
+(actually any compression type if you have the handler set up for it)
+Many other programs have such a capability and if they don’t have it
+built in often times you can extend them by scripting support for it&nbsp;yourself.</p>
+<p>When using the native lossless compression in formats like OpenEXR and
+<span class="caps">PNG</span>, you must often make the same trade off of computational cost vs
+compression. I personally tend to leave some kind of compression on
+full time since I know that at some point in the files life cycle it
+will go through some kind of <span class="caps">IO</span> bottleneck, either by needing to be
+copied over a network or to a bandwidth constrained storage device
+like a <span class="caps">USB</span> 3.0 drive. File size is <span class="caps">ALWAYS</span> going to become an issue at
+some point in a project lifecycle due to either storage or bandwidth
+constraints so it make sense to protect against a &#8220;crunch&#8221; by always
+using lossless compression when possible.  Just do some tests for
+yourself to make sure it not too computationally expensive to live
+with and that the trade off is worth it to you. You’ll most likely
+find that it&nbsp;is.</p>
+<p>One last note on lossless compression. Many filesystems like <span class="caps">ZFS</span> and
+even <span class="caps">NTFS</span> offer on-the-fly data compression. <span class="caps">ZFS</span> in particular is
+quite good at on-the-fly data compression and the recommended setting
+for it is to just leave lz4 compression on full time for all file
+systems.  On-the-fly file compression is great since it does reduce
+your disk footprint. However, if you are using a <span class="caps">NAS</span> it may not
+improve performance much since the network will likely be your real
+bottleneck. It’s for this reason I still advocate using application
+level compression on files when possible. Your files will also already
+be staged for archiving if they are already compressed before needing
+to be&nbsp;archived.</p>
+<p>Now let’s look at lossy compression. If you’ve ever done any photo
+editing or used a digital camera, you’ve probably encountered the
+<a href="https://en.wikipedia.org/wiki/JPEG"><span class="caps">JPEG</span></a> image format. <span class="caps">JPEG</span> is an
+extremely common format for lossy storage of image data. It uses
+Discrete Cosine Transforms to decompose an image into a frequency
+domain representation of itself. When you change the quality slider on
+a <span class="caps">JPEG</span> saver what you are doing is telling the saver how much
+frequency data to throw away.  <span class="caps">JPEG</span>’s <span class="caps">DCT</span> quantizing approach is tuned
+to somewhat match human perception. It selectively removes detail
+starting from the high frequency detail that a human is not likely to
+notice missing. The lower you turn the quality slider, the more detail
+it removes until it begins to remove even the lower
+frequencies. Eventually the loss in quality will become apparent, but
+it’s possible to get reductions of 6 to even 10x before the quality
+reduction is visible to most humans.  With a lossy compression scheme
+like <span class="caps">JPEG</span>, it’s impossible to fully reverse the algorithm to reproduce
+the original data. It is only possible to create an
+approximation. There is no going back to the original since the <span class="caps">JPEG</span>
+algorithm literally threw away data to achieve its high compression&nbsp;rate.</p>
+<p>Because lossy formats can lose additional data with each generation
+it’s possible to get compounding loss with each generation or
+re-compression. This is why it’s important avoid recompressing lossy
+codecs when&nbsp;possible.</p>
+<p>In version 2.2
+<a href="https://en.wikipedia.org/wiki/OpenEXR#Compression_methods">OpenEXR</a>
+gained a lossy codec donated by Dreamworks Animation. It’s like <span class="caps">JPEG</span>,
+but allows for lossy compression of floating point data. I personally
+would be judicious with my use of lossy codecs for <span class="caps">VFX</span> work, but there
+are cases where they could be useful. It boils down to the same
+balancing of concerns I mentioned earlier of compute, network
+bandwidth, disk footprint, etc. For example, perhaps you&#8217;d prefer to
+keep a lot of versions your work on disk rather than have perfect
+quality in every version. Perhaps you are only making draft versions
+and perfect quality isn’t even important or you have a real-time
+playback requirement that only a lossy codec can satisfy. Maybe your
+network is very slow and the only way you can tame the pain of your
+slow network is by compressing the heck out of your images. Having to
+live with a little bit of lossiness in your images might be better
+than not delivering a job at all!  For years, Dreamworks saved <span class="caps">ALL</span>
+their output files into their own proprietary .r format into a custom
+12 bit <span class="caps">JPEG</span>-like codec. JPEGing every frame never seemed to be the
+detail that hurt their box office numbers!  The new <span class="caps">DWAA</span> and <span class="caps">DWAB</span>
+codecs in OpenEXR are their contribution to the industry
+standards. The <span class="caps">JPEG</span>-like codec served them well in their own business
+so I must assume they believed others might benefit from them as&nbsp;well.</p>
+<p>When it comes to lossy compression, the trade off is usually about how
+much visual loss you are willing to live with vs. how much disk space
+you save in exchange. Most lossy codecs are computationally intense as
+they include in their pipelines the very same algorithms used in
+lossless compression (like Huffman coding), in addition to
+others. Video codecs are a pretty complicated topic and rather than go
+into all the detail I will stick to a 10,000ft&nbsp;overview.</p>
+<p>When it comes to video codecs, there are two basic types, I-Frame only
+and Long <span class="caps">GOP</span>. I-Frame only codecs compress video on a frame by frame
+basis, that is to say, there are no dependencies between
+frames. Examples of this are
+<a href="https://en.wikipedia.org/wiki/Avid_DNxHD">DNxHD</a>,
+<a href="https://en.wikipedia.org/wiki/Apple_ProRes">ProRes</a>,
+<a href="https://en.wikipedia.org/wiki/Motion_JPEG"><span class="caps">MJPEG</span></a> and frame based
+formats like <span class="caps">JPEG2000</span>, <span class="caps">JPEG</span>, <span class="caps">PNG</span>,
+<a href="https://en.wikipedia.org/wiki/OpenEXR">OpenEXR</a> and
+<a href="https://en.wikipedia.org/wiki/Digital_Picture_Exchange"><span class="caps">DPX</span></a>.</p>
+<p>Depending on semantics, “Uncompressed Video” could also mean
+“losslessly compressed” if such an option is available. These would
+usually be included in the family of I-Frame codecs. There are several
+lossless codecs available for movie type formats including
+<a href="https://en.wikipedia.org/wiki/FFV1"><span class="caps">FFV1</span></a>, and
+<a href="https://en.wikipedia.org/wiki/Huffyuv"><span class="caps">HUFFYUV</span></a> Lossless video codecs
+are great since they kind of straddle the fence between using no
+compression at all and lossy options. They don’t provide the same
+level of compression as lossy codecs, but they don’t damage the image
+at all&nbsp;either.</p>
+<p>Long Group of Pictures (<span class="caps">GOP</span>) codecs encode video by exploiting the
+fact that often there are often similarities between frames in
+video. In a Long <span class="caps">GOP</span> type codec, each from may be dependent on frames
+that come before or after the current frame. As a result, these codecs
+tend to be quite computationally intensive. They are also tricky to
+decode when shuttling forward or especially backward due to the
+dependence on the surrounding frames. Examples of Long <span class="caps">GOP</span> codecs are
+common video codecs like
+<a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">h.264</a>,
+<a href="https://en.wikipedia.org/wiki/MPEG-2">mpeg2</a> and
+<a href="https://en.wikipedia.org/wiki/Theora">theora</a>.  The benefit is that
+Long <span class="caps">GOP</span> codecs are able to produce significantly higher compression
+ratios than I-Frame only codec. (or superior quality for the same&nbsp;bandwidth)</p>
+<p>For <span class="caps">VFX</span> and animation work, both types of formats have their
+place. However, for the bulk of <span class="caps">VFX</span> and animation production work
+frame based formats like OpenEXR tend to be the most suitable. This is
+because of the frame-by-frame nature of the work. While it’s possible
+read movie type formats with frame accuracy, it’s not possible to
+write into the middle of a file easily. Take for example rendering
+from a render farm. When a shot is submitted to a render farm, a grid
+of machines are all unleashed on the same scene for rendering. There
+might be 100 computers each running a different frame of the
+scene. When it’s time for the computer to write it’s completed frame
+to disk, how would it write it into the correct place in a movie file?
+It’s much easier for it to simply write a single numbered frame to
+disk. Once all the frames for the shot are rendered, a follow up job
+can be triggered that will compile the frames into a movie file for
+playback in a sweatbox or at the artist’s desk.  Depending on what
+frame format was used, it’s sometimes possible to create a movie from
+a sequence of frames, even if they are in a lossy format, by simply
+re-wrapping the data into movie file with no re-compression of the&nbsp;data.</p>
+<p>The choice of whether to use lossy or lossless compression for output
+frames and preview movies depends on the resources available and the
+goals of the studio. If the studio has a lot of resources and a purist
+approach to the process, they can stick with losslessly compressed
+formats. If saving disk space and network bandwidth is a higher
+priority, then it’s possible that lossy formats might have a place in
+parts of the&nbsp;pipeline.</p>
+<p>I hope this blog post provides you with a good starting place to start
+thinking about how you deploy compression in your&nbsp;pipeline.</p>
+<p>I&#8217;ll be rolling a version of this into my Pipeline 101 eBook. If you
+don&#8217;t have it yet you can get a free copy of it here:
+<a href="http://www.metapipe.com/offers/pipeline101">Pipeline&nbsp;101</a></p>
+    </div><!-- /.entry-content -->
+</article>
+</section>
+            </div>
+            <div class="col-md-3">
+<div class="sidebar sidebar-wrapper">
+    <ul class="nav nav-list well sidebar-nav">
+            <a href="#footer-cta"><div id="sidebar-sub" class="btn btn-lg btn-success btn-block">Subscribe</div></a>
+<li class="nav-header">
+    <h4><i class="fa fa-share-alt fa-md"></i> Share</h4>
+</li>
+<li>
+    <ul class="list-inline share-grid">
+        <li>
+            <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.metapipe.com%2Fblog%2Fposts%2F2017%2F05%2F26%2Fdata-compression-101%2F&title=Data+Compression%C2%A0101&description=What+is+data+compression+and+how+can+it+help+you+in+your+VFX+and+Animation+work%3F+In+this+post+we%E2%80%99ll+look+at+the+basics+of+data+compression+both+lossless+and+lossy.+What+are+the+options+and+what+are+the+tradeoffs+when+using+compression+vs.+not+using%C2%A0compression%3F&caption=MetaPipe+Blog&src=share_button" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+        </li>
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=Data+Compression%C2%A0101&url=http%3A%2F%2Fwww.metapipe.com%2Fblog%2Fposts%2F2017%2F05%2F26%2Fdata-compression-101%2F&via=FullMetaPipe&hashtags=tech%2Cexplainer%2CLinux" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Fwww.metapipe.com%2Fblog%2Fposts%2F2017%2F05%2F26%2Fdata-compression-101%2F&mini=true" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+        </li>
+        <li>
+            <a href="mailto:?subject=MetaPipe+Blog+-+Data+Compression%C2%A0101&body=http%3A%2F%2Fwww.metapipe.com%2Fblog%2Fposts%2F2017%2F05%2F26%2Fdata-compression-101%2F" target="_blank"><i class="fa fa-envelope fa-2x"></i></a>
+        </li>
+    </ul>
+</li>            <li class="nav-header"><h4><i class="fa fa-paper-plane fa-md"></i> Recent Posts</h4>
+                <li>
+                        <a href="http://www.metapipe.com/blog/posts/2017/05/26/data-compression-101/">
+                            Data Compression&nbsp;101
+                        </a>
+                        <a href="http://www.metapipe.com/blog/posts/2017/05/10/shell-basics-for-artists/">
+                            Shell Basics For&nbsp;Artists
+                        </a>
+                        <a href="http://www.metapipe.com/blog/posts/2017/04/07/creating-panos-for-cg/">
+                            Creating Panoramas for <span class="caps">CG</span>
+                        </a>
+                        <a href="http://www.metapipe.com/blog/posts/2017/03/28/history-of-linux-in-vfx-and-animation/">
+                            The History of Linux in <span class="caps">VFX</span> and&nbsp;Animation
+                        </a>
+                        <a href="http://www.metapipe.com/blog/posts/2017/03/22/learnvfx-acquired-by-fullmeta/">
+                            LearnVFX&nbsp;Acquisition
+                        </a>
+                </li>
+            </li>
+        <li class="nav-header">
+            <h4>
+                <i class="fa fa-rss fa-med"></i>
+                RSS/Atom Feeds
+            </h4>
+        </li>
+        <li>
+            <a href="http://www.metapipe.com/feeds/all.atom.xml" rel="alternate">
+            <i class="fa fa-bookmark fa-med"></i>
+            Atom Feed
+            </a>
+        </li>
+        <li>
+            <a href="http://www.metapipe.com/feeds/all.rss.xml" rel="alternate">
+            <i class="fa fa-bookmark fa-med"></i>
+            RSS Feed</a>
+        </li>
+        <li class="nav-header"><h4><i class="fa fa-tags fa-med"></i> Tags</h4></li>
+        <li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/linux/">
+                    Linux <span class="badge badge-default badge-pill">4</span>                </a>
+            </li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/conference/">
+                    conference <span class="badge badge-default badge-pill">1</span>                </a>
+            </li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/explainer/">
+                    explainer <span class="badge badge-default badge-pill">4</span>                </a>
+            </li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/free/">
+                    free <span class="badge badge-default badge-pill">2</span>                </a>
+            </li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/inspiration/">
+                    inspiration <span class="badge badge-default badge-pill">1</span>                </a>
+            </li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/planning/">
+                    planning <span class="badge badge-default badge-pill">1</span>                </a>
+            </li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/repost/">
+                    repost <span class="badge badge-default badge-pill">1</span>                </a>
+            </li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/shell/">
+                    shell <span class="badge badge-default badge-pill">1</span>                </a>
+            </li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/sxsw/">
+                    sxsw <span class="badge badge-default badge-pill">1</span>                </a>
+            </li>
+            <li>
+                <a class="" href="http://www.metapipe.com/blog/tag/tech/">
+                    tech <span class="badge badge-default badge-pill">5</span>                </a>
+            </li>
+        </li>
+        <li class="nav-header"><h4><i class="fa fa-users fa-md"></i> Authors</h4></li>
+        <li>
+            <a href="http://www.metapipe.com/blog/author/aaron-estrada/" class="">
+                Aaron Estrada
+            </a>
+            <a href="http://www.metapipe.com/blog/author/ethan-estrada/" class="">
+                Ethan Estrada
+            </a>
+            <a href="http://www.metapipe.com/blog/author/liz-benard/" class="">
+                Liz Benard
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-md-9">
+<!-- Call to Action Section -->
+<div class="well well-lg" id="footer-cta">
+    <fieldset>
+        <legend>
+            <h2 class="center">Like what you see?</h2>
+            <h3 class="center">Sign up for the newsletter.</h3>
+        </legend>
+            <!-- Begin MailChimp Signup Form -->
+            <div id="mc_embed_signup">
+                <form action="//metapipe.us12.list-manage.com/subscribe/post?u=0ce56d0442c94a903ff5c2703&amp;id=609636003a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-horizontal" target="_blank" novalidate="">
+                    <div class="control-group">
+                        <div class="form-group" id="mc_embed_signup_scroll">
+                            <div class="mc-field-group col-lg-4 col-md-4 controls">
+                                <!-- <label for="mce-FNAME">First Name </label> -->
+                                <input type="text" value="" name="FNAME" placeholder="Your First Name" class="form-control" id="mce-FNAME"/>
+                            </div>
+                            <div class="mc-field-group col-lg-4 col-md-4 controls">
+                                <!-- <label for="mce-LNAME">Last Name </label> -->
+                                <input type="text" value="" name="LNAME" placeholder="Your Last Name" class="form-control" id="mce-LNAME"/>
+                            </div>
+                            <div class="mc-field-group col-lg-4 col-md-4 controls">
+                                <!-- <label for="mce-EMAIL">*required</label> -->
+                                <input type="email" value="" name="EMAIL" placeholder="Your Email Address (Required)" class="required email form-control" id="mce-EMAIL"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="mc-field-group col-lg-12 controls" style=display:none>
+                                <!-- <label for="mce-ABOUT">Tell us about your team and project. </label> -->
+                                <!-- <input type="text" value="" name="ABOUT" placeholder="Tell us about your team and project." class="" id="mce-ABOUT"/> -->
+                                <textarea class="form-control" type="text" name="ABOUT" id="message" placeholder="Tell us about your team and project. Include a link to your website if you like." rows="6"></textarea>
+                            </div>
+                            <div class="mc-field-group input-group" style="display:none">
+                                <strong>MetaPipe Email Lists </strong>
+                                <ul>
+                                    <li><input type="checkbox" value="1" name="group[11169][1]" id="mce-group[11169]-11169-0" checked="true"><label for="mce-group[11169]-11169-0">MetaPipe Newsletter</label></li>
+                                    <li><input type="checkbox" value="2" name="group[11169][2]" id="mce-group[11169]-11169-1"><label for="mce-group[11169]-11169-1">LearnVFX Training announcements</label></li>
+                                    <li><input type="checkbox" value="4" name="group[11169][4]" id="mce-group[11169]-11169-2"><label for="mce-group[11169]-11169-2">Beta Announcements and invitations</label></li>
+                                </ul>
+                            </div>
+                            <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0ce56d0442c94a903ff5c2703_609636003a" tabindex="-1" value=""/></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12 controls">
+                                <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success btn-lg btn-block"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </fieldset>
+</div>            </div>
+        </div>
+    </div>
+
+            <!-- Footer -->
+            <hr />
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>
+                            <a href="http://www.metapipe.com"> <i class="fa fa-home fa-fw"></i> MetaPipe.com</a>
+                        </p>
+                        <p>Copyright &#169; 2016-2017 FullMeta Corporation</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Core minified bootstrap JavaScript -->
+        <!-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" /> -->
+        <!-- TODO: make fallback instead of only local -->
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+        <!-- Google Analytics Script -->
+        <script type="text/javascript">
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-84570403-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+
+        <!-- Start of HubSpot Embed Code -->
+        <script type="text/javascript" id="hs-script-loader" async="async" defer="defer" src="//js.hs-scripts.com/2481307.js"></script>
+        <!-- End of HubSpot Embed Code -->
+
+        <!-- Script to Activate the Carousel -->
+        <script type="text/javascript">
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+        </script>
+
+        <!-- Start of Wistia/Fresh-URL Embed Code -->
+        <!-- Sourced from: https://github.com/wistia/fresh-url -->
+        <script type="text/javascript" id="wfu-script-loader" async="async" defer="defer" src="//fast.wistia.net/labs/fresh-url/v1.js"></script>
+        <!-- End of Wistia/Fresh-URL Embed Code -->
+
+    <script>
+        $(document).ready(function () {
+            var activeurl = window.location.pathname;
+            $('a[href="'+activeurl+'"]').parent().addClass("active");
+        })
+    </script>
+
+    </body>
+</html>
