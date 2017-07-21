@@ -1,9 +1,9 @@
-.center {
-  text-align: center;
+body {
+    padding-top: 45px;
 }
 
-.dark-caption {
-    color: #020902;
+.center {
+  text-align: center;
 }
 
 .fill-div {
@@ -155,19 +155,6 @@ article img, .center-and-size {
 article img + em {
     display: block;
     text-align: center;
-}
-
-article .entry-content p a {
-    color: #94d694;
-    text-decoration: underline;
-}
-
-article .entry-content p a:hover {
-    color: #62c462;
-}
-
-article .entry-content p a:visited {
-    color: #4baa4b
 }
 
 section#article_content {
