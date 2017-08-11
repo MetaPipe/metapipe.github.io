@@ -227,8 +227,8 @@ devices like hard drives and network attached storage.  Assuming the
 cost of on-the-fly decompression is less than the speed up of
 transferring the smaller compressed file from disk or over a network,
 the end result will be overall faster file access. Given just how much
-<span class="caps">CPU</span> power modern computers have to spare, this is almost true these
-days. This benefit is something many people don’t consider. There
+<span class="caps">CPU</span> power modern computers have to spare, this is nearly always true these
+days. This speed benefit is something many people don’t consider. There
 still seems to be a prevailing belief (which has been outdated for
 years) that compression is slow. It’s simply not true any more.  We
 often have so many <span class="caps">CPU</span> cycles to spare we might as well use them for
@@ -432,9 +432,9 @@ for <em>speed</em> rather than maximum compression. The goal the the authors
 of lz4 had was to reduce the computational cost of compression enough
 that we gain all the benefits of compression with very little of the
 computational expense. It’s meant to be very high-throughput. As we
-will see, they they’ve succeeded.  lz4 is available in pretty much
-every Linux distro nowadays. You just may need to install it
-yourself. Let’s give it a&nbsp;try.</p>
+will see, they they’ve succeeded.  lz4 is available in the repos of pretty much
+every Linux distro nowadays. You just might need to install it
+yourself as it&#8217;s not always installed by default. Let’s give it a&nbsp;try.</p>
 <div class="highlight"><pre><span></span><span class="nt">aaron</span><span class="p">@</span><span class="k">minty</span><span class="o">:~/</span><span class="nt">3d_models</span><span class="o">$</span> <span class="nt">for</span> <span class="nt">file</span> <span class="nt">in</span> <span class="o">$(</span><span class="nt">ls</span> <span class="o">*.?</span><span class="p">{</span><span class="nt">b</span><span class="o">,</span><span class="nt">d</span><span class="p">}</span><span class="o">?);</span> <span class="nt">do</span> <span class="nt">time</span> <span class="nt">lz4</span> <span class="o">$</span><span class="nt">file</span> <span class="o">&amp;&amp;</span> <span class="nt">rm</span> <span class="o">$</span><span class="nt">file</span> <span class="o">;</span> <span class="nt">done</span>
 <span class="nt">Compressed</span> <span class="nt">filename</span> <span class="nt">will</span> <span class="nt">be</span> <span class="o">:</span> <span class="nt">Advanced_Crew_Escape_Suit</span><span class="p">.</span><span class="nc">obj</span><span class="p">.</span><span class="nc">lz4</span>
 <span class="nt">Compressed</span> <span class="nt">11299355</span> <span class="nt">bytes</span> <span class="nt">into</span> <span class="nt">4110010</span> <span class="nt">bytes</span> <span class="o">==&gt;</span> <span class="nt">36</span><span class="p">.</span><span class="nc">37</span><span class="o">%</span>
@@ -561,14 +561,14 @@ copied over a network or to a bandwidth constrained storage device
 like a <span class="caps">USB</span> 3.0 drive. File size is <span class="caps">ALWAYS</span> going to become an issue at
 some point in a project lifecycle due to either storage or bandwidth
 constraints so it make sense to protect against a &#8220;crunch&#8221; by always
-using lossless compression when possible.  Just do some tests for
+using lossless compression from the start.  Just do some tests for
 yourself to make sure it not too computationally expensive to live
 with and that the trade off is worth it to you. You’ll most likely
 find that it&nbsp;is.</p>
 <p>One last note on lossless compression. Many filesystems like <span class="caps">ZFS</span> and
 even <span class="caps">NTFS</span> offer on-the-fly data compression. <span class="caps">ZFS</span> in particular is
 quite good at on-the-fly data compression and the recommended setting
-for it is to just leave lz4 compression on full time for all file
+for it is to enable lz4 compression for all file
 systems.  On-the-fly file compression is great since it does reduce
 your disk footprint. However, if you are using a <span class="caps">NAS</span> it may not
 improve performance much since the network will likely be your real
@@ -596,7 +596,7 @@ the original data. It is only possible to create an
 approximation. There is no going back to the original since the <span class="caps">JPEG</span>
 algorithm literally threw away data to achieve its high compression&nbsp;rate.</p>
 <p>Because lossy formats can lose additional data with each generation
-it’s possible to get compounding loss with each generation or
+it’s possible to get compounding loss with each generation of
 re-compression. This is why it’s important avoid recompressing lossy
 codecs when&nbsp;possible.</p>
 <p>In version 2.2
@@ -615,12 +615,12 @@ network is very slow and the only way you can tame the pain of your
 slow network is by compressing the heck out of your images. Having to
 live with a little bit of lossiness in your images might be better
 than not delivering a job at all!  For years, Dreamworks saved <span class="caps">ALL</span>
-their output files into their own proprietary .r format into a custom
+their output files into their own proprietary .r format using a custom
 12 bit <span class="caps">JPEG</span>-like codec. JPEGing every frame never seemed to be the
 detail that hurt their box office numbers!  The new <span class="caps">DWAA</span> and <span class="caps">DWAB</span>
 codecs in OpenEXR are their contribution to the industry
-standards. The <span class="caps">JPEG</span>-like codec served them well in their own business
-so I must assume they believed others might benefit from them as&nbsp;well.</p>
+standard. The <span class="caps">JPEG</span>-like codec served them well in their own business
+so I must assume they believed others might benefit from it&nbsp;also.</p>
 <p>When it comes to lossy compression, the trade off is usually about how
 much visual loss you are willing to live with vs. how much disk space
 you save in exchange. Most lossy codecs are computationally intense as
@@ -649,7 +649,7 @@ compression at all and lossy options. They don’t provide the same
 level of compression as lossy codecs, but they don’t damage the image
 at all&nbsp;either.</p>
 <p>Long Group of Pictures (<span class="caps">GOP</span>) codecs encode video by exploiting the
-fact that often there are often similarities between frames in
+fact that often there are usually similarities between frames in
 video. In a Long <span class="caps">GOP</span> type codec, each from may be dependent on frames
 that come before or after the current frame. As a result, these codecs
 tend to be quite computationally intensive. They are also tricky to
@@ -686,8 +686,8 @@ approach to the process, they can stick with losslessly compressed
 formats. If saving disk space and network bandwidth is a higher
 priority, then it’s possible that lossy formats might have a place in
 parts of the&nbsp;pipeline.</p>
-<p>I hope this blog post provides you with a good starting place to start
-thinking about how you deploy compression in your&nbsp;pipeline.</p>
+<p>I hope this blog post provides you with a good starting place for
+thinking about how you might deploy compression in your&nbsp;pipeline.</p>
 <p>I&#8217;ll be rolling a version of this into my Pipeline 101 eBook. If you
 don&#8217;t have it yet you can get a free copy of it here:
 <a href="http://www.metapipe.com/offers/pipeline101">Pipeline&nbsp;101</a></p>

@@ -80,8 +80,8 @@ devices like hard drives and network attached storage.  Assuming the
 cost of on-the-fly decompression is less than the speed up of
 transferring the smaller compressed file from disk or over a network,
 the end result will be overall faster file access. Given just how much
-&lt;span class="caps"&gt;CPU&lt;/span&gt; power modern computers have to spare, this is almost true these
-days. This benefit is something many people don’t consider. There
+&lt;span class="caps"&gt;CPU&lt;/span&gt; power modern computers have to spare, this is nearly always true these
+days. This speed benefit is something many people don’t consider. There
 still seems to be a prevailing belief (which has been outdated for
 years) that compression is slow. It’s simply not true any more.  We
 often have so many &lt;span class="caps"&gt;CPU&lt;/span&gt; cycles to spare we might as well use them for
@@ -285,9 +285,9 @@ for &lt;em&gt;speed&lt;/em&gt; rather than maximum compression. The goal the the
 of lz4 had was to reduce the computational cost of compression enough
 that we gain all the benefits of compression with very little of the
 computational expense. It’s meant to be very high-throughput. As we
-will see, they they’ve succeeded.  lz4 is available in pretty much
-every Linux distro nowadays. You just may need to install it
-yourself. Let’s give it a&amp;nbsp;try.&lt;/p&gt;
+will see, they they’ve succeeded.  lz4 is available in the repos of pretty much
+every Linux distro nowadays. You just might need to install it
+yourself as it&amp;#8217;s not always installed by default. Let’s give it a&amp;nbsp;try.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;aaron&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;minty&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="nt"&gt;3d_models&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="nt"&gt;for&lt;/span&gt; &lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="nt"&gt;in&lt;/span&gt; &lt;span class="o"&gt;$(&lt;/span&gt;&lt;span class="nt"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;*.?&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;d&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;?);&lt;/span&gt; &lt;span class="nt"&gt;do&lt;/span&gt; &lt;span class="nt"&gt;time&lt;/span&gt; &lt;span class="nt"&gt;lz4&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nt"&gt;rm&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="nt"&gt;done&lt;/span&gt;
 &lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;filename&lt;/span&gt; &lt;span class="nt"&gt;will&lt;/span&gt; &lt;span class="nt"&gt;be&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Advanced_Crew_Escape_Suit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;lz4&lt;/span&gt;
 &lt;span class="nt"&gt;Compressed&lt;/span&gt; &lt;span class="nt"&gt;11299355&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="nt"&gt;into&lt;/span&gt; &lt;span class="nt"&gt;4110010&lt;/span&gt; &lt;span class="nt"&gt;bytes&lt;/span&gt; &lt;span class="o"&gt;==&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;36&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;37&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;
@@ -414,14 +414,14 @@ copied over a network or to a bandwidth constrained storage device
 like a &lt;span class="caps"&gt;USB&lt;/span&gt; 3.0 drive. File size is &lt;span class="caps"&gt;ALWAYS&lt;/span&gt; going to become an issue at
 some point in a project lifecycle due to either storage or bandwidth
 constraints so it make sense to protect against a &amp;#8220;crunch&amp;#8221; by always
-using lossless compression when possible.  Just do some tests for
+using lossless compression from the start.  Just do some tests for
 yourself to make sure it not too computationally expensive to live
 with and that the trade off is worth it to you. You’ll most likely
 find that it&amp;nbsp;is.&lt;/p&gt;
 &lt;p&gt;One last note on lossless compression. Many filesystems like &lt;span class="caps"&gt;ZFS&lt;/span&gt; and
 even &lt;span class="caps"&gt;NTFS&lt;/span&gt; offer on-the-fly data compression. &lt;span class="caps"&gt;ZFS&lt;/span&gt; in particular is
 quite good at on-the-fly data compression and the recommended setting
-for it is to just leave lz4 compression on full time for all file
+for it is to enable lz4 compression for all file
 systems.  On-the-fly file compression is great since it does reduce
 your disk footprint. However, if you are using a &lt;span class="caps"&gt;NAS&lt;/span&gt; it may not
 improve performance much since the network will likely be your real
@@ -449,7 +449,7 @@ the original data. It is only possible to create an
 approximation. There is no going back to the original since the &lt;span class="caps"&gt;JPEG&lt;/span&gt;
 algorithm literally threw away data to achieve its high compression&amp;nbsp;rate.&lt;/p&gt;
 &lt;p&gt;Because lossy formats can lose additional data with each generation
-it’s possible to get compounding loss with each generation or
+it’s possible to get compounding loss with each generation of
 re-compression. This is why it’s important avoid recompressing lossy
 codecs when&amp;nbsp;possible.&lt;/p&gt;
 &lt;p&gt;In version 2.2
@@ -468,12 +468,12 @@ network is very slow and the only way you can tame the pain of your
 slow network is by compressing the heck out of your images. Having to
 live with a little bit of lossiness in your images might be better
 than not delivering a job at all!  For years, Dreamworks saved &lt;span class="caps"&gt;ALL&lt;/span&gt;
-their output files into their own proprietary .r format into a custom
+their output files into their own proprietary .r format using a custom
 12 bit &lt;span class="caps"&gt;JPEG&lt;/span&gt;-like codec. JPEGing every frame never seemed to be the
 detail that hurt their box office numbers!  The new &lt;span class="caps"&gt;DWAA&lt;/span&gt; and &lt;span class="caps"&gt;DWAB&lt;/span&gt;
 codecs in OpenEXR are their contribution to the industry
-standards. The &lt;span class="caps"&gt;JPEG&lt;/span&gt;-like codec served them well in their own business
-so I must assume they believed others might benefit from them as&amp;nbsp;well.&lt;/p&gt;
+standard. The &lt;span class="caps"&gt;JPEG&lt;/span&gt;-like codec served them well in their own business
+so I must assume they believed others might benefit from it&amp;nbsp;also.&lt;/p&gt;
 &lt;p&gt;When it comes to lossy compression, the trade off is usually about how
 much visual loss you are willing to live with vs. how much disk space
 you save in exchange. Most lossy codecs are computationally intense as
@@ -502,7 +502,7 @@ compression at all and lossy options. They don’t provide the same
 level of compression as lossy codecs, but they don’t damage the image
 at all&amp;nbsp;either.&lt;/p&gt;
 &lt;p&gt;Long Group of Pictures (&lt;span class="caps"&gt;GOP&lt;/span&gt;) codecs encode video by exploiting the
-fact that often there are often similarities between frames in
+fact that often there are usually similarities between frames in
 video. In a Long &lt;span class="caps"&gt;GOP&lt;/span&gt; type codec, each from may be dependent on frames
 that come before or after the current frame. As a result, these codecs
 tend to be quite computationally intensive. They are also tricky to
@@ -539,8 +539,8 @@ approach to the process, they can stick with losslessly compressed
 formats. If saving disk space and network bandwidth is a higher
 priority, then it’s possible that lossy formats might have a place in
 parts of the&amp;nbsp;pipeline.&lt;/p&gt;
-&lt;p&gt;I hope this blog post provides you with a good starting place to start
-thinking about how you deploy compression in your&amp;nbsp;pipeline.&lt;/p&gt;
+&lt;p&gt;I hope this blog post provides you with a good starting place for
+thinking about how you might deploy compression in your&amp;nbsp;pipeline.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;ll be rolling a version of this into my Pipeline 101 eBook. If you
 don&amp;#8217;t have it yet you can get a free copy of it here:
 &lt;a href="http://www.metapipe.com/offers/pipeline101"&gt;Pipeline&amp;nbsp;101&lt;/a&gt;&lt;/p&gt;</content><category term="tech"></category><category term="explainer"></category><category term="Linux"></category></entry><entry><title>Creating Panoramas for CG</title><link href="http://www.metapipe.com/blog/posts/2017/04/07/creating-panos-for-cg/" rel="alternate"></link><published>2017-04-07T16:30:00-06:00</published><updated>2017-04-07T16:30:00-06:00</updated><author><name>Aaron Estrada</name></author><id>tag:www.metapipe.com,2017-04-07:/blog/posts/2017/04/07/creating-panos-for-cg/</id><summary type="html">&lt;p&gt;Free Nuke tutorials on how to create Tile Worlds and use Panoramas in &lt;span class="caps"&gt;CG&lt;/span&gt;. &lt;span class="caps"&gt;PLUS&lt;/span&gt;, advanced green screen matte extraction&amp;nbsp;techniques.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Tile Worlds, Camera Projection and Image Based Lighting all have one thing in
