@@ -1,180 +1,60 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-    <head>
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-NRD3D9T');</script>
-        <!-- End Google Tag Manager -->
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NRD3D9T');</script>
+  <!-- End Google Tag Manager -->
 
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="keywords" content="animation, cloud, cloud compute, cloud storage, file delivery, file sharing, file storage, ftp, ftps, remote work, rsync, storage, VDI, vfx, virtual, visual effects, workstation, rental workstations" />
-        <meta name="description" content="Providing artists and businesses in the VFX and Animation industries with easy-to-use cloud-based virtual desktops, compute, storage, and more." />
-        <title>MetaPipe</title>
-
-        <!-- We must keep our CSS lightweight. Fast load times are paramount.
-            I'd rather have fast load times than slick interactive styling,
-            and AJAX-y interaction.  But it would be great to have both. :)
-            -->
-
-        <!-- Font Awesome CSS -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" /> -->
-        <!-- TODO: make fallback instead of only local -->
-        <!-- <link rel="stylesheet" href="/static/css/font-awesome.min.css" /> -->
-        <!-- Font Awesome embed code. Download from website doesn't work for some reason. -->
-        <script type="text/javascript" src="https://use.fontawesome.com/5c85e4640b.js"></script>
-
-        <!-- Latest compiled and minified bootstrap CSS (unused since bootswatch copy-pasted boostrap and changed some things...)-->
-        <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" /> -->
-
-        <!-- Slate theme bootstrap CSS-->
-        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-HzUaiJdCTIY/RL2vDPRGdEQHHahjzwoJJzGUkYjHVzTwXFQ2QN/nVgX7tzoMW3Ov" crossorigin="anonymous">
-        <!-- TODO: make fallback instead of only local -->
-        <!-- <link rel="stylesheet" type="text/css" href="/static/css/yeti-bootstrap.min.css" /> -->
-        <!-- Modern Business template CSS -->
-        <link rel="stylesheet" href="/static/css/modern-business.css" />
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js" />
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" />
-        <![endif]-->
-        <!-- Our Custom CSS -->
-        <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-
-<script src="https://load.sumome.com/" data-sumo-site-id="6909b396e067676be9a79c165e06a7918722be6bad5728693f1d6a6184b76caf" async="async"></script>
-    </head>
-
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRD3D9T"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand navbar-left" href="/">MetaPipe</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-main">
-                    <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a id="team" href="/team/">Team</a>
-                    </li>
-                    <li>
-                        <a id="contact" href="/contact/">Contact</a>
-                    </li>
-                    <li>
-                        <a id="blog" href="http://blog.metapipe.com">Blog</a>
-                    </li>
-                    <li>
-                        <a id="offers" href="http://blog.metapipe.com/tag/offers">Offers</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="https://www.linkedin.com/company/metapipe" target="_blank">LinkedIn</a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/metapipe" target="_blank">Facebook</a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/fullmetapipe" target="_blank">Twitter</a>
-                            </li>
-                        </ul>
-                    </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-        </nav>
-        <!-- Page Content -->
-        <div class="container mp-body-container">
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">404
-                    <small>Page Not Found</small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="/">Home</a>
-                    </li>
-                    <li class="active">404</li>
-                </ol>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <div class="row">
-
-            <div class="col-lg-12">
-                <div class="jumbotron">
-                    <h1><span class="error-404">404</span>
-                    </h1>
-                    <p>The page you're looking for could not be found.</p>
-                </div>
-            </div>
-        </div>
-
-            <!-- Footer -->
-            <hr />
-            <footer>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>
-                            <a href="https://www.metapipe.com/"> <i class="fa fa-home fa-fw"></i> MetaPipe.com</a>
-                        </p>
-                        <p>Copyright &#169; 2016-2017 FullMeta Corporation</p>
-                    </div>
-                </div>
-            </footer>
-        </div>
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-        <!-- Core minified bootstrap JavaScript -->
-        <!-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" /> -->
-        <!-- TODO: make fallback instead of only local -->
-        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
-
-        <!-- Start of HubSpot Embed Code -->
-        <script type="text/javascript" id="hs-script-loader" async="async" defer="defer" src="//js.hs-scripts.com/2481307.js"></script>
-        <!-- End of HubSpot Embed Code -->
-
-        <!-- Start of Wistia/Fresh-URL Embed Code -->
-        <!-- Sourced from: https://github.com/wistia/fresh-url -->
-        <script type="text/javascript" id="wfu-script-loader" async="async" defer="defer" src="//fast.wistia.net/labs/fresh-url/v1.js"></script>
-        <!-- End of Wistia/Fresh-URL Embed Code -->
-
-    <script>
-        $(document).ready(function () {
-            var activeurl = window.location.pathname;
-            $('a[href="'+activeurl+'"]').parent().addClass("active");
-        })
-    </script>
-
-    <!-- Script to Activate the Carousel -->
-    <script type="text/javascript">
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
-
-    </body>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="keywords" content="animation, cloud, cloud compute, cloud storage, file delivery, file sharing, file storage, ftp, ftps, remote work, rsync, storage, VDI, vfx, virtual, visual effects, workstation, rental workstations" />
+  <meta name="description" content="Providing artists and businesses in the VFX and Animation industries with easy-to-use cloud-based virtual desktops, compute, storage, and more." />
+  <title>MetaPipe</title>
+<style type="text/css">
+body {
+background-color: #000000;
+color: #fff;
+font-family: helvetica;
+}
+a {
+color: #C00000;
+font-weight: 600;
+}
+.logo {
+position: center;
+padding-top: 10%;
+text-align: center;
+font-size: 140px;
+font-weight: 600;
+//background-image: url('https://www.metapipe.com/static/img/metapipe-w.svg');
+background-position: 50% 50%;
+background-size: 70%;
+background-repeat: no-repeat;
+}
+.contact {
+display: absolute;
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+text-align: center;
+font-weight: 200;
+padding: 20px;
+}
+</style>
+  <!--
+  <script src="https://load.sumome.com/" data-sumo-site-id="6909b396e067676be9a79c165e06a7918722be6bad5728693f1d6a6184b76caf" async="async"></script>
+  -->
+</head>
+<body>
+<div class="logo">404</div>
+<div class="contact"><P><P>There doesn't appear to be anything at this URL.</P><P>however...<br><br><br><br></P>MetaPipe provides cloud workflow consulting for Visual Effects, Animation and Post Production.</P><P>Want to talk?</P><p> Contact:  <a href='mailto:info@metapipe.com'>info@metapipe.com</a></p></div>
+</body>
 </html>
+
