@@ -1,60 +1,375 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-<head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NRD3D9T');</script>
-  <!-- End Google Tag Manager -->
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NRD3D9T');</script>
+        <!-- End Google Tag Manager -->
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="keywords" content="animation, cloud, cloud compute, cloud storage, file delivery, file sharing, file storage, ftp, ftps, remote work, rsync, storage, VDI, vfx, virtual, visual effects, workstation, rental workstations" />
-  <meta name="description" content="Providing artists and businesses in the VFX and Animation industries with easy-to-use cloud-based virtual desktops, compute, storage, and more." />
-  <title>MetaPipe</title>
-<style type="text/css">
-body {
-background-color: #000000;
-color: #fff;
-font-family: helvetica;
-}
-a {
-color: #C00000;
-font-weight: 600;
-}
-.logo {
-position: absolute;
-left: 0;
-right: 0;
-top: 0;
-bottom: 0;
-background-image: url('https://www.metapipe.com/static/img/metapipe-w.svg');
-background-position: 50% 50%;
-background-size: 70%;
-background-repeat: no-repeat;
-}
-.contact {
-display: absolute;
-position: absolute;
-left: 0;
-right: 0;
-bottom: 0;
-text-align: center;
-font-weight: 200;
-padding: 20px;
-}
-</style>
-  <!--
-  <script src="https://load.sumome.com/" data-sumo-site-id="6909b396e067676be9a79c165e06a7918722be6bad5728693f1d6a6184b76caf" async="async"></script>
-  -->
-</head>
-<body>
-<div class="logo"></div>
-<div class="contact"><P>MetaPipe provides cloud workflow consulting for Visual Effects, Animation and Post Production.</P><P>Want to talk?</P><p> Contact:  <a href='mailto:info@metapipe.com'>info@metapipe.com</a></p></div>
-</body>
-</html>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="keywords" content="animation, cloud, cloud compute, cloud storage, file delivery, file sharing, file storage, ftp, ftps, remote work, rsync, storage, VDI, vfx, virtual, visual effects, workstation, rental workstations" />
+        <meta name="description" content="Providing artists and businesses in the VFX and Animation industries with easy-to-use cloud-based virtual desktops, compute, storage, and more." />
+        <title>MetaPipe</title>
 
+        <!-- We must keep our CSS lightweight. Fast load times are paramount.
+            I'd rather have fast load times than slick interactive styling,
+            and AJAX-y interaction.  But it would be great to have both. :)
+            -->
+
+        <!-- Font Awesome CSS -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" /> -->
+        <!-- TODO: make fallback instead of only local -->
+        <!-- <link rel="stylesheet" href="/static/css/font-awesome.min.css" /> -->
+        <!-- Font Awesome embed code. Download from website doesn't work for some reason. -->
+        <script type="text/javascript" src="https://use.fontawesome.com/5c85e4640b.js"></script>
+
+        <!-- Latest compiled and minified bootstrap CSS (unused since bootswatch copy-pasted boostrap and changed some things...)-->
+        <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" /> -->
+
+        <!-- Slate theme bootstrap CSS-->
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-HzUaiJdCTIY/RL2vDPRGdEQHHahjzwoJJzGUkYjHVzTwXFQ2QN/nVgX7tzoMW3Ov" crossorigin="anonymous">
+        <!-- TODO: make fallback instead of only local -->
+        <!-- <link rel="stylesheet" type="text/css" href="/static/css/yeti-bootstrap.min.css" /> -->
+        <!-- Modern Business template CSS -->
+        <link rel="stylesheet" href="/static/css/modern-business.css" />
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js" />
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" />
+        <![endif]-->
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+
+<script src="https://load.sumome.com/" data-sumo-site-id="6909b396e067676be9a79c165e06a7918722be6bad5728693f1d6a6184b76caf" async="async"></script>
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRD3D9T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+            <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-left" href="/">MetaPipe</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-main">
+                    <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="team" href="/team/">Team</a>
+                    </li>
+                    <li>
+                        <a id="contact" href="/contact/">Contact</a>
+                    </li>
+                    <li>
+                        <a id="blog" href="http://blog.metapipe.com">Blog</a>
+                    </li>
+                    <li>
+                        <a id="offers" href="http://blog.metapipe.com/tag/offers">Offers</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="https://www.linkedin.com/company/metapipe" target="_blank">LinkedIn</a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/metapipe" target="_blank">Facebook</a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/fullmetapipe" target="_blank">Twitter</a>
+                            </li>
+                        </ul>
+                    </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill ph_one darken-img" style="background-image: url('./static/img/airlock-banner.png');"></div>
+                <div class="carousel-caption cta">
+                    <a href="https://airlock.metapipe.com"><span class="fill-div"></span></a>
+                    <h2 class="cta fuzzy-text-shadow"><strong>NEW</strong> Airlock is rock solid cloud storage for getting work done</h2>
+                    <div class="btn btn-success cta fuzzy-box-shadow"><h4><i>Learn more</i></h4></div>
+                </div>
+                <a class="fill-div" href="https://airlock.metapipe.com"><span class="fill-div"></span></a>
+            </div>
+            <div class="item">
+                <div class="fill ph_one darken-img" style="background-image:url('./static/img/pic03.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>The world is your playground.</h2>
+                    <h4><i>Securely work with teammates spread across the world.</i></h4>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill ph_one" style="background-image:url('./static/img/pic01.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Let us be your "IT Guys"</h2>
+                    <h4><i>IT doesn't need to be rocket science.</i></h4>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill ph_one darken-img" style="background-image: url('./static/img/pic02.jpg');"></div>
+                <div class="carousel-caption cta">
+                    <a href="#signup"><span class="fill-div"></span></a>
+                    <h2 class="cta fuzzy-text-shadow">Want to experience the future of VFX in the cloud?</h2>
+                    <div class="btn btn-success cta fuzzy-box-shadow"><h4><i>Join the Beta</i></h4></div>
+                </div>
+                <a class="fill-div" href="#signup"><span class="fill-div"></span></a>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+        <!-- Page Content -->
+        <div class="container mp-body-container">
+        <!-- Intro Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Welcome to MetaPipe</h2>
+            </div>
+        </div>
+        <div class="row row-grid">
+            <div class="col-md-6">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" modestbranding="1" rel="0" showinfo="0" controls="2" src="https://www.youtube.com/embed/fM-2Lf706Y0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p>MetaPipe provides easy to deploy, fully virtualized VFX and animation studio infrastructure.</p>
+                <p>What does this mean to you?</p>
+                <p>MetaPipe makes setting up studio infrastructure for VFX and
+                    Animation simple by hosting everything in the cloud.
+                    Everything. Storage Servers, Render Farm, even the Workstations.
+                </p>
+                <p>With MetaPipe you can deploy an entire high-end studio in
+                    literally minutes with no large upfront costs; pay only for
+                    the compute time and storage you actually use. Clear, per-hour,
+                    pay-as-you-go compute pricing simplifies project budgeting.
+                </p>
+                <p>Our easy-to-use dashboard allows you to manage everything from a web browser.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Marketing Icons/Features Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Features
+                </h1>
+
+            </div>
+            <div class="row">
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-sliders"></i>Dashboard</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Single pane of glass management of workstations, servers, storage, software tools, User/Group membership and access privileges.</p>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-linux"></i>Linux Support</h4>
+                </div>
+                <div class="panel-body">
+                    <p>The first choice, industrial strength OS for VFX and Animation. Let us handle the details for you.</p>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-windows"></i>Windows Support</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Some software only runs on Windows. Don't sweat it, we can support that too.</p>
+                </div>
+            </div>
+        </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-cog"></i>Render Farm</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Build a render farm with pay-as-you-go compute. Don't pay for render power until you actually need it!</p>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-bar-chart"></i>Clear Pricing</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Pay-as-you-go pricing makes it easy to estimate and budget.</p>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-lock"></i>Secure By Default</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Desktop is streamed to users and all production data stays securely in the cloud.</p>
+                </div>
+            </div>
+        </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.row -->
+
+        <hr />
+
+        <!-- Call to Action Section -->
+        <div class="well well-lg" id="signup">
+            <fieldset>
+                <legend>
+                    <h2 class="center">
+                        MetaPipe Open Beta
+                    </h2>
+                    <h3 class="center">Sign up for an invitation to MetaPipe Open Beta.</h3>
+                </legend>
+                    <!-- Begin MailChimp Signup Form -->
+                    <div id="mc_embed_signup">
+                        <form action="//metapipe.us12.list-manage.com/subscribe/post?u=0ce56d0442c94a903ff5c2703&amp;id=609636003a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-horizontal" target="_blank" novalidate="">
+                            <div class="control-group">
+                                <div class="form-group" id="mc_embed_signup_scroll">
+                                    <div class="mc-field-group col-lg-4 col-md-4 controls">
+                                        <!-- <label for="mce-FNAME">First Name </label> -->
+                                        <input type="text" value="" name="FNAME" placeholder="Your First Name" class="form-control" id="mce-FNAME"/>
+                                    </div>
+                                    <div class="mc-field-group col-lg-4 col-md-4 controls">
+                                        <!-- <label for="mce-LNAME">Last Name </label> -->
+                                        <input type="text" value="" name="LNAME" placeholder="Your Last Name" class="form-control" id="mce-LNAME"/>
+                                    </div>
+                                    <div class="mc-field-group col-lg-4 col-md-4 controls">
+                                        <!-- <label for="mce-EMAIL">*required</label> -->
+                                        <input type="email" value="" name="EMAIL" placeholder="Your Email Address (Required)" class="required email form-control" id="mce-EMAIL"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="mc-field-group col-lg-12 controls">
+                                        <!-- <label for="mce-ABOUT">Tell us about your team and project. </label> -->
+                                        <!-- <input type="text" value="" name="ABOUT" placeholder="Tell us about your team and project." class="" id="mce-ABOUT"/> -->
+                                        <textarea class="form-control" type="text" name="ABOUT" id="message" placeholder="Tell us about your team and project. Include a link to your website if you like." rows="6"></textarea>
+                                    </div>
+                                    <div class="mc-field-group input-group" style="display:none">
+                                        <strong>MetaPipe Email Lists </strong>
+                                        <ul>
+                                            <li><input type="checkbox" value="1" name="group[11169][1]" id="mce-group[11169]-11169-0" checked="true"><label for="mce-group[11169]-11169-0">MetaPipe Newsletter</label></li>
+                                            <li><input type="checkbox" value="2" name="group[11169][2]" id="mce-group[11169]-11169-1"><label for="mce-group[11169]-11169-1">LearnVFX Training announcements</label></li>
+                                            <li><input type="checkbox" value="4" name="group[11169][4]" id="mce-group[11169]-11169-2" checked="true"><label for="mce-group[11169]-11169-2">Beta Announcements and invitations</label></li>
+                                        </ul>
+                                    </div>
+                                    <div id="mce-responses" class="clear">
+                                        <div class="response" id="mce-error-response" style="display:none"></div>
+                                        <div class="response" id="mce-success-response" style="display:none"></div>
+                                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0ce56d0442c94a903ff5c2703_609636003a" tabindex="-1" value=""/></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-12 controls">
+                                        <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success btn-lg btn-block"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </fieldset>
+            <h3 class="center">Can't wait for the beta?</h3>
+            <h4 class="center">Contact <a href="mailto:sales@metapipe.com">sales@metapipe.com</a>, tell us a bit about your team and your needs and we'll get back to you ASAP.</h4>
+        </div>
+
+
+            <!-- Footer -->
+            <hr />
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>
+                            <a href="https://www.metapipe.com/"> <i class="fa fa-home fa-fw"></i> MetaPipe.com</a>
+                        </p>
+                        <p>Copyright &#169; 2016-2017 FullMeta Corporation</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Core minified bootstrap JavaScript -->
+        <!-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" /> -->
+        <!-- TODO: make fallback instead of only local -->
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+        <!-- Start of HubSpot Embed Code -->
+        <script type="text/javascript" id="hs-script-loader" async="async" defer="defer" src="//js.hs-scripts.com/2481307.js"></script>
+        <!-- End of HubSpot Embed Code -->
+
+        <!-- Start of Wistia/Fresh-URL Embed Code -->
+        <!-- Sourced from: https://github.com/wistia/fresh-url -->
+        <script type="text/javascript" id="wfu-script-loader" async="async" defer="defer" src="//fast.wistia.net/labs/fresh-url/v1.js"></script>
+        <!-- End of Wistia/Fresh-URL Embed Code -->
+
+    <script>
+        $(document).ready(function () {
+            var activeurl = window.location.pathname;
+            $('a[href="'+activeurl+'"]').parent().addClass("active");
+        })
+    </script>
+
+    <!-- Script to Activate the Carousel -->
+    <script type="text/javascript">
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+    </body>
